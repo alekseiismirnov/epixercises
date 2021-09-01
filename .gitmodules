@@ -1,0 +1,51 @@
+[submodule "Ruby-and-Rails/Week1__BDD/Friday/game_of_life"]
+	path = Ruby-and-Rails/Week1__BDD/Friday/game_of_life
+	url = https://github.com/alekseiismirnov/game_of_life.git
+[submodule "Ruby-and-Rails/Week1__BDD/Monday"]
+	path = Ruby-and-Rails/Week1__BDD/Monday
+	url = https://github.com/alekseiismirnov/Monday.git
+[submodule "Ruby-and-Rails/Week1__BDD/Thursday/allergies"]
+	path = Ruby-and-Rails/Week1__BDD/Thursday/allergies
+	url = https://github.com/alekseiismirnov/allergies.git
+[submodule "Ruby-and-Rails/Week1__BDD/Thursday/coin_combinations"]
+	path = Ruby-and-Rails/Week1__BDD/Thursday/coin_combinations
+	url = https://github.com/alekseiismirnov/coin_combinations.git
+[submodule "Ruby-and-Rails/Week1__BDD/Thursday/prime_sift"]
+	path = Ruby-and-Rails/Week1__BDD/Thursday/prime_sift
+	url = https://github.com/alekseiismirnov/prime_sift.git
+[submodule "Ruby-and-Rails/Week1__BDD/Thursday/ruby_project"]
+	path = Ruby-and-Rails/Week1__BDD/Thursday/ruby_project
+	url = https://github.com/alekseiismirnov/ruby_project.git
+[submodule "Ruby-and-Rails/Week1__BDD/Tuesday/scrabble_score"]
+	path = Ruby-and-Rails/Week1__BDD/Tuesday/scrabble_score
+	url = https://github.com/alekseiismirnov/scrabble_score.git
+[submodule "Ruby-and-Rails/Week1__BDD/Tuesday/to_w"]
+	path = Ruby-and-Rails/Week1__BDD/Tuesday/to_w
+	url = https://github.com/alekseiismirnov/to_w.git
+[submodule "Ruby-and-Rails/Week1__BDD/Wednesday/RPS"]
+	path = Ruby-and-Rails/Week1__BDD/Wednesday/RPS
+	url = https://github.com/alekseiismirnov/RPS.git
+[submodule "Ruby-and-Rails/Week1__BDD/Wednesday/find_and_replace"]
+	path = Ruby-and-Rails/Week1__BDD/Wednesday/find_and_replace
+	url = https://github.com/alekseiismirnov/find_and_replace.git
+[submodule "Ruby-and-Rails/Week1__BDD/Wednesday/pallindrome"]
+	path = Ruby-and-Rails/Week1__BDD/Wednesday/pallindrome
+	url = https://github.com/alekseiismirnov/pallindrome.git
+[submodule "Ruby-and-Rails/Week2__Routing/2Tuesday/riddles"]
+	path = Ruby-and-Rails/Week2__Routing/2Tuesday/riddles
+	url = https://github.com/alekseiismirnov/riddles.git
+[submodule "Ruby-and-Rails/Week2__Routing/2Tuesday/riddles_crud"]
+	path = Ruby-and-Rails/Week2__Routing/2Tuesday/riddles_crud
+	url = https://github.com/alekseiismirnov/riddles_crud.git
+[submodule "Ruby-and-Rails/Week2__Routing/3Wednesday/festival"]
+	path = Ruby-and-Rails/Week2__Routing/3Wednesday/festival
+	url = https://github.com/alekseiismirnov/festival.git
+[submodule "Ruby-and-Rails/Week2__Routing/3Wednesday/maze"]
+	path = Ruby-and-Rails/Week2__Routing/3Wednesday/maze
+	url = https://github.com/alekseiismirnov/maze.git
+[submodule "Ruby-and-Rails/Week2__Routing/3Wednesday/record_store"]
+	path = Ruby-and-Rails/Week2__Routing/3Wednesday/record_store
+	url = https://github.com/alekseiismirnov/record_store.git
+[submodule "Ruby-and-Rails/Week2__Routing/4Thursday/message_boards"]
+	path = Ruby-and-Rails/Week2__Routing/4Thursday/message_boards
+	url = https://github.com/alekseiismirnov/message_boards.git
