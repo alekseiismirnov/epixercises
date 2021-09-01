@@ -1,3 +1,7 @@
+.gitignore
+*.swp
+*.~lock*
+
 *.rbc
 capybara-*.html
 .rspec
