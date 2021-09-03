@@ -55,3 +55,6 @@
 [submodule "Ruby-and-Rails/Week2__Routing/1Monday/record_store_orign"]
 	path = Ruby-and-Rails/Week2__Routing/1Monday/record_store_orign
 	url = https://github.com/alekseiismirnov/record_store_orign.git
+[submodule "Ruby-and-Rails/Week1__BDD/Friday/game_of_life"]
+	path = Ruby-and-Rails/Week1__BDD/Friday/game_of_life
+	url = https://github.com/alekseiismirnov/game_of_life.git
