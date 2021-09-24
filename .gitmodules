@@ -58,3 +58,6 @@
 [submodule "Ruby-and-Rails/Week1__BDD/Friday/game_of_life"]
 	path = Ruby-and-Rails/Week1__BDD/Friday/game_of_life
 	url = https://github.com/alekseiismirnov/game_of_life.git
+[submodule "Ruby-and-Rails/Week2__Routing/4Thursday/tamagotchi"]
+	path = Ruby-and-Rails/Week2__Routing/4Thursday/tamagotchi
+	url = https://github.com/alekseiismirnov/tamagotchi
