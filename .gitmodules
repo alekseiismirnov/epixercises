@@ -61,3 +61,6 @@
 [submodule "Ruby-and-Rails/Week2__Routing/4Thursday/tamagotchi"]
 	path = Ruby-and-Rails/Week2__Routing/4Thursday/tamagotchi
 	url = https://github.com/alekseiismirnov/tamagotchi
+[submodule "Ruby-and-Rails/Week2__Routing/4Thursday/hangman"]
+	path = Ruby-and-Rails/Week2__Routing/4Thursday/hangman
+	url = https://github.com/alekseiismirnov/hangman.git
