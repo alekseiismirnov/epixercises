@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>All Sales Vinyl</title>
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>
+  </head>
+  <body>
+    <div class="container">
+      <%= yield %>
+    </div>
+    <div class="container">
+      <form action="/search" method="post">
+        <label for="search_album_name">Search album: </label>
+        <input type="text" id="name" name="search_album_name" class="form-control">
+        <button type="submit" class="btn">Search</button>
+      </form>
+    </div>
+  </body>
+</html>
