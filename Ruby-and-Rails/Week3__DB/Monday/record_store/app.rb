@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require 'pg'
 require 'pry'
 require 'sinatra'
 require 'sinatra/reloader'
@@ -8,6 +9,8 @@ require './lib/album.rb'
 require './lib/song.rb'
 
 also_reload 'lib/**/*.rb'
+
+DB = PG.connect(db_name: 'record_store')
 
 get '/' do
   @albums = Album.sort
