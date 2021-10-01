@@ -3,26 +3,24 @@
 class Album
   attr_reader :name, :id
 
-  @@albums = {}
-  @@albums_sold = {}
-  @@total_rows = 0
-
-  def initialize(name = 'Noname', id = nil)
-    @name = name
-    @id = id || @@total_rows += 1
+  def initialize(attributes)
+    @name = attributes[:name]
+    @id = attrubutes[:id]
   end
 
   def self.all
-    @@albums.values
+    DB.exec('SELECT * FROM albums;').map do |record|
+      Album.new(record[:id], record[:name])
+    end
   end
 
   def self.clear
-    @@albums = {}
-    @@total_rows = 0
+    DB.exec('DELETE FROM albums *;')
   end
 
   def self.find(id)
-    @@albums[id]
+    record = DB.exec("SELECT * FROM albums WHERE id = #{id};")
+    Album.new(id: record[:id], name: record[:name])
   end
 
   def self.search(name)
@@ -38,20 +36,21 @@ class Album
   end
 
   def save
-    id = self.id || @@total_rows += 1
-    @@albums[self.id] = Album.new(name, id)
+    report = DB.exec("INSERT INTO albums (name) VALUES('#{@name}') RETURNING id;")
+    @id = report[:id].to_i
   end
 
-  def ==(other_album)
-    @name == other_album.name
+  def ==(other)
+    @name == other.name
   end
 
   def update(name)
     @name = name
+    DB.exec("UPDATE albums SET name = '#{name}' WHERE id = #{@id};")
   end
 
   def delete
-    @@albums.delete id
+    DB.exec("DELETE FROM albums WHERE id = #{@id};")
   end
 
   def sold
