@@ -3,29 +3,32 @@ require './lib/album.rb'
 class Song
   attr_reader :name, :album_id, :id, :lyrics
 
-  @@songs = {}
-  @@total = 0
-
   def initialize(name, album_id, id)
     @name = name
     @album_id = album_id
-    @id = id || @@total += 1
+    @id = id
   end
 
   def self.clear
-    @@songs = {}
+    DB.exec('DELETE FROM songs *;')
   end
 
   def self.all
-    @@songs.values
+    DB.exec('SELECT * FROM songs;').each do |record|
+      Song.new(record[:name], record[:album_id].to_i, record[:id].to_i)
+    end
   end
 
   def self.find(id)
-    @@songs[id]
+    DB.exec("SELECT * FROM songs WHERE id = #{id};").each do |record|
+      Song.new(record[:name], record[:album_id].to_i, record[:id].to_i)
+    end.first
   end
 
   def self.find_by_album(album_id)
-    @@songs.values.select { |song| song.album_id == album_id}
+    DB.exec("SELECT * FROM songs WHERE album_id = #{album_id};").each do |record|
+      Song.new(record[:name], record[:album_id].to_i, record[:id].to_i)
+    end
   end
 
   def ==(other)
@@ -33,18 +36,18 @@ class Song
   end
 
   def save
-    @@songs[id] = Song.new(@name, @album_id, @id)
-    @@songs[id].add_lyrics @lyrics
+    report = DB.exec("INSERT INTO songs (name, album_id) VALUES (#{@name}, #{@album_id}) RETURNING id;")
+    @id = report[:id].to_i
   end
 
   def update(name, album_id)
     @name = name
     @album_id = album_id
-    save
+    DB.exec("UPDATE songs SET name = #{name}, album_id = #{album_id} WHERE id = #{@id};")
   end
 
   def delete
-    @@songs.delete id
+    DB.exec("DELETE FROM songs WHERE id = #{@id};")
   end
 
   def album

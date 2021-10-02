@@ -53,11 +53,6 @@ class Album
     DB.exec("DELETE FROM albums WHERE id = #{@id};")
   end
 
-  def sold
-    @@albums.delete id
-    @@albums_sold[id] = self
-  end
-
   def songs
     Song.find_by_album id
   end
