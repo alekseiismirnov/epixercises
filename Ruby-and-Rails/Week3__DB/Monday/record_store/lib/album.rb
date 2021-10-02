@@ -1,16 +1,20 @@
 # frozen_string_literal: true
 
+require 'pg'
+
+DB = PG.connect(dbname: 'record_store')
+
 class Album
   attr_reader :name, :id
 
   def initialize(attributes)
     @name = attributes[:name]
-    @id = attrubutes[:id]
+    @id = attributes[:id]
   end
 
   def self.all
-    DB.exec('SELECT * FROM albums;').map do |record|
-      Album.new(record[:id], record[:name])
+    DB.exec('SELECT * FROM albums WHERE sold = false;').map do |record|
+      Album.new(id: record['id'], name: record['name'])
     end
   end
 
@@ -19,12 +23,12 @@ class Album
   end
 
   def self.find(id)
-    record = DB.exec("SELECT * FROM albums WHERE id = #{id};")
-    Album.new(id: record[:id], name: record[:name])
+    record = DB.exec("SELECT * FROM albums WHERE id = #{id};").first
+    Album.new(id: record['id'], name: record['name'])
   end
 
-  def self.search(name)
-    Album.all.find { |album| album.name == name }
+  def self.search(params)
+    Album.all.find { |album| album.name == params[:name] }
   end
 
   def self.sort
@@ -32,12 +36,19 @@ class Album
   end
 
   def self.all_sold
-    @@albums_sold.values
+    DB.exec('SELECT * FROM albums WHERE sold = true;').map do |record|
+      Album.new(id: record['id'], name: record['name'])
+    end
+  end
+
+  def sold
+    DB.exec("UPDATE albums SET sold = true WHERE id = #{@id};")
   end
 
   def save
     report = DB.exec("INSERT INTO albums (name) VALUES('#{@name}') RETURNING id;")
-    @id = report[:id].to_i
+
+    @id = report.first['id'].to_i
   end
 
   def ==(other)
@@ -56,4 +67,5 @@ class Album
   def songs
     Song.find_by_album id
   end
+
 end

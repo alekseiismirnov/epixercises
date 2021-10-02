@@ -10,7 +10,7 @@ require './lib/song.rb'
 
 also_reload 'lib/**/*.rb'
 
-DB = PG.connect(db_name: 'record_store')
+DB = PG.connect(dbname: 'record_store')
 
 get '/' do
   @albums = Album.sort
