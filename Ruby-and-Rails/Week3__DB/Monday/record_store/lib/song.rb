@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require './lib/album.rb'
 
 class Song
@@ -20,9 +22,9 @@ class Song
   end
 
   def self.find(id)
-    DB.exec("SELECT * FROM songs WHERE id = #{id};").map do |record|
-      Song.new(record['name'], record['album_id'].to_i, record['id'].to_i)
-    end.first
+    record = DB.exec("SELECT * FROM songs WHERE id = #{id};").first
+    song = Song.new(record['name'], record['album_id'].to_i, record['id'].to_i)
+    song.add_lyrics(record['lyrics'])
   end
 
   def self.find_by_album(album_id)
@@ -35,14 +37,15 @@ class Song
     @name == other.name && @album_id == other.album_id
   end
 
+  # no id == nil check
   def save
-    report = DB.exec("INSERT INTO songs (name, album_id) VALUES ('#{@name}', #{@album_id}) RETURNING id;")
+    report = DB.exec("INSERT INTO songs (name, album_id, lyrics) VALUES ('#{@name}', #{@album_id}, '#{@lyrics}') RETURNING id;")
     @id = report.first['id'].to_i
   end
 
   def update(name, album_id)
-    @name = name
-    @album_id = album_id
+    @name = name || @name
+    @album_id = album_id || @album_id
     DB.exec("UPDATE songs SET name = '#{name}', album_id = #{album_id} WHERE id = #{@id};")
   end
 
@@ -56,5 +59,6 @@ class Song
 
   def add_lyrics(lyrics)
     @lyrics = lyrics
+    self
   end
 end
