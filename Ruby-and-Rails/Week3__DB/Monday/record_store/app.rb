@@ -46,7 +46,7 @@ end
 
 post '/albums' do
   name = params[:album_name]
-  album = Album.new(name, nil)
+  album = Album.new(name: name)
   album.save
 
   @albums = Album.all

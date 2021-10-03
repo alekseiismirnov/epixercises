@@ -114,7 +114,7 @@ describe '#Song' do
   describe('#lyrics') do
     it 'is nil on initial' do
       song = Song.new('Naima', @album.id, nil)
-      expect(song.lyrics).to eq(nil)  
+      expect(song.lyrics).to eq(nil)
     end
   end
 
