@@ -95,7 +95,7 @@ get '/albums/:id/songs/:song_id' do
 end
 
 post '/albums/:id/songs' do
-  Song.new(params[:song_name], params[:id].to_i, nil).save
+  Song.new(name: params[:song_name], album_id: params[:id].to_i).save
   @album = Album.find params[:id].to_i
   @songs = @album.songs
 
