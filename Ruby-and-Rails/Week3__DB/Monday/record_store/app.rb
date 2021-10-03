@@ -12,6 +12,10 @@ also_reload 'lib/**/*.rb'
 
 DB = PG.connect(dbname: 'record_store')
 
+error 404 do
+  'There is nothing here'
+end
+
 get '/' do
   @albums = Album.sort
   @albums_sold = Album.all_sold
@@ -30,6 +34,8 @@ end
 
 get '/albums/:id' do
   @album = Album.find(params[:id].to_i)
+  halt 404 if @album.nil?
+
   @songs = @album.songs
 
   erb :album

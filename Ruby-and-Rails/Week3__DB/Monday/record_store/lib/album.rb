@@ -24,7 +24,7 @@ class Album
 
   def self.find(id)
     record = DB.exec("SELECT * FROM albums WHERE id = #{id};").first
-    Album.new(id: record['id'], name: record['name'])
+    Album.new(id: record['id'], name: record['name']) unless record.nil?
   end
 
   def self.search(params)
