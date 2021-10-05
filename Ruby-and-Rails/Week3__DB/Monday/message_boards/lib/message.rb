@@ -8,7 +8,7 @@ class Message
   @last_id = 0
 
   def initialize(params)
-    @timestamp = params[:timestamp] || Time.now
+    @timestamp = params[:timestamp] || DateTime.now
     @text = params[:text]
     @id = params[:id] || self.class.free_id
   end

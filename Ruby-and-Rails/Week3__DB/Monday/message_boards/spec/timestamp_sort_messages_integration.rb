@@ -22,7 +22,7 @@ end
 
 class Message
   def self.timestamps_row!(ids)
-    timestamp_start = Time.now
+    timestamp_start = DateTime.now
     ids.each.with_index do |id, index|
       @my_objects[id].update(timestamp: timestamp_start + index)
     end

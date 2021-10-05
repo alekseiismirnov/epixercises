@@ -8,7 +8,7 @@ class Board
   @last_id = 0
 
   def initialize(params)
-    @timestamp = Time.new
+    @timestamp = DateTime.new
     @title = params[:title]
     @id = params[:id] || self.class.free_id
     @message_ids = params[:message_ids] || []
