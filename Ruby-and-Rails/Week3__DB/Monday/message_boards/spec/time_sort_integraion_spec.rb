@@ -13,12 +13,25 @@ set(show_exception: false)
 
 Capybara.save_path = '~/tmp'
 
+class Board
+  def rewrite_timestamp(timestamp)
+    @timestamp = timestamp
+  end
+
+  def self.fake_timestamps!
+    @boards.values.each.with_index do |board, index|
+      board.rewrite_timestamp(board.timestamp + index)
+    end
+  end
+end
+
 describe('Sort', type: :feature) do
   before :all do
     Message.clear
     Board.clear
 
     @bbs = BBS.new(boards_number: 5, messages_number: 10)
+    Board.fake_timestamps!
   end
   context 'boards list' do
     before :each do
