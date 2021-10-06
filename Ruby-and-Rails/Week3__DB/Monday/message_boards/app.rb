@@ -16,7 +16,7 @@ before do
 end
 
 error 401 do
-   'You must be logged' 
+  'You must be logged'
 end
 
 get '/rise401' do

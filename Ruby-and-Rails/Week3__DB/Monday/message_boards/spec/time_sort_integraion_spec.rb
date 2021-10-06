@@ -33,6 +33,7 @@ describe('Sort', type: :feature) do
     @bbs = BBS.new(boards_number: 5, messages_number: 10)
     Board.fake_timestamps!
   end
+  
   context 'boards list' do
     before :each do
       visit '/boards'

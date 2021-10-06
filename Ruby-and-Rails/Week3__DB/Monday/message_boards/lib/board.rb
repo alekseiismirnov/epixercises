@@ -11,7 +11,7 @@ class Board
     @timestamp = DateTime.new
     @title = params[:title]
     @id = params[:id] || self.class.free_id
-    @message_ids = params[:message_ids] || []
+    @message_ids_trash_me = params[:message_ids] || []
   end
 
   def self.all
@@ -62,12 +62,12 @@ class Board
       timestamp: @timestamp,
       title: @title,
       id: @id,
-      message_ids: @message_ids.clone
+      message_ids: message_ids
     )
   end
 
   def messages
-    @message_ids.map { |id| Message.find id }
+    message_ids.map { |id| Message.find id }
   end
 
   def save
@@ -86,7 +86,7 @@ class Board
     message = Message.new(text: text)
     message.save
 
-    @message_ids << message.id
+    @message_ids_trash_me << message.id
 
     save
   end
@@ -96,18 +96,24 @@ class Board
       timestamp: timestamp,
       title: title,
       id: id,
-      message_ids: @message_ids.clone
+      message_ids: message_ids
     }
   end
 
   def search_messages(text)
-    Message.search(text: text, within: @message_ids)
+    Message.search(text: text, within: message_ids)
   end
 
   def delete_message(id)
-    @message_ids.delete id
+    @message_ids_trash_me.delete id
     Message.delete id
 
     save
+  end
+
+  private
+
+  def message_ids
+    @message_ids_trash_me
   end
 end

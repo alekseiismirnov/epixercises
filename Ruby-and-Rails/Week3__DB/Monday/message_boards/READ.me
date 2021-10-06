@@ -37,5 +37,9 @@ Add a navbar where a user can "log in."
 Database Edition
 ================
 
-- move from Time to DateTime
++ move from Time to DateTime
 - invert from 'board with message_id`s' to 'message with board_id'
+  + make #message_ids method
+  + add @board_id with reader to the Message
+  - rewrite #message_ids 
+  - remove @message_ids from Board
