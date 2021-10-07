@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'date'
+require_relative './message.rb'
 # titled container for messages
 class Board
   attr_reader :title, :id, :timestamp
@@ -11,7 +13,6 @@ class Board
     @timestamp = DateTime.new
     @title = params[:title]
     @id = params[:id] || self.class.free_id
-    @message_ids_trash_me = params[:message_ids] || []
   end
 
   def self.all
@@ -83,10 +84,8 @@ class Board
   end
 
   def save_message(text)
-    message = Message.new(text: text)
+    message = Message.new(text: text, board_id: id)
     message.save
-
-    @message_ids_trash_me << message.id
 
     save
   end
@@ -105,7 +104,6 @@ class Board
   end
 
   def delete_message(id)
-    @message_ids_trash_me.delete id
     Message.delete id
 
     save
@@ -114,6 +112,6 @@ class Board
   private
 
   def message_ids
-    @message_ids_trash_me
+    Message.all.select { |message| message.board_id == @id }.map(&:id)
   end
 end

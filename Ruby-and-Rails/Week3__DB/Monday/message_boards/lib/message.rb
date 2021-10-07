@@ -1,8 +1,9 @@
 # frozen_string_literal: true
 
+require 'date'
 # kind of a wrapper around the string
 class Message
-  attr_reader :text, :id, :timestamp
+  attr_reader :text, :id, :timestamp, :board_id
 
   @my_objects = {}
   @last_id = 0
@@ -11,6 +12,7 @@ class Message
     @timestamp = params[:timestamp] || DateTime.now
     @text = params[:text]
     @id = params[:id] || self.class.free_id
+    @board_id = params[:board_id]
   end
 
   def self.save_me(my_object)
@@ -43,12 +45,16 @@ class Message
     @my_objects.delete(id)
   end
 
+  def self.all
+    @my_objects.values
+  end
+
   def save
     self.class.save_me self
   end
 
   def clone
-    self.class.new(text: text, id: id, timestamp: timestamp)
+    self.class.new(text: text, id: id, board_id: board_id, timestamp: timestamp)
   end
 
   def update(params)
@@ -61,7 +67,8 @@ class Message
     {
       timestamp: @timestamp,
       id: @id,
-      text: @text
+      text: @text,
+      board_id: @board_id
     }
   end
 end

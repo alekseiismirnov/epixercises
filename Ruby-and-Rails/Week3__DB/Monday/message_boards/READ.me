@@ -38,8 +38,20 @@ Database Edition
 ================
 
 + move from Time to DateTime
-- invert from 'board with message_id`s' to 'message with board_id'
++ invert from 'board with message_id`s' to 'message with board_id'
   + make #message_ids method
   + add @board_id with reader to the Message
-  - rewrite #message_ids 
-  - remove @message_ids from Board
+  + add readable @board_id to Message object 
+  + rewrite #message_ids to get id's from Message
+  + remove @message_ids from Board
+- class Board
+  - #save, keeping substitute storage
+  - .clear
+  - .all
+  - .find
+  - .search
+  - remove substitute strorage
+    - remove .save_me
+    - remove .free_id
+    - remove from class @boards and @last_id
+    - ? remove #clone 
