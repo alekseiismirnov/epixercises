@@ -2,6 +2,7 @@
 
 require 'sinatra'
 require 'sinatra/reloader'
+require 'pg'
 require 'pry'
 
 require_relative 'lib/board.rb'
@@ -10,6 +11,8 @@ require_relative 'lib/boards_and_messages.rb'
 also_reload 'lib/**/*.rb'
 
 enable :sessions
+
+DB = PG.connect(dbname: 'message_boards')
 
 before do
   @session_admin = session[:admin]

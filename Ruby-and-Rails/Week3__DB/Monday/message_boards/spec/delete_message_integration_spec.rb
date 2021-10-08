@@ -1,10 +1,6 @@
 # frozen_string_literal: true
 
-require 'capybara/rspec'
-
-require './app'
-require 'board'
-require 'message'
+require_relative './spec_helper.rb'
 
 require 'boards_and_messages'
 

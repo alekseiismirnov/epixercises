@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
 # roghly same as the 'board_save_spec' but for multiply instances
-require 'board'
+require_relative './spec_helper.rb'
+
 
 describe Board do
   before :all do
@@ -30,8 +31,8 @@ describe Board do
       expect(Board.all.length).to eq @boards_number
     end
 
-    it 'saved boards are is in the returned list' do
-      expect(Board.all.sort).to eq @boards.sort
+    it 'saved boards are in the returned list' do
+      expect(Board.all).to match_array @boards
     end
   end
 end

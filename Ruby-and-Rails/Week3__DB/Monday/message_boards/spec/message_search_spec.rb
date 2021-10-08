@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
-require 'board'
+require_relative './spec_helper.rb'
+
 require 'boards_and_messages'
 
 describe 'Message search' do

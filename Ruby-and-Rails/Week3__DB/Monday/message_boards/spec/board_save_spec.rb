@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
-require 'pry'
-require 'board'
+require_relative './spec_helper.rb'
 
 describe Board do
   before :all do
@@ -10,8 +9,6 @@ describe Board do
     @board = Board.new(title: @title)
     @some_mess = "It's some message"
     @other_mess = "It's an other message"
-    @board.save_message(@some_mess)
-    @board.save_message(@other_mess)
   end
 
   context 'board is not saved' do
@@ -24,6 +21,8 @@ describe Board do
   context 'one board is saved' do
     before :all do
       @board.save
+      @board.save_message(@some_mess)
+      @board.save_message(@other_mess)
     end
 
     it 'list of all boards has length 1' do

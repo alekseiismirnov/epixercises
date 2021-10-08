@@ -7,7 +7,7 @@ require_relative 'message'
 
 # it retns boards with messages, one empty, and inital data
 class BBS
-  attr_reader :bbs_data, :empty_board_index, :boards
+  attr_reader :bbs_data, :empty_board_index, :boards, :empty_board_id
 
   def initialize(boards_number:, messages_number:)
     @bbs_data = make_dummy_data(boards_number, messages_number)
@@ -21,6 +21,8 @@ class BBS
       board_data[:messages].each { |text| board.save_message text }
       board
     end
+
+    @empty_board_id = @boards[@empty_board_index].id
   end
 
   def empty_board

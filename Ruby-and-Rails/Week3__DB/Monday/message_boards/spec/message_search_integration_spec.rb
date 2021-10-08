@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
-require 'capybara/rspec'
-require './app'
-require 'board'
+require_relative './spec_helper.rb'
 
 Capybara.app = Sinatra::Application
 set(show_exception: false)

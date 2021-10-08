@@ -1,10 +1,5 @@
 # frozen_string_literal: true
-
-require 'capybara/rspec'
-
-require './app'
-require 'board'
-require 'message'
+require_relative './spec_helper.rb'
 
 require 'boards_and_messages'
 
@@ -14,13 +9,9 @@ set(show_exception: false)
 Capybara.save_path = '~/tmp'
 
 class Board
-  def rewrite_timestamp(timestamp)
-    @timestamp = timestamp
-  end
-
   def self.fake_timestamps!
-    @boards.values.each.with_index do |board, index|
-      board.rewrite_timestamp(board.timestamp + index)
+    all.each.with_index do |board, index|
+      DB.exec("UPDATE boards SET timestamp = '#{board.timestamp + index}' WHERE id = #{board.id};")
     end
   end
 end

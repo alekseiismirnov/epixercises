@@ -14,7 +14,5 @@ DB = PG.connect(dbname: 'message_boards_test')
 
 RSpec.configure do |config|
   config.after(:each) do
-    DB.exec('DELETE FROM boards *;')
-    DB.exec('DELETE FROM messages *;')
   end
 end

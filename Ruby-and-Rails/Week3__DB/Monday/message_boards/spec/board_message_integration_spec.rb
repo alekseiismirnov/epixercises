@@ -1,10 +1,6 @@
 # frozen_string_literal: true
 
-require 'capybara/rspec'
-
-require './app'
-require 'board'
-require 'message'
+require_relative './spec_helper.rb'
 
 require 'boards_and_messages'
 
@@ -15,6 +11,7 @@ Capybara.save_path = '~/tmp'
 
 describe('Message board', type: :feature) do
   before :all do
+    Board.clear
     @bbs = BBS.new(boards_number: 5, messages_number: 10)
   end
 
@@ -35,7 +32,7 @@ describe('Message board', type: :feature) do
   end
 
   it 'has `no messages` sign if has no messages' do
-    visit "/boards/#{@bbs.empty_board_index}"
+    visit "/boards/#{@bbs.empty_board_id}"
 
     within '.messages' do
       expect(page).to have_content 'No messages yet'

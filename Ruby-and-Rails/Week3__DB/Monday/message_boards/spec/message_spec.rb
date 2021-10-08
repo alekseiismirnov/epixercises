@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'message'
+require_relative './spec_helper.rb'
 
 describe Message do
   before :all do

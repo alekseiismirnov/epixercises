@@ -45,13 +45,12 @@ Database Edition
   + rewrite #message_ids to get id's from Message
   + remove @message_ids from Board
 - class Board
-  - #save, keeping substitute storage
-  - .clear
-  - .all
-  - .find
-  - .search
-  - remove substitute strorage
-    - remove .save_me
-    - remove .free_id
-    - remove from class @boards and @last_id
-    - ? remove #clone 
+  + #save, keeping substitute storage
+  + .clear
+  + .all
+  + .find
+  + remove substitute strorage
+    + remove .save_me
+    + remove .free_id
+    + remove from class @boards and @last_id
+    + ? remove #clone 

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'board'
+require_relative './spec_helper.rb'
 
 describe Board do
   context 'with default constructor' do

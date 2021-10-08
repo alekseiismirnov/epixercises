@@ -6,34 +6,25 @@ require_relative './message.rb'
 class Board
   attr_reader :title, :id, :timestamp
 
-  @boards = {}
-  @last_id = 0
-
   def initialize(params)
-    @timestamp = DateTime.new
+    @timestamp = params[:timestamp] || DateTime.now
     @title = params[:title]
-    @id = params[:id] || self.class.free_id
+    @id = params[:id]
   end
 
   def self.all
-    @boards.values # if we change object from this list, we change saved object
-  end
-
-  def self.save_me(my_object)
-    @boards[my_object.id] = my_object.clone
-  end
-
-  def self.free_id
-    @last_id += 1
+    DB.exec('SELECT * FROM boards;').map do |record|
+      Board.new(to_my_params(record))
+    end
   end
 
   def self.clear
-    @boards = {}
-    @last_id = 0
+    DB.exec('DELETE FROM boards *;')
   end
 
   def self.find(id)
-    @boards[id].clone
+    record = DB.exec("SELECT * FROM boards WHERE id = #{id};").first
+    Board.new(to_my_params(record))
   end
 
   def self.search_messages(search_pattern)
@@ -58,21 +49,24 @@ class Board
          .map(&:id)
   end
 
-  def clone
-    self.class.new(
-      timestamp: @timestamp,
-      title: @title,
-      id: @id,
-      message_ids: message_ids
-    )
-  end
-
   def messages
     message_ids.map { |id| Message.find id }
   end
 
   def save
-    self.class.save_me self
+    if @id.nil?
+      report = DB.exec("INSERT INTO boards (title, timestamp) VALUES ('#{title}', '#{timestamp}') RETURNING id;")
+      @id = report.first['id'].to_i
+    end
+    @id
+  end
+
+  def self.to_my_params(record)
+    {
+      id: record['id'].to_i,
+      title: record['title'],
+      timestamp: DateTime.parse(record['timestamp'])
+    }
   end
 
   def ==(other)
@@ -86,8 +80,6 @@ class Board
   def save_message(text)
     message = Message.new(text: text, board_id: id)
     message.save
-
-    save
   end
 
   def to_json(*_args)
