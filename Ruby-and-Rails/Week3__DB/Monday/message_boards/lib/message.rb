@@ -50,6 +50,11 @@ class Message
   end
 
   def save
+    text = DB.escape @text
+
+    sql_command = "INSERT INTO messages (text, timestamp, board_id) \
+                  VALUES('#{text}', '#{@timestamp}', #{@board_id});"
+    DB.exec(sql_command)
     self.class.save_me self
   end
 

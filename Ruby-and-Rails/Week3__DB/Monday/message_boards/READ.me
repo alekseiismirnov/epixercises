@@ -44,7 +44,7 @@ Database Edition
   + add readable @board_id to Message object 
   + rewrite #message_ids to get id's from Message
   + remove @message_ids from Board
-- class Board
++ class Board
   + #save, keeping substitute storage
   + .clear
   + .all
@@ -53,4 +53,15 @@ Database Edition
     + remove .save_me
     + remove .free_id
     + remove from class @boards and @last_id
-    + ? remove #clone 
+    + remove #clone 
+- class Message
+  - #save, keeping substitute storage
+  - .clear
+  - .all
+  - .find
+  - .update
+  - remove substitute strorage
+    - remove .save_me
+    - remove .free_id
+    - remove from class @boards and @last_id
+    - ? remove #clone 

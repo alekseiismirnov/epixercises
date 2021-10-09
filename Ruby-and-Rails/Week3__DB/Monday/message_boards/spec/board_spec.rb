@@ -8,6 +8,7 @@ describe Board do
     before :all do
       @title = 'Board Specificaton'
       @board = Board.new(title: @title)
+      @board.save
     end
 
     it 'board has a title' do
