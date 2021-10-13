@@ -71,7 +71,8 @@ class Message
 
       @id = DB.exec(sql_command).first['id'].to_i
     else
-      sql_command = "UPDATE messages SET text = '#{text} WHERE id = #{id}'"
+      sql_command = "UPDATE messages SET text = '#{text}' WHERE id = #{id};"
+      #              "UPDATE contacts SET name = 'Wes Anderson' WHERE id = 1;"
       DB.exec sql_command
     end
   end
