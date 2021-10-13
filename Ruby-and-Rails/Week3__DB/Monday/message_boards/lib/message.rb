@@ -71,7 +71,7 @@ class Message
 
       @id = DB.exec(sql_command).first['id'].to_i
     else
-      sql_command = "UPDATE messages SET text = '#{text} RETURNING id;'"
+      sql_command = "UPDATE messages SET text = '#{text} WHERE id = #{id}'"
       DB.exec sql_command
     end
   end
