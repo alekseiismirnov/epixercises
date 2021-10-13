@@ -5,9 +5,6 @@ require 'date'
 class Message
   attr_reader :text, :id, :timestamp, :board_id
 
-  @my_objects = {}
-  @last_id = 0
-
   def initialize(params)
     @timestamp = params[:timestamp] || DateTime.now
     @text = params[:text]
@@ -15,22 +12,11 @@ class Message
     @board_id = params[:board_id].to_i
   end
 
-  def self.save_me(my_object)
-    @my_objects[my_object.id] = my_object.clone
-  end
-
   def self.clear
-    @my_objects = {}
-    @last_id = 0
     DB.exec('DELETE FROM messages *;')
   end
 
-  def self.free_id
-    @last_id += 1
-  end
-
   def self.find(id)
-    @my_objects[id].clone
     record = DB.exec("SELECT * FROM messages WHERE id = #{id};").first
     Message.new(to_my_params(record))
   end
@@ -75,10 +61,6 @@ class Message
       #              "UPDATE contacts SET name = 'Wes Anderson' WHERE id = 1;"
       DB.exec sql_command
     end
-  end
-
-  def clone
-    self.class.new(text: text, id: id, board_id: board_id, timestamp: timestamp)
   end
 
   def update(params)
