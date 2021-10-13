@@ -50,7 +50,7 @@ class Board
   end
 
   def messages
-    message_ids.map { |id| Message.find id }
+    Message.all.select { |message| message.board_id == @id }
   end
 
   def save
@@ -91,14 +91,13 @@ class Board
     }
   end
 
-  def search_messages(text)
-    Message.search(text: text, within: message_ids)
+  def search_messages(pattern)
+    DB.exec("SELECT id FROM messages WHERE text LIKE '%#{pattern}%' \
+    AND board_id = #{id};").map { |record| record['id'].to_i }
   end
 
   def delete_message(id)
     Message.delete id
-
-    save
   end
 
   private

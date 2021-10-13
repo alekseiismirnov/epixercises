@@ -11,8 +11,8 @@ class Message
   def initialize(params)
     @timestamp = params[:timestamp] || DateTime.now
     @text = params[:text]
-    @id = params[:id] || self.class.free_id
-    @board_id = params[:board_id]
+    @id ||= params[:id]
+    @board_id = params[:board_id].to_i
   end
 
   def self.save_me(my_object)
@@ -22,6 +22,7 @@ class Message
   def self.clear
     @my_objects = {}
     @last_id = 0
+    DB.exec('DELETE FROM messages *;')
   end
 
   def self.free_id
@@ -30,32 +31,49 @@ class Message
 
   def self.find(id)
     @my_objects[id].clone
+    record = DB.exec("SELECT * FROM messages WHERE id = #{id};").first
+    Message.new(to_my_params(record))
   end
 
   def self.search(params)
-    pattern = params[:text]
+    pattern = DB.escape params[:text]
     within = params[:within]
 
-    (within.nil? ? @my_objects.values : @my_objects.values_at(*within))
-      .select { |message| message.text.include?(pattern) }
-      .map(&:id)
-  end
+    sql_command = "SELECT id FROM messages WHERE text LIKE '%#{pattern}%'"
+    sql_command += within.empty? ? ';' : " AND WHERE id IN ('#{within.map(&:to_i)}');"
 
-  def self.delete(id)
-    @my_objects.delete(id)
+    DB.exec(sql_command).map do |record|
+      record['id'].to_i
+    end
   end
 
   def self.all
-    @my_objects.values
+    DB.exec('SELECT * FROM messages;').map do |record|
+      Message.new(to_my_params(record))
+    end
+  end
+
+  def self.to_my_params(record)
+    {
+      id: record['id'].to_i,
+      text: record['text'],
+      board_id: record['board_id'],
+      timestamp: DateTime.parse(record['timestamp'])
+    }
   end
 
   def save
     text = DB.escape @text
+    if id.nil?
+      sql_command = "INSERT INTO messages (text, timestamp, board_id) \
+                     VALUES('#{text}', '#{@timestamp}', #{@board_id}) \
+                     RETURNING id ;"
 
-    sql_command = "INSERT INTO messages (text, timestamp, board_id) \
-                  VALUES('#{text}', '#{@timestamp}', #{@board_id});"
-    DB.exec(sql_command)
-    self.class.save_me self
+      @id = DB.exec(sql_command).first['id'].to_i
+    else
+      sql_command = "UPDATE messages SET text = '#{text} RETURNING id;'"
+      DB.exec sql_command
+    end
   end
 
   def clone
@@ -64,8 +82,11 @@ class Message
 
   def update(params)
     @text = params[:text] if params[:text]
-    @timestamp = params[:timestamp] if params[:timestamp]
     save
+  end
+
+  def delete
+    DB.exec("DELETE FROM messages WHERE id = #{id};")
   end
 
   def to_json(*_args)

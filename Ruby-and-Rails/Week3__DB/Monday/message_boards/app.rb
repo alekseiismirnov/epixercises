@@ -99,7 +99,7 @@ delete '/boards/:board_id/messages/:id' do
 
   board_id = params[:board_id].to_i
   id = params[:id].to_i
-  Board.find(board_id).delete_message(id)
+  Message.find(id).delete
 
   @flash = "That's fine"
   redirect "/boards/#{board_id}"
