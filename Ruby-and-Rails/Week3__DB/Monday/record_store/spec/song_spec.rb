@@ -1,9 +1,6 @@
 # frozen_string_literal: true
 
-require 'rspec'
-require 'pry'
-require 'album'
-require 'song'
+require_relative './spec_helper.rb'
 
 describe '#Song' do
   before :each do

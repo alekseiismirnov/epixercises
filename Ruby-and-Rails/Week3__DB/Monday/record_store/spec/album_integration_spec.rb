@@ -1,7 +1,11 @@
 # frozen_string_literal: true
+require './app.rb'
+require_relative './spec_helper.rb'
 
-require('capybara/rspec')
-require('./app')
+require 'capybara/rspec'
+require 'sinatra'
+
+
 Capybara.app = Sinatra::Application
 set(:show_exceptions, false)
 

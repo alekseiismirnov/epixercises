@@ -2,8 +2,6 @@
 
 require 'pg'
 
-DB = PG.connect(dbname: 'record_store')
-
 class Album
   attr_reader :name, :id
 

@@ -2,9 +2,11 @@
 
 require 'rspec'
 require 'pg'
+require 'pry'
+
 require 'album'
 require 'song'
-require 'pry'
+require 'artist'
 
 # Shared code for clearing tests between runs and connecting to the DB will also go here
 
