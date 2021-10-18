@@ -39,6 +39,13 @@ class Album
     end
   end
 
+  def self.to_my_params(record)
+    {
+      id: record['id'].to_i,
+      name: record['name']
+    }
+  end
+
   def sold
     DB.exec("UPDATE albums SET sold = true WHERE id = #{@id};")
   end
