@@ -11,7 +11,7 @@ class Artist
 
   def self.all
     DB.exec('SELECT * FROM artists;')
-      .map { |record| new(to_my_params(record))}
+      .map { |record| new(to_my_params(record)) }
   end
 
   def self.to_my_params(record)
@@ -19,6 +19,16 @@ class Artist
       id: record['id'].to_i,
       name: record['name']
     }
+  end
+
+  def self.clear
+    DB.exec('DELETE FROM artists *;')
+  end
+
+  def self.find(id)
+    record = DB.exec("SELECT * FROM ARTISTS WHERE id = #{id};")
+               .first
+    new(to_my_params(record))
   end
 
   def save
