@@ -9,6 +9,18 @@ class Artist
     @id |= params[:id]
   end
 
+  def self.all
+    DB.exec('SELECT * FROM artists;')
+      .map { |record| new(to_my_params(record))}
+  end
+
+  def self.to_my_params(record)
+    {
+      id: record['id'].to_i,
+      name: record['name']
+    }
+  end
+
   def save
     report = DB.exec "INSERT INTO artists (name) VALUES ('#{@name}') RETURNING id;"
     @id = report.first['id'].to_i
@@ -23,6 +35,15 @@ class Artist
     DB.exec("SELECT id_album FROM albums_artists WHERE id_artist = #{@id};")
       .map { |record| DB.exec("SELECT * FROM albums WHERE id = #{record['id_album'].to_i};") }
       .map { |result| Album.new(Album.to_my_params(result.first)) }
+  end
+
+  def delete
+    DB.exec("DELETE FROM albums_artists WHERE id_artist = #{@id};")
+    DB.exec("DELETE FROM artists WHERE id = #{@id};")
+  end
+
+  def ==(other)
+    name == other.name
   end
 
   private
