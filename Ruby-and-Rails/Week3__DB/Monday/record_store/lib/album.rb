@@ -60,17 +60,29 @@ class Album
     @name == other.name
   end
 
-  def update(name)
-    @name = name
-    DB.exec("UPDATE albums SET name = '#{name}' WHERE id = #{@id};")
+  def update(params)
+    update_name(params[:name])
+    add_artist(params[:artist_name])
   end
 
   def delete
-    DB.exec("DELETE FROM albums_artists WHERE album_id = #{@id};")
+    DB.exec("DELETE FROM albums_artists WHERE id_album = #{@id};")
+    DB.exec("DELETE FROM songs WHERE album_id = #{@id};")
     DB.exec("DELETE FROM albums WHERE id = #{@id};")
   end
 
   def songs
     Song.find_by_album id
+  end
+
+  private
+
+  def update_name(name)
+    @name = name
+    DB.exec("UPDATE albums SET name = '#{name}' WHERE id = #{@id};")
+  end
+
+  def add_artist(artist_name)
+  # TODO
   end
 end

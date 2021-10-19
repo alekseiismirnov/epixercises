@@ -46,7 +46,7 @@ describe '#Album' do
 
   describe '#==' do
     it 'albums with same names are equal' do
-      expect(Album.new(name: 'Blue') == Album.new(name: 'Blue')).to eq(true)
+      expect(Album.new(name: 'Blue')).to eq Album.new(name: 'Blue')
     end
   end
 
@@ -76,7 +76,7 @@ describe '#Album' do
       # does not update database, but this spec is from the textbook
       album = Album.new(name: 'Duck')
       album.save
-      album.update('Frog')
+      album.update(name: 'Frog')
       expect(album.name).to eq('Frog')
     end
   end
