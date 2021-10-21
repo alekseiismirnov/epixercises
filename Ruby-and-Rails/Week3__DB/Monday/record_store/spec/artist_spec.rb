@@ -31,12 +31,24 @@ describe Artist do
       expect(Artist.all).to match_array [@another_artist]
     end
 
-    it 'deletes correspondent associations with albums'
+    it 'deletes correspondent associations with albums' do
+      @artist.delete
+      expect(@album.artists).to eq []
+      expect(@another_album.artists).to eq [@another_artist]
+    end
   end
 
   describe '#clear' do
     before :each do
-      (1..10).each { |i| Artist.new(name: "Artist ##{i}").save }
+      (1..10).each do |i|
+        artist = Artist.new(name: "Artist ##{i}")
+        artist.save
+        (1..5).each do |j|
+          album = Album.new(name: "Album ##{j}")
+          album.save
+          artist.update(album_name: album.name)
+        end
+      end
     end
 
     it 'deletes all artists' do
@@ -45,7 +57,13 @@ describe Artist do
       expect(Artist.all).to eq []
     end
 
-    it 'deletes all associations with albums'
+    it 'deletes all associations with albums' do
+      Artist.clear
+
+      Album.all.each do |album|
+        expect(album.artists).to eq []
+      end
+    end
   end
 
   describe '#find' do

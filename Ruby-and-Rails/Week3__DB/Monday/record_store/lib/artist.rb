@@ -23,12 +23,13 @@ class Artist
 
   def self.clear
     DB.exec('DELETE FROM artists *;')
+    DB.exec('DELETE FROM albums_artists *;') # no artists no relations
   end
 
   def self.find(id)
-    record = DB.exec("SELECT * FROM ARTISTS WHERE id = #{id};")
-               .first
-    new(to_my_params(record))
+    DB.exec("SELECT * FROM ARTISTS WHERE id = #{id};")
+      .map { |record| new(to_my_params(record)) }
+      .first
   end
 
   def save

@@ -75,6 +75,12 @@ class Album
     Song.find_by_album id
   end
 
+  def artists
+    DB.exec("SELECT id_artist FROM albums_artists WHERE id_album = #{@id};")
+      .map { |record| record['id_artist'].to_i }
+      .map { |artist_id| Artist.find(artist_id) }
+  end
+
   private
 
   def update_name(name)
@@ -83,6 +89,6 @@ class Album
   end
 
   def add_artist(artist_name)
-  # TODO
+    # TODO
   end
 end
