@@ -84,11 +84,17 @@ class Album
   private
 
   def update_name(name)
-    @name = name
-    DB.exec("UPDATE albums SET name = '#{name}' WHERE id = #{@id};")
+    unless name.nil?
+      @name = name
+      DB.exec("UPDATE albums SET name = '#{name}' WHERE id = #{@id};")
+    end
   end
 
   def add_artist(artist_name)
-    # TODO
+    unless artist_name.nil?
+      DB.exec("SELECT id FROM artists WHERE artist_name = #{artist_name};")
+        .map { |result| DB.exec("INSERT INTO albums_artists (id_album, id_artist) VALUES (#{@id}, #{result['id']};") }
+        .first
+    end
   end
 end
