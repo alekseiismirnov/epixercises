@@ -6,7 +6,7 @@ class Artist
 
   def initialize(params)
     @name = params[:name]
-    @id |= params[:id]
+    @id ||= params[:id]
   end
 
   def self.all

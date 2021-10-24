@@ -18,6 +18,7 @@ class Album
 
   def self.clear
     DB.exec('DELETE FROM albums *;')
+    DB.exec('DELETE FROM albums_artists *;')
   end
 
   def self.find(id)
@@ -35,7 +36,7 @@ class Album
 
   def self.all_sold
     DB.exec('SELECT * FROM albums WHERE sold = true;').map do |record|
-      Album.new(id: record['id'], name: record['name'])
+      Album.new(id: record['id'].to_i, name: record['name'])
     end
   end
 

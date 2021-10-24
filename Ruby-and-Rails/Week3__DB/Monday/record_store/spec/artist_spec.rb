@@ -72,7 +72,7 @@ describe Artist do
       @artists.each(&:save)
     end
 
-    it 'finds album by its id' do
+    it 'finds artist by id' do
       @artists.each do |artist|
         expect(Artist.find(artist.id)).to eq artist
       end
