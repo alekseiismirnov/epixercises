@@ -126,3 +126,11 @@ delete '/albums/:id/songs/:song_id' do
   @songs = @album.songs
   erb :album
 end
+
+get '/artists' do
+  'Hello World'
+end
+
+get '/artists/:id' do
+  "Hello #{params[:id]}"
+end
