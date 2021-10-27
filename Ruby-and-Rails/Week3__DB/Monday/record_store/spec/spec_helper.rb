@@ -8,6 +8,10 @@ require 'album'
 require 'song'
 require 'artist'
 
+require './app'
+require 'capybara/rspec'
+require 'sinatra'
+
 # Shared code for clearing tests between runs and connecting to the DB will also go here
 
 DB = PG.connect(dbname: 'record_store_test')

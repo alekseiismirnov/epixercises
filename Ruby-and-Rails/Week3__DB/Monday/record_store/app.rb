@@ -128,7 +128,9 @@ delete '/albums/:id/songs/:song_id' do
 end
 
 get '/artists' do
-  'Hello World'
+  @artists = Artist.all.map(&:to_json)
+
+  erb :artists
 end
 
 get '/artists/:id' do

@@ -1,0 +1,15 @@
+<h1>Artists</h1>
+
+<% if @artists.any? %>
+<div class="artists">
+  <% @artists.each do |artist| %>
+    <div class="artist">
+      <%= artist[:name] %>
+    </div>
+  <% end %>
+</div>
+<% else %>
+<div class="nothing">
+  Nobody to show
+</div>
+<% end %>

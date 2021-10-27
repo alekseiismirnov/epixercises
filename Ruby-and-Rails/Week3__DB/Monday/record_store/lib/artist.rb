@@ -57,6 +57,13 @@ class Artist
     name == other.name
   end
 
+  def to_json
+    {
+      id: id,
+      name: name
+    }
+  end
+
   private
 
   def update_name(new_name)
