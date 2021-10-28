@@ -4,7 +4,9 @@
 <div class="artists">
   <% @artists.each do |artist| %>
     <div class="artist">
-      <%= artist[:name] %>
+      <a href="/artists/<%=artist[:id]%>">
+        <%=artist[:name]%>
+      </a>
     </div>
   <% end %>
 </div>

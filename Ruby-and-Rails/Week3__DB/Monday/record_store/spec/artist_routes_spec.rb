@@ -21,12 +21,26 @@ describe('GET routes for Artis', type: :feature) do
       within('.artists') do
         expect(all('.artist').map(&:text)).to match_array Artist.all.map(&:name)
       end
+      within('.artists') do
+        all('.artist').map(&:text).each do |name|
+          click_on name
+
+          expect(page.status_code).to eq 200
+          visit '/artists'
+        end
+      end
     end
 
     it 'allow to retrieve a single instance' do
-      visit '/artists/20'
+      Artist.all.each do |artist|
+        visit "/artists/#{artist.id}"
 
-      expect(page.status_code).to eq 200
+        expect(page.status_code).to eq 200
+        expect(find('h1').text).to eq artist.name
+        within('.albums') do
+          expect(all('.album').map(&:text)).to match_array Album.all.map(&:name)
+        end
+      end
     end
   end
 end

@@ -82,6 +82,13 @@ class Album
       .map { |artist_id| Artist.find(artist_id) }
   end
 
+  def to_json
+    {
+      id: @id,
+      name: @name
+    }
+  end
+
   private
 
   def update_name(name)

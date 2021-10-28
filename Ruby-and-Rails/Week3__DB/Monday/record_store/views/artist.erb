@@ -1,0 +1,9 @@
+<h1><%=@artist[:name]%></h1>
+
+<div class="albums">
+  <% @albums.each do |album| %>
+    <div class="album">
+      <%= album[:name] %>
+    </div>
+  <% end %>
+</div>

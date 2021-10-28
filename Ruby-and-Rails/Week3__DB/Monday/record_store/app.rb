@@ -134,5 +134,10 @@ get '/artists' do
 end
 
 get '/artists/:id' do
-  "Hello #{params[:id]}"
+  artist = Artist.find(params[:id].to_i)
+
+  @artist = artist.to_json
+  @albums = artist.albums.map(&:to_json)
+  
+  erb :artist
 end
