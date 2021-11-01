@@ -7,6 +7,7 @@ require 'sinatra/reloader'
 
 require './lib/album.rb'
 require './lib/song.rb'
+require './lib/artist.rb'
 
 also_reload 'lib/**/*.rb'
 
@@ -133,11 +134,22 @@ get '/artists' do
   erb :artists
 end
 
+get '/artists/new' do
+  erb :new_artist
+end
+
 get '/artists/:id' do
   artist = Artist.find(params[:id].to_i)
 
   @artist = artist.to_json
   @albums = artist.albums.map(&:to_json)
-  
+
   erb :artist
+end
+
+post '/artists' do
+  Artist.new(name: params[:artists_name])
+        .save
+        
+  redirect '/artists'
 end
