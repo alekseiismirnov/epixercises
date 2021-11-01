@@ -6,9 +6,15 @@
     <input name="artists_name" type="text" class="form_control">
     <button type="submit" class="btn">Update!</button>
   </form>
-  <% @albums.each do |album| %>
-    <div class="album">
-      <%= album[:name] %>
-    </div>
-  <% end %>
+
+  <form action="/artists/<%=@artist[:id]%>" method="post">
+    <input type="hidden" name="_method" value="delete">
+    <button type="submit" class="btn">Delete!</delete>
+  </form>
+</form>
+<% @albums.each do |album| %>
+  <div class="album">
+    <%= album[:name] %>
+  </div>
+<% end %>
 </div>

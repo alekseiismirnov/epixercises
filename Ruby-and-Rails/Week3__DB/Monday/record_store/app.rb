@@ -160,3 +160,10 @@ patch '/artists/:id' do
 
   redirect '/artists'
 end
+
+delete '/artists/:id' do
+  Artist.find(params[:id].to_i)
+       .delete
+
+  redirect '/artists'
+end
