@@ -150,6 +150,13 @@ end
 post '/artists' do
   Artist.new(name: params[:artists_name])
         .save
-        
+
+  redirect '/artists'
+end
+
+patch '/artists/:id' do
+  Artist.find(params[:id].to_i)
+        .update(name: params[:artists_name])
+
   redirect '/artists'
 end
