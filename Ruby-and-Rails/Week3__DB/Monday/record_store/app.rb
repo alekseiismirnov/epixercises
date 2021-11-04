@@ -69,7 +69,8 @@ end
 
 patch '/albums/:id' do
   @album = Album.find(params[:id].to_i)
-  @album.update(params[:name])
+
+  @album.update(name: params[:name])
 
   @albums = Album.all
   @albums_sold = Album.all_sold

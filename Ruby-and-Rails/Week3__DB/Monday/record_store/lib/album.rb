@@ -101,7 +101,13 @@ class Album
   def add_artist(artist_name)
     unless artist_name.nil?
       DB.exec("SELECT id FROM artists WHERE artist_name = #{artist_name};")
-        .map { |result| DB.exec("INSERT INTO albums_artists (id_album, id_artist) VALUES (#{@id}, #{result['id']};") }
+        .map do |result|
+        DB.exec('INSERT INTO albums_artists (id_album, id_artist)'\
+          "VALUES (#{@id}, #{result['id']})"\
+          'WHERE NOT EXISTS'\
+          '(SELECT * FROM album_artists WHERE'\
+          "id_album=#{@id} AND id_artist=#{result['id']});")
+      end
         .first
     end
   end

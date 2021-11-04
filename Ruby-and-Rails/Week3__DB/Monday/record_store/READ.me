@@ -52,7 +52,10 @@ Refactoring
 ===========
 
 - Modify the update method so the same association can't show up in the join table multiple times. 
-  Hint: consider using PostgreSQL's EXISTS or try an upsert.
+  Hint: consider using PostgreSQL's EXISTS or try an upsert.  
+  Upsert need to alter table, but this secure it. EXISTS, or NOT EXISTS looks easier. 
+  - Artist#add_artist
+  - Album#add_album
 
 - When trying to make an association between an Artist and an Album that doesn't exist, 
   create the Album instance instead.
