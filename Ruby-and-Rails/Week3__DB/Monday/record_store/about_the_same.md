@@ -4,7 +4,7 @@ Consider to Merge
 Database Level
 --------------
 
-[] Artist#add_artist & Album#add_album
+= [ ] Artist#add_artist & Album#add_album
 
 * They do virtually the same.  
 * There is a task for refactor them.
@@ -13,7 +13,7 @@ Database Level
 Contra:
 
 * Should be definded in a separate lib.
-  Probably it's a good idea, to make separate db layer, but I don't asked.
+  Probably it's a good idea, to make separate db layer, but I'm not asked.
 
 Methaprogramming or So
 ----------------------

@@ -1,20 +1,30 @@
 <h1><%=@artist[:name]%></h1>
-<div class="albums">
-  <form action="/artists/<%=@artist[:id]%>" method="post">
-    <input name="_method" type="hidden" value="patch">
-    <label for="artists_name">Change Artist Name</label>
-    <input name="artists_name" type="text" class="form_control">
-    <button type="submit" class="btn">Update!</button>
-  </form>
 
-  <form action="/artists/<%=@artist[:id]%>" method="post">
-    <input type="hidden" name="_method" value="delete">
-    <button type="submit" class="btn">Delete!</delete>
-  </form>
+<form action="/artists/<%=@artist[:id]%>" method="post">
+  <input type="hidden" name="_method" value="delete">
+  <button type="submit" class="btn">Delete!</button>
 </form>
-<% @albums.each do |album| %>
-  <div class="album">
-    <%= album[:name] %>
-  </div>
-<% end %>
+
+<form action="/artists/<%=@artist[:id]%>" method="post">
+  <input name="_method" type="hidden" value="patch">
+  <label for="artists_name">Change Artist Name</label>
+  <input name="artists_name" type="text" class="form_control">
+  <button type="submit" class="btn">Update!</button>
+</form>
+
+<div class="albums">
+  <h2>Albums</h2>
+  
+  <% @albums.each do |album| %>
+    <div class="album">
+      <%= album[:name] %>
+    </div>
+  <% end %>
+
+  <form class="add_album" action="/artists/<%=@artist[:id]%>/add_album" method="post">
+    <input name="_method" type="hidden" value="patch">
+    <label for="album_name">Add album</label>
+    <input name="album_name" type="text" class="form_control">
+    <button type="submit" class="btn">Go!</button>
+  </form>
 </div>

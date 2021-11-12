@@ -34,7 +34,7 @@ Routes for Artist
 =================
 
 CRUD:
-- tests:
++ tests:
   + GET /artists
   + GET /artist/:id 
   + POST /artists
@@ -51,14 +51,17 @@ Views:
 Refactoring
 ===========
 
-- Modify the update method so the same association can't show up in the join table multiple times. 
++ Modify the update method so the same association can't show up in the join table multiple times. 
   Hint: consider using PostgreSQL's EXISTS or try an upsert.  
   Upsert need to alter table, but this secure it. EXISTS, or NOT EXISTS looks easier. 
-  - Artist#add_artist
-  - Album#add_album
+  + Artist#add_artist
+  + Album#add_album
 
-- When trying to make an association between an Artist and an Album that doesn't exist, 
-  create the Album instance instead.
+- When trying to make an association between an Artist and an Album 
+  that doesn't exist, create the Album instance instead. 
+  Add: 
+    - tests
+    - back and front end feature to add an album by its name
 
 - Update Artist#albums so it doesn't use an n+1 query. 
   Consider looking at the optional join statement lesson in tonight's homework for a potential solution.
@@ -66,3 +69,9 @@ Refactoring
 - Come up with a solution to deal with the possibility that 
   there might be multiple instances of Album with the same name. 
   How could a user properly associate the correct Album with an Artist?
+
+  Use unique ID, for example https://musicbrainz.org/doc/MusicBrainz_Identifier
+  We can pretend, just for make a proof of concept, that an album ID is it.
+  - in a case of a multiple instance of Album 
+    redirect to the page, whith the list of the same name albums 
+    alonside with their ID's.

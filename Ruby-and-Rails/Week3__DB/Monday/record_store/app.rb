@@ -13,14 +13,8 @@ also_reload 'lib/**/*.rb'
 
 DB = PG.connect(dbname: 'record_store')
 
-error 404 do
-  'There is nothing here'
-end
-
 get '/' do
-  @albums = Album.sort
-  @albums_sold = Album.all_sold
-  erb :albums
+  redirect '/albums'
 end
 
 get '/albums' do
@@ -164,7 +158,17 @@ end
 
 delete '/artists/:id' do
   Artist.find(params[:id].to_i)
-       .delete
+        .delete
 
   redirect '/artists'
+end
+
+patch '/artists/:id/add_album' do
+  id = params[:id].to_i
+  album_name = params[:album_name]
+
+  artist = Artist.find id
+  artist.update(album_name: album_name)
+
+  redirect "/artists/#{id}"
 end

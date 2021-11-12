@@ -77,7 +77,10 @@ class Artist
     unless album_name.nil?
       album_id = DB.exec("SELECT id FROM albums WHERE name = '#{album_name}';")
                    .first['id'].to_i
-      DB.exec "INSERT INTO albums_artists (id_album, id_artist) VALUES (#{album_id}, #{id});"
+
+      unless albums.map(&:id).any? album_id # inefficient, but works
+        DB.exec "INSERT INTO albums_artists (id_album, id_artist) VALUES (#{album_id}, #{id});"
+      end
     end
   end
 end
