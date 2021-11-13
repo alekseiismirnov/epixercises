@@ -75,8 +75,12 @@ class Artist
 
   def add_album(album_name)
     unless album_name.nil?
-      album_id = DB.exec("SELECT id FROM albums WHERE name = '#{album_name}';")
-                   .first['id'].to_i
+      album_record = DB.exec("SELECT id FROM albums WHERE name = '#{album_name}';").first
+      album_id = if album_record.nil?
+                   Album.new(name: album_name).save
+                 else
+                   album_record['id'].to_i
+                 end
 
       unless albums.map(&:id).any? album_id # inefficient, but works
         DB.exec "INSERT INTO albums_artists (id_album, id_artist) VALUES (#{album_id}, #{id});"
