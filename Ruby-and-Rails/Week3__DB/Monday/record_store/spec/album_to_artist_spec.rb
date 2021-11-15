@@ -25,9 +25,9 @@ describe('Add album to artist', type: :feature) do
 
   context 'by its name' do
     context 'add one of the existing album' do
-      it 'one time' do
+      it 'only one time' do
+        artist = Artist.all[5]
         5.times do
-          artist = Artist.all[5]
           visit "/artists/#{artist.id}"
 
           within('.add_album') do
@@ -36,13 +36,15 @@ describe('Add album to artist', type: :feature) do
           end
         end
 
+        visit "/artists/#{artist.id}"
+
         within('.albums') do
           expect(all('.album').map(&:text)).to match_array ['Album #1']
         end
       end
     end
 
-    it 'is add a name of non-existent album' do 
+    it 'is add a name of non-existent album' do
       artist = Artist.all[3]
       new_name = 'Album that does not exist'
 
@@ -58,6 +60,7 @@ describe('Add album to artist', type: :feature) do
 
     it 'gives a list of id-album list in a case of non-unique name' do
       name = 'Album #22' # There are 3 albums with this name
+      ids_names = Album.search(name: name).map { |album| "#{album.id} #{album.name}"}
       artist = Artist.all[4]
 
       visit "/artists/#{artist.id}"
@@ -70,7 +73,7 @@ describe('Add album to artist', type: :feature) do
 
       albums_records = all('.album')
 
-      expect(albums_records.length).to eq 3
+      expect(albums_records.map(&:text)).to match_array ids_names
     end
   end
 end

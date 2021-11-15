@@ -43,9 +43,13 @@ class Artist
   end
 
   def albums
-    DB.exec("SELECT id_album FROM albums_artists WHERE id_artist = #{@id};")
-      .map { |record| DB.exec("SELECT * FROM albums WHERE id = #{record['id_album'].to_i};") }
-      .map { |result| Album.new(Album.to_my_params(result.first)) }
+    DB.exec('SELECT id_album AS id, '\
+            'name, sold '\
+            'FROM albums '\
+            'JOIN albums_artists '\
+            'ON (albums_artists.id_album = albums.id) '\
+            "WHERE id_artist = #{@id};")
+      .map { |result| Album.new(Album.to_my_params(result)) }
   end
 
   def delete
