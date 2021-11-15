@@ -166,9 +166,14 @@ end
 patch '/artists/:id/add_album' do
   id = params[:id].to_i
   album_name = params[:album_name]
-
   artist = Artist.find id
-  artist.update(album_name: album_name)
 
-  redirect "/artists/#{id}"
+  @albums = Album.search(name: album_name).map(&:to_json)
+
+  if @albums.length < 2
+    artist.update(album_name: album_name)
+    redirect "/artists/#{id}"
+  else
+    erb :some_albums
+  end
 end

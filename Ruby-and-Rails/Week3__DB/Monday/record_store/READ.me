@@ -66,12 +66,12 @@ Refactoring
 - Update Artist#albums so it doesn't use an n+1 query. 
   Consider looking at the optional join statement lesson in tonight's homework for a potential solution.
 
-- Come up with a solution to deal with the possibility that 
++ Come up with a solution to deal with the possibility that 
   there might be multiple instances of Album with the same name. 
   How could a user properly associate the correct Album with an Artist?
 
   Use unique ID, for example https://musicbrainz.org/doc/MusicBrainz_Identifier
   We can pretend, just for make a proof of concept, that an album ID is it.
-  - in a case of a multiple instance of Album 
+  + in a case of a multiple instance of Album 
     redirect to the page, whith the list of the same name albums 
     alonside with their ID's.

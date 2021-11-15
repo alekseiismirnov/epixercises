@@ -26,8 +26,8 @@ describe '#Album' do
       album.save
       album2.save
 
-      expect(Album.search(name: 'Dream')).to eq(album)
-      expect(Album.search(name: 'False')).to eq(nil)
+      expect(Album.search(name: 'Dream')).to eq([album])
+      expect(Album.search(name: 'False')).to eq([])
     end
   end
 
@@ -93,7 +93,7 @@ describe '#Album' do
       (1..5).to_a.map(&:to_s).each do |name|
         Album.new(name: name).save
       end
-      album = Album.search(name: '3')
+      album = Album.search(name: '3').first
       album.sold
       expect(Album.all.none?(album)).to be(true)
     end
@@ -102,7 +102,7 @@ describe '#Album' do
       (1..5).to_a.map(&:to_s).each do |name|
         Album.new(name: name).save
       end
-      album = Album.search(name: '3')
+      album = Album.search(name: '3').first
       album.sold
       expect(Album.all_sold.any?(album)).to be(true)
     end

@@ -1,0 +1,16 @@
+<% if @albums.any? %>
+  <ul>
+    <% @albums.each do |album| %>
+      <div class="album">
+        <li>
+          <%= album[:id] %>
+          <a href="/albums/<%= album[:id] %>">
+            <%= album[:name] %>
+          </a>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+<% else %>
+  <p>Nothing to show</p>
+<% end %>

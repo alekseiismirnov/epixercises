@@ -27,7 +27,7 @@ class Album
   end
 
   def self.search(params)
-    Album.all.find { |album| album.name == params[:name] }
+    Album.all.select { |album| album.name == params[:name] }
   end
 
   def self.sort
