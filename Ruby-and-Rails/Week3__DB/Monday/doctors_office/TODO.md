@@ -1,0 +1,65 @@
+# Doctor's Office #
+
+## Overview ##
+
+This program is for office administrators to track patients in a doctor's office.
+
+Here are some user stories to get started:
+
+- [ ] As an administrator, I want to add a doctor to the database with a name and specialty.
+- [ ] As an administrator, I want to add a patient with their name and birthdate.
+- [ ] As an administrator, I want to be able to assign a patient to a doctor for care. \
+      (Hint: Doctors will have a **one-to-many** relationship with their patients.)
+- [ ] As a doctor, I want to see the list of patients that have been assigned to me.
+
+Now the doctor's office has been grown to include many doctors with the same specialty.
+The doctors have organized themselves into specialty groups.
+
+- [ ] So when an administrator wants to enter a doctor,
+      they must first select a specialty group and then add a doctor.
+
+- [ ] As a patient, I want to see a list of all the doctors in a particular specialty. A doctor will only have one specialty.
+(Hint: change from storing specialty as a column to making a specialties table.)
+
+- [ ] As an administrator, I want to view an alphabetical list of doctors 
+      including the number of patients they see. 
+      (Hint: Do some online research for SQL ORDERing and COUNTing.)
+
+## Required ##
+
+- [ ] Database  
+- [ ] Tests for classes and classes iself
+- [ ] Integration tests
+- [ ] Views and routes
+
+### Databse ###
+
+- [ ] Tables for text and production
+  - doctors: name, speciality
+  - patients: name, birthdate, id_doctor
+
+### Backend tests and classes iself ###
+
+- [ ] CRUD functionality
+- [ ] Doctor - patient interaction
+  - assign
+
+### Integration tests with Views and routes ###
+
+#### Initial version ####
+
+- [ ] Administrator
+  - [ ] Create a doctor
+  - [ ] Create a patient
+  - [ ] Assign a patient to a doctor
+- [ ] Doctor
+  - [ ] To list the patients, assigned to the doctor 
+
+#### Version for The Grown Office ####
+
+- [ ] Change from storing specialty as a column to making a specialties table
+- [ ] Patient
+  - [ ] To list doctors by speciality
+- [ ] Administrator
+  - [ ] Access adding a doctor page from the speciality group page
+  - [ ] To list alphabetically doctors along with the number of assigned patients
