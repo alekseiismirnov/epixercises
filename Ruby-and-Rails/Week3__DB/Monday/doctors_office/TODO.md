@@ -27,16 +27,33 @@ The doctors have organized themselves into specialty groups.
 
 ## Required ##
 
-- [ ] Database  
-- [ ] Tests for classes and classes iself
-- [ ] Integration tests
-- [ ] Views and routes
+- [x] Database - simple shell script
+- [ ] General class for models - might be challanging, see charter
+- [ ] Tests for classes and classes iself - m.b. would be no need to test REST functionality, having tested generall class and integration test
+- [ ] Integration tests - done, if we make all stubs
+- [ ] Views and routes - seems, done at the end
 
 ### Databse ###
 
-- [ ] Tables for text and production
-  - doctors: name, speciality
-  - patients: name, birthdate, id_doctor
+- [x] Tables for text and production
+  - **doctors**: name, speciality
+  - **patients**: name, birthdate, id_doctor
+
+### General class for models ###
+
+We can define operations for the list of fields and name of the table, all as symbols, stored in the class variables.  Descendanses can provide their own.
+
+It seems there will be problem with operation with the related models.
+
+Also, f.e. for the == operation we need to find out how to refer on members with their names given as symbols.
+
+- [ ] #save
+- [ ] .find
+- [ ] ==
+- [ ] .search
+- [ ] #update
+- [ ] #delete
+- [ ] #add another_model
 
 ### Backend tests and classes iself ###
 
