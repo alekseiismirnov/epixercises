@@ -29,6 +29,8 @@ The doctors have organized themselves into specialty groups.
 
 - [x] Database - simple shell script
 - [ ] General class for models - might be challanging, see charter
+      **Just to see, what will happen** Use all-strings results from DB.exec, as argument for 
+	constructors and do all conversion inside of them. 
 - [ ] Tests for classes and classes iself - m.b. would be no need to test REST functionality, having tested generall class and integration test
 - [ ] Integration tests - done, if we make all stubs
 - [ ] Views and routes - seems, done at the end
