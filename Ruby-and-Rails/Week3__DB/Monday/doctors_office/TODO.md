@@ -49,9 +49,9 @@ It seems there will be problem with operation with the related models.
 
 Also, f.e. for the == operation we need to find out how to refer on members with their names given as symbols.
 
-- [ ] #save
-- [ ] .find
-- [ ] ==
+- [x] #save
+- [x] .find
+- [ ] == we'll not compare id's
 - [ ] .search
 - [ ] #update
 - [ ] #delete

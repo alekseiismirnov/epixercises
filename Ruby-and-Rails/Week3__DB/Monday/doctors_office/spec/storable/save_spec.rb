@@ -29,10 +29,11 @@ end
 
 describe '#save' do
   before :all do
-    @id = Doctor.new(
+    @doctor = Doctor.new(
       name: 'Doctor',
       speciality: 'specialist'
-    ).save
+    )
+    @id = @doctor.save
   end
 
   it 'saves himself' do
@@ -40,5 +41,7 @@ describe '#save' do
 
     expect(doctor.name).to eq 'Doctor'
     expect(doctor.speciality).to eq 'specialist'
+
+    expect(doctor).to eq @doctor
   end
 end

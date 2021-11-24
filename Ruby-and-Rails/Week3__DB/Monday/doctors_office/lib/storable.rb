@@ -45,4 +45,11 @@ module Storable
                       " VALUES (#{values}) RETURNING id ;")
     @id = result.first['id'].to_i
   end
+
+  # jsut compare all stored fields, except id
+  def ==(other)
+    (self.class.columns - [:id]).map do |member|
+      send(member) == other.send(member)
+    end.all?
+  end
 end
