@@ -32,6 +32,17 @@ module Storable
 
       new(record) unless record.nil?
     end
+
+    # only one column in time search yet
+    def search(params)
+      search_by = columns.reject { |column| params[column].nil? }
+      column = search_by.first # only by one column yet
+
+      DB.exec(" SELECT #{columns.join(', ')} "\
+              " FROM #{table} "\
+              " WHERE #{column} = '#{params[column]}';")
+        .map { |record| new(record) }
+    end
   end
 
   def save
@@ -40,7 +51,7 @@ module Storable
     end
                  .join ', '
 
-    result = DB.exec("INSERT INTO  #{self.class.table} "\
+    result = DB.exec(" INSERT INTO  #{self.class.table} "\
                       " (#{self.class.columns.join(' ,')}) " \
                       " VALUES (#{values}) RETURNING id ;")
     @id = result.first['id'].to_i
@@ -48,7 +59,7 @@ module Storable
 
   # jsut compare all stored fields, except id
   def ==(other)
-    (self.class.columns - [:id]).map do |member|
+    self.class.columns.map do |member|
       send(member) == other.send(member)
     end.all?
   end

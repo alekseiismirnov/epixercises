@@ -21,16 +21,16 @@ The doctors have organized themselves into specialty groups.
 - [ ] As a patient, I want to see a list of all the doctors in a particular specialty. A doctor will only have one specialty.
 (Hint: change from storing specialty as a column to making a specialties table.)
 
-- [ ] As an administrator, I want to view an alphabetical list of doctors 
-      including the number of patients they see. 
+- [ ] As an administrator, I want to view an alphabetical list of doctors
+      including the number of patients they see.
       (Hint: Do some online research for SQL ORDERing and COUNTing.)
 
 ## Required ##
 
 - [x] Database - simple shell script
 - [ ] General class for models - might be challanging, see charter
-      **Just to see, what will happen** Use all-strings results from DB.exec, as argument for 
-	constructors and do all conversion inside of them. 
+      **Just to see, what will happen** Use all-strings results from DB.exec, as argument for
+ constructors and do all conversion inside of them.
 - [ ] Tests for classes and classes iself - m.b. would be no need to test REST functionality, having tested generall class and integration test
 - [ ] Integration tests - done, if we make all stubs
 - [ ] Views and routes - seems, done at the end
@@ -51,11 +51,19 @@ Also, f.e. for the == operation we need to find out how to refer on members with
 
 - [x] #save
 - [x] .find
-- [ ] == we'll not compare id's
-- [ ] .search
+- [x] == we'll not compare id's
+- [x] .search
 - [ ] #update
 - [ ] #delete
 - [ ] #add another_model
+
+#### Almost the same ####
+
+- How to add short attribute accessors to the members/columns?
+- Parametric arguments processing.  Along with check if we receive particular parameter.
+- How to set init in the Storable definition?  
+  - **Maybe make a function and call it from the initialize?** And then convert some members from the text to whatever.
+  - How to assing member, having its name?  Just in case, we have only getters.
 
 ### Backend tests and classes iself ###
 
@@ -72,7 +80,7 @@ Also, f.e. for the == operation we need to find out how to refer on members with
   - [ ] Create a patient
   - [ ] Assign a patient to a doctor
 - [ ] Doctor
-  - [ ] To list the patients, assigned to the doctor 
+  - [ ] To list the patients, assigned to the doctor
 
 #### Version for The Grown Office ####
 
