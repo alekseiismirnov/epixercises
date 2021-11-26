@@ -44,6 +44,12 @@ module Storable
               " WHERE #{column} = '#{params[column]}';")
         .map { |record| new(record) }
     end
+
+    def all
+      DB.exec(" SELECT #{columns.join(', ')} "\
+              " FROM #{table} ;")
+        .map { |record| new(record) }
+    end
   end
 
   def save
