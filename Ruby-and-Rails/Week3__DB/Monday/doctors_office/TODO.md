@@ -54,7 +54,7 @@ Also, f.e. for the == operation we need to find out how to refer on members with
 - [x] == we'll not compare id's
 - [x] .search
 - [x] #update
-- [ ] .all
+- [x] .all
 - [ ] #delete
 - [ ] #add another_model
 

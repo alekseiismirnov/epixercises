@@ -27,7 +27,7 @@ module Storable
     end
 
     def find(id)
-      record = DB.exec("SELECT #{columns.join(', ')} "\
+      record = DB.exec("SELECT id, #{columns.join(', ')} "\
                 "FROM #{@table} "\
                 "WHERE id = #{id};").first
 
@@ -39,14 +39,14 @@ module Storable
       search_by = columns.reject { |column| params[column].nil? }
       column = search_by.first # only by one column yet
 
-      DB.exec(" SELECT #{columns.join(', ')} "\
+      DB.exec(" SELECT id, #{columns.join(', ')} "\
               " FROM #{table} "\
               " WHERE #{column} = '#{params[column]}';")
         .map { |record| new(record) }
     end
 
     def all
-      DB.exec(" SELECT #{columns.join(', ')} "\
+      DB.exec(" SELECT id, #{columns.join(', ')} "\
               " FROM #{table} ;")
         .map { |record| new(record) }
     end
@@ -80,5 +80,10 @@ module Storable
     # We have to set instance variables anyhow,
     # so why bother with another SQL expression
     save
+  end
+
+  def delete
+    DB.exec(" DELETE FROM #{self.class.table} "\
+            " WHERE id = #{@id}; ")
   end
 end
