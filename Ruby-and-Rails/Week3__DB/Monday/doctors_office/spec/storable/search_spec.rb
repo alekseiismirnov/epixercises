@@ -16,7 +16,6 @@ class Doctor
     @id = params[:id] if params[:id]
     @name = params[:name] if params[:name]
     @speciality = params[:speciality] if params[:speciality]
-
   end
 end
 

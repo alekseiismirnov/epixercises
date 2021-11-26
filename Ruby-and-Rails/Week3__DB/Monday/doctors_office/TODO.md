@@ -53,17 +53,24 @@ Also, f.e. for the == operation we need to find out how to refer on members with
 - [x] .find
 - [x] == we'll not compare id's
 - [x] .search
-- [ ] #update
+- [x] #update
 - [ ] #delete
 - [ ] #add another_model
 
 #### Almost the same ####
 
+Things, probably could be defined ones.
+
 - How to add short attribute accessors to the members/columns?
 - Parametric arguments processing.  Along with check if we receive particular parameter.
-- How to set init in the Storable definition?  
+- How to set init in the Storable definition? There is a major problem: derivative class initializer should accept particular argument - hash with string keys, JSON style.
   - **Maybe make a function and call it from the initialize?** And then convert some members from the text to whatever.
-  - How to assing member, having its name?  Just in case, we have only getters.
+  - How to assing member, having its name as symbols?  Just in case, we have only getters.
+- Select for which member/column we get data:
+
+```ruby
+  columns.reject { |column| params[column].nil? }
+```
 
 ### Backend tests and classes iself ###
 
@@ -90,3 +97,4 @@ Also, f.e. for the == operation we need to find out how to refer on members with
 - [ ] Administrator
   - [ ] Access adding a doctor page from the speciality group page
   - [ ] To list alphabetically doctors along with the number of assigned patients
+

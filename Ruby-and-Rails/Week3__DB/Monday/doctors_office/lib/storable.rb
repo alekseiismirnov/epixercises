@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 # column names in table named same as correspondent members
+# FIXME initializer should accept hash argument with string keys
 module Storable
   class << self
     def included(base)
@@ -57,10 +58,21 @@ module Storable
     @id = result.first['id'].to_i
   end
 
-  # jsut compare all stored fields, except id
+  # just compare all stored fields, except id
   def ==(other)
     self.class.columns.map do |member|
       send(member) == other.send(member)
     end.all?
+  end
+
+  def update(params)
+    update_by = self.class.columns.reject { |column| params[column].nil? }
+    update_by.each do |column|
+      member_refer = ('@' + column.to_s).to_sym
+      instance_variable_set(member_refer, params[column])
+    end
+    # We have to set instance variables anyhow,
+    # so why bother with another SQL expression
+    save
   end
 end
