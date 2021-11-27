@@ -3,6 +3,7 @@
 require 'linguistics'
 Linguistics.use :en # for the table naming
 
+# class name have to correspond to the 
 module Related
   class << self
     def included(base)
@@ -19,7 +20,7 @@ module Related
     def name_relation_table(table_name)
       [
         name.to_s.downcase.en.plural,
-        table_name.to_s.en.plural
+        table_name.to_s
       ].sort.join('_').to_sym
     end
   end

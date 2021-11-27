@@ -6,7 +6,7 @@ require_relative '../spec_helper.rb'
 class Doctor
   include Related
 
-  assign_related :patient
+  assign_related :patients
 
   attr_reader :id, :name, :speciality
 
@@ -27,7 +27,7 @@ describe '.assign_related' do
       end
     end
 
-    expect(Doctor.related_tables).to match_array [:patient]
+    expect(Doctor.related_tables).to match_array [:patients]
     expect(Doctor.relation_tables).to match_array [:doctors_patients]
   end
 end
