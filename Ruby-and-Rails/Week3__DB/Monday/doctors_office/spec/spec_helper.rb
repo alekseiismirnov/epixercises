@@ -8,6 +8,7 @@ require 'capybara/rspec'
 require 'sinatra'
 
 require 'storable'
+require 'related'
 
 # Shared code for clearing tests between runs and connecting to the DB will also go here
 

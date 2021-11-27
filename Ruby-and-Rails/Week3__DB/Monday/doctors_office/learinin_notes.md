@@ -50,6 +50,16 @@ module ...
 end
 ```
 
+Send message:
+
+```public_send(symbolic_message_name, arguments)```
+
+Method missing:
+
+```def method_missing(method, *args, &block)```
+
+
+
 ## Question ##
 
 - Where to put type convertors from strings?  At call to .new or inside the constructor?

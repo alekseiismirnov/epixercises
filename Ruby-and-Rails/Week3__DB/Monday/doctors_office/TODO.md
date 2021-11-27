@@ -28,9 +28,7 @@ The doctors have organized themselves into specialty groups.
 ## Required ##
 
 - [x] Database - simple shell script
-- [ ] General class for models - might be challanging, see charter
-      **Just to see, what will happen** Use all-strings results from DB.exec, as argument for
- constructors and do all conversion inside of them.
+- [ ] General class for models - might be challanging. We'll use JSON style hashes from DB.exec, as argument for constructors and do all conversion inside of them.
 - [ ] Tests for classes and classes iself - m.b. would be no need to test REST functionality, having tested generall class and integration test
 - [ ] Integration tests - done, if we make all stubs
 - [ ] Views and routes - seems, done at the end
@@ -43,11 +41,7 @@ The doctors have organized themselves into specialty groups.
 
 ### General class for models ###
 
-We can define operations for the list of fields and name of the table, all as symbols, stored in the class variables.  Descendanses can provide their own.
-
-It seems there will be problem with operation with the related models.
-
-Also, f.e. for the == operation we need to find out how to refer on members with their names given as symbols.
+We can define operations for the list of fields and name of the table, all as symbols, stored in the class variables.  Descendanses can provide their own.  Actually done as mixin module ```Storable```.
 
 - [x] #save
 - [x] .find
@@ -55,10 +49,32 @@ Also, f.e. for the == operation we need to find out how to refer on members with
 - [x] .search
 - [x] #update
 - [x] .all
-- [ ] #delete
-- [ ] #add another_model
+- [x] #delete
+- [ ] #add_related object
 
-#### Almost the same ####
+#### Add Related Object ####
+
+For describing relation we can use another module, say ```Related```.  
+
+No distinction yet on type of relations, everything is stored in a separate table, like with many-to-many type of relation.
+
+We could call ```doctor.add_patient(patien)```.  Later we will need to establish doctors -- specialities relation, so we can't use generic function name, its name have to correspond to the related class.
+
+We need a table name and from a ```patient``` we need only an id.  
+
+Simple, but then we have to get all doctors patients and all doctors with the paritcular speciality...  
+
+##### Here is the problem #####
+
+We can get ids, we can have a related table, but we need a related class... So, seems it would look like this:
+
+- [ ] Somewhere, under the ~~rainbow~~ ```include Related``` will be a line ```assign_related :patient, :speciality```, from this one symbolic name we will make:
+- [ ] Relational table name.  Happily we already got a convention for such name: snake case, alphabeiticall order.
+- [ ] Function to add related object with apropriate name
+- [ ] Function to return all related objects
+  - [ ] We have to call somehow an apropriate constructor.
+
+#### Almost The Same ####
 
 Things, probably could be defined ones.
 
@@ -66,7 +82,7 @@ Things, probably could be defined ones.
 - Parametric arguments processing.  Along with check if we receive particular parameter.
 - How to set init in the Storable definition? There is a major problem: derivative class initializer should accept particular argument - hash with string keys, JSON style.
   - **Maybe make a function and call it from the initialize?** And then convert some members from the text to whatever.
-  - How to assing member, having its name as symbols?  Just in case, we have only getters.
+  - [x] How to assing member, having its name as symbols?  Just in case, we have only getters.
 - Select for which member/column we get data:
 
 ```ruby
@@ -98,4 +114,3 @@ Things, probably could be defined ones.
 - [ ] Administrator
   - [ ] Access adding a doctor page from the speciality group page
   - [ ] To list alphabetically doctors along with the number of assigned patients
-
