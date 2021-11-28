@@ -54,10 +54,20 @@ Send message:
 
 ```public_send(symbolic_message_name, arguments)```
 
-Method missing:
+Catch message with method missing:
 
-```def method_missing(method, *args, &block)```
+```ruby
+  def respond_to_missing?(method_name, *args, &block)
+    we_know_it?(method_name) || super
+  end
 
+  def method_missing(method_name, *args, &block)
+    super unless we_know_it? method_name
+    #TODO
+  end
+```
+
+Where to put it? And we really have to pass this call further, having other not defined in class calls.
 
 
 ## Question ##

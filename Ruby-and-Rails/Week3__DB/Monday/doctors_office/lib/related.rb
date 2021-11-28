@@ -13,15 +13,39 @@ module Related
 
   module ClassMethods
     def assign_related(*tables_names)
-      @related_tables = tables_names
-      @relation_tables = tables_names.map { |n| name_relation_table(n) }
+      @related_tables = tables_names.map(&:to_s)
     end
 
     def name_relation_table(table_name)
       [
-        name.to_s.downcase.en.plural,
-        table_name.to_s
-      ].sort.join('_').to_sym
+        name.downcase.en.plural,
+        table_name
+      ].sort.join('_')
     end
+
+    def we_know_it?(method_name)
+      related_tables.any? method_name
+    end
+  end
+
+  def respond_to_missing?(method_name, *args, &block)
+    self.class.we_know_it?(method_name.to_s) || super
+  end
+
+  def method_missing(method_name, *args, &block)
+    super unless self.class.we_know_it? method_name
+
+    #### We have only one such method, no need to went out :D ####
+    
+    raise NotImplemented
+  end
+
+  def add_related(related)
+    table = [
+      name.downcase.plural,
+      related.class.name.to_s.plural
+    ].sort.join('_')
+    #### TODO ####
+    raise NotImplemented
   end
 end

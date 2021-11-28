@@ -23,11 +23,15 @@ describe '.assign_related' do
   it 'adds related ' do
     class Doctor
       class << self
-        attr_reader :related_tables, :relation_tables
+        attr_reader :related_tables
       end
     end
 
-    expect(Doctor.related_tables).to match_array [:patients]
-    expect(Doctor.relation_tables).to match_array [:doctors_patients]
+    expect(Doctor.related_tables).to match_array ['patients']
+    expect(Doctor.name_relation_table('patients')).to eq 'doctors_patients'
+
+    doctor = Doctor.new(name: 'Name', speciality: 'specialist')
+    expect(doctor.respond_to?(:patients)).to be true
   end
 end
+
