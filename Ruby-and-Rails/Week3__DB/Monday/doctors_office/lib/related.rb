@@ -16,18 +16,27 @@ module Related
       @related_tables = tables_names.map(&:to_s)
     end
 
-    def name_relation_table(table_name)
+    def name_crosstable(other)
       [
         name.downcase.en.plural,
-        table_name
+        other.class.name.downcase.en.plural
       ].sort.join('_')
     end
 
     def we_know_it?(method_name)
-      related_tables.any? method_name
+      @related_tables.any? method_name
     end
   end
 
+  def column_names(other)
+    [
+      "id_#{self.class.name.downcase}",
+      "id_#{other.class.name.downcase}"
+    ].sort.join(', ')
+  end
+
+
+  
   def respond_to_missing?(method_name, *args, &block)
     self.class.we_know_it?(method_name.to_s) || super
   end
@@ -41,10 +50,10 @@ module Related
   end
 
   def add_related(related)
-    table = [
-      name.downcase.plural,
-      related.class.name.to_s.plural
-    ].sort.join('_')
+    table = self.class.name_crosstable(related.class.name.downcase.en.plural)
+
+    
+    DB.exec(" INSERT INTO #{table} ")
     #### TODO ####
     raise NotImplemented
   end

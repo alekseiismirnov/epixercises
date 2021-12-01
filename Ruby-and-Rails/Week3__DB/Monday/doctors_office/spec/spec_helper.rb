@@ -10,6 +10,9 @@ require 'sinatra'
 require 'storable'
 require 'related'
 
+require 'doctor'
+require 'patient'
+
 # Shared code for clearing tests between runs and connecting to the DB will also go here
 
 DB = PG.connect(dbname: 'doctors_office_test')

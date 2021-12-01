@@ -68,9 +68,9 @@ Simple, but then we have to get all doctors patients and all doctors with the pa
 
 We can get ids, we can have a related table, but we need a related class... So, seems it would look like this:
 
-- [ ] Somewhere, under the ~~rainbow~~ ```include Related``` will be a line ```assign_related :patient, :speciality```, from this one symbolic name we will make:
-- [ ] Relational table name.  Happily we already got a convention for such name: snake case, alphabeiticall order.
-- [ ] Function to add related object with apropriate name
+- [x] Somewhere, under the ~~rainbow~~ ```include Related``` will be a line ```assign_related :patient, :speciality```, from this one symbolic name we will make:
+- [x] Relational table name.  Happily we already got a convention for such name: snake case, alphabeiticall order.
+- [ ] Function to add related object with apropriate name.  It could be one function for all related types, having naming standards, we can rely on object class name in argument.
 - [ ] Function to return all related objects
   - [ ] We have to call somehow an apropriate constructor.
 
