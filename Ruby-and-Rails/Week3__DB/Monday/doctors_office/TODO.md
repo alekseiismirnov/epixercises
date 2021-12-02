@@ -28,10 +28,10 @@ The doctors have organized themselves into specialty groups.
 ## Required ##
 
 - [x] Database - simple shell script
-- [ ] General class for models - might be challanging. We'll use JSON style hashes from DB.exec, as argument for constructors and do all conversion inside of them.
-- [ ] Tests for classes and classes iself - m.b. would be no need to test REST functionality, having tested generall class and integration test
+- [x] General class for models - might be challanging. We'll use JSON style hashes from DB.exec, as argument for constructors and do all conversion inside of them.
+- [x] Tests for classes and classes iself - m.b. would be no need to test REST functionality, having tested generall class and integration test
 - [ ] Integration tests - done, if we make all stubs
-- [ ] Views and routes - seems, done at the end
+- [ ] Views and routes - done when all of them done.
 
 ### Databse ###
 
@@ -50,7 +50,7 @@ We can define operations for the list of fields and name of the table, all as sy
 - [x] #update
 - [x] .all
 - [x] #delete
-- [ ] #add_related object
+- [x] #add_related object and retrive
 
 #### Add Related Object ####
 
@@ -70,9 +70,9 @@ We can get ids, we can have a related table, but we need a related class... So, 
 
 - [x] Somewhere, under the ~~rainbow~~ ```include Related``` will be a line ```assign_related :patient, :speciality```, from this one symbolic name we will make:
 - [x] Relational table name.  Happily we already got a convention for such name: snake case, alphabeiticall order.
-- [ ] Function to add related object with apropriate name.  It could be one function for all related types, having naming standards, we can rely on object class name in argument.
-- [ ] Function to return all related objects
-  - [ ] We have to call somehow an apropriate constructor.
+- [x] Function to add related object with apropriate name.  It could be one function for all related types, having naming standards, we can rely on object class name in argument.
+- [x] Function to return all related objects
+  - [x] We have to call somehow an apropriate constructor.
 
 #### Almost The Same ####
 
@@ -89,11 +89,12 @@ Things, probably could be defined ones.
   columns.reject { |column| params[column].nil? }
 ```
 
+- Views and call to DB are terribly cumbersome, f/e ```Related#method_missing``` - select related.  Could it be done in more compact way?
+
 ### Backend tests and classes iself ###
 
-- [ ] CRUD functionality
-- [ ] Doctor - patient interaction
-  - assign
+- [x] CRUD functionality
+- [x] Doctor - patient interaction
 
 ### Integration tests with Views and routes ###
 

@@ -18,7 +18,7 @@ crete_db -T database_name database_name_test
 
 ### Methastuff ###
 
-Set instance variable by its symbol name: 
+Set instance variable by its symbol name:
 
 ```ruby
   instance_variable_set(:@name, "What Ever")
@@ -27,7 +27,7 @@ Set instance variable by its symbol name:
 Maybe there is less clumsy method to make it from the variable, but I don't know yet:
 
 ```ruby
-  member_ref = ('@' + member_name.to_s).to_sym
+  member_ref = "@#{member_name}".to_sym
 ```
 
 Create class methods from module:
@@ -67,8 +67,9 @@ Catch message with method missing:
   end
 ```
 
-Where to put it? And we really have to pass this call further, having other not defined in class calls.
+Check ```expect(doctor.respond_to?(:patients)).to be true```
 
+Get a class by its name: ```Object.const_get '<class name>'```
 
 ## Question ##
 

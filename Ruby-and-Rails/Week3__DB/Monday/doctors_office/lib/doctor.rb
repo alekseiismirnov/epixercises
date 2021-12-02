@@ -17,7 +17,7 @@ class Doctor
   def initialize(params)
     params = Hash[params.map { |k, v| [k.to_sym, v] }]
 
-    @id = params[:id] if params[:id]
+    @id = params[:id].to_i if params[:id]
     @name = params[:name] if params[:name]
     @speciality = params[:speciality] if params[:speciality]
   end

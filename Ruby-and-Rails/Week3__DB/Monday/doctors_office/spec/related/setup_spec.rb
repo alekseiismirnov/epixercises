@@ -9,6 +9,6 @@ describe '.assign_related' do
 
     doctor = Doctor.new(name: 'Whoknows')
     expect(doctor.respond_to?(:patients)).to be true
-    expect(doctor.column_names(Patient.new(name: 'Whatever'))).to eq 'id_doctor, id_patient'
+    expect(doctor.column_names(Patient.new(name: 'Whatever'))).to eq 'doctor_id, patient_id'
   end
 end

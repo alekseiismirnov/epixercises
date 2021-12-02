@@ -19,8 +19,9 @@ describe 'Relative' do
 
       @patients[1, 3].each { |patient| @doctor.add_related patient }
     end
-    xit '#<related> allows to get all of them' do
-      expect(@doctor.patiens).to match_array @patiens[1, 3]
+
+    it '#<related> allows to get all of them' do
+      expect(@doctor.patients).to match_array @patients[1, 3]
     end
   end
 end
