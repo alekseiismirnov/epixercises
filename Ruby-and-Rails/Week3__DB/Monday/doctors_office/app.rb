@@ -23,3 +23,16 @@ post '/doctors' do
   Doctor.new(name: name, speciality: speciality).save
   'stub'
 end
+
+get '/patients/new' do
+  @table = Patient.table
+  @fields = Patient.columns
+  erb :'storable/add'
+end
+
+post '/patients' do
+  name = params[:name]
+  birthdate = params[:birthdate]
+  Patient.new(name: name, birthdate: birthdate).save
+  'stub'
+end

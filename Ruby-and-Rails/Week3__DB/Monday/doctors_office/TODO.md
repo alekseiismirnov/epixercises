@@ -104,7 +104,7 @@ Things, probably could be defined ones.
   - [x] Create a doctor
     - [x] Test on backend, we were not asked for doctor/s page or so
     - [x] Universal create form...
-  - [ ] Create a patient
+  - [x] Create a patient
   - [ ] Assign a patient to a doctor
 - [ ] Doctor
   - [ ] To list the patients, assigned to the doctor
