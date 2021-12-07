@@ -87,3 +87,4 @@ module Storable
             " WHERE id = #{@id}; ")
   end
 end
+  

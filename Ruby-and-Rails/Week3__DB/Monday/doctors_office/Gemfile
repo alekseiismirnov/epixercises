@@ -7,3 +7,5 @@ gem 'sinatra'
 gem 'sinatra-contrib'
 gem 'capybara'
 gem 'linguistics'
+
+gem 'did_you_mean'

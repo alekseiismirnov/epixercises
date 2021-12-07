@@ -4,6 +4,8 @@ require 'rspec'
 require 'pg'
 require 'pry'
 
+require './app'
+
 require 'capybara/rspec'
 require 'sinatra'
 
@@ -24,3 +26,7 @@ RSpec.configure do |config|
     DB.exec('DELETE FROM doctors_patients *;')
   end
 end
+
+Capybara.app = Sinatra::Application
+
+Capybara.save_path = '~/tmp'

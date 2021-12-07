@@ -3,9 +3,6 @@
 require 'date'
 require_relative '../spec_helper.rb'
 
-require 'doctor'
-require 'patient'
-
 describe 'Relative' do
   context 'after adding to the object related ones' do
     before :each do

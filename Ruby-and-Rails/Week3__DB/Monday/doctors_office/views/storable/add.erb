@@ -1,0 +1,11 @@
+<form action="/<%=@table%>" method="post">
+  <div class="form-group form_new">
+    <% @fields.each do |field| %>
+    <div>
+      <label for="<%=field%>"><%=field.capitalize%></label>
+      <input name="<%=field%>" type="text">
+      </div>
+    <% end %>
+    <button type="submit" class="btn">Add</button>
+  </div>
+</form>

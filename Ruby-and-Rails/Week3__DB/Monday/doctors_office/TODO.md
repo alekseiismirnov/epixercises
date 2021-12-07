@@ -102,6 +102,8 @@ Things, probably could be defined ones.
 
 - [ ] Administrator
   - [ ] Create a doctor
+    - [ ] Test on backend, we were not asked for doctor/s page or so
+  - [?] Universal create form...
   - [ ] Create a patient
   - [ ] Assign a patient to a doctor
 - [ ] Doctor
@@ -112,6 +114,7 @@ Things, probably could be defined ones.
 - [ ] Change from storing specialty as a column to making a specialties table
 - [ ] Patient
   - [ ] To list doctors by speciality
+    - [?] Universal list ...
 - [ ] Administrator
   - [ ] Access adding a doctor page from the speciality group page
   - [ ] To list alphabetically doctors along with the number of assigned patients
