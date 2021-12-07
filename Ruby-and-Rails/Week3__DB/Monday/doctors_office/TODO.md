@@ -101,9 +101,9 @@ Things, probably could be defined ones.
 #### Initial version ####
 
 - [ ] Administrator
-  - [ ] Create a doctor
-    - [ ] Test on backend, we were not asked for doctor/s page or so
-  - [?] Universal create form...
+  - [x] Create a doctor
+    - [x] Test on backend, we were not asked for doctor/s page or so
+    - [x] Universal create form...
   - [ ] Create a patient
   - [ ] Assign a patient to a doctor
 - [ ] Doctor

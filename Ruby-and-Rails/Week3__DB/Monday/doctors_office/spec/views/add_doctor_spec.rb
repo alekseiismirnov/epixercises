@@ -15,7 +15,7 @@ describe('Adding a new doctor', type: :feature) do
         fill_in 'speciality', with: 'specialist #10'
         click_button 'Add'
       end
-save_and_open_page
+
       expect(page.status_code).to eq 200 # at least route is correct
 
       expect(Doctor.all.first).to eq Doctor.new(
