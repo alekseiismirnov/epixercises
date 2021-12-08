@@ -91,6 +91,10 @@ Things, probably could be defined ones.
 
 - Views and call to DB are terribly cumbersome, f/e ```Related#method_missing``` - select related.  Could it be done in more compact way?
 
+##### General Views #####
+
+We can make classes for representations.  Later, next project probably.
+
 ### Backend tests and classes iself ###
 
 - [x] CRUD functionality
@@ -106,6 +110,10 @@ Things, probably could be defined ones.
     - [x] Universal create form...
   - [x] Create a patient
   - [ ] Assign a patient to a doctor
+    - "Edit" page seems not to be a good place
+    - For the test purpose we can make a generally useless page with one field and button, just for the proof of the concept.
+    - We can add a doctor's id, not user friendly, but quick
+    - And check on the "update" page if it added, then assign
 - [ ] Doctor
   - [ ] To list the patients, assigned to the doctor
 

@@ -8,7 +8,7 @@ describe('Adding a new patient', type: :feature) do
       visit '/patients/new'
     end
 
-    it 'there is an appropriate form for new doctor record creation' do
+    it 'there is an appropriate form for new patient record creation' do
       expect(page.status_code).to eq 200
       within '.form_new' do
         fill_in 'name',	with: 'Any Body'

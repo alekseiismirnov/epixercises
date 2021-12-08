@@ -16,7 +16,7 @@ psql database_name < database_backup.sql
 crete_db -T database_name database_name_test
 ```
 
-### Methastuff ###
+### Metastuff ###
 
 Set instance variable by its symbol name:
 
@@ -73,7 +73,7 @@ Get a class by its name: ```Object.const_get '<class name>'```
 
 ## Question ##
 
-- Where to put type convertors from strings?  At call to .new or inside the constructor?
+- Where to put type convertors from strings?  At call to .new or inside the constructor?  Inside the constructor.
 
 - Check what we get, when we fetch non-string data from the DB.
 
@@ -81,9 +81,9 @@ Get a class by its name: ```Object.const_get '<class name>'```
 
 Seems not so long:
 
-- [ ] Ruby libs handling
+- Ruby libs handling.  Seems there will be recomendations for config later.
 - [x] Markdown. Just have a reference card would be enough.
 
 Long:
 
-- [ ] Ruby methaprogramming
+- [x] Ruby methaprogramming for make mixins.  Lot to learn more, but seems to be enoght for now.
