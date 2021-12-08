@@ -104,12 +104,12 @@ We can make classes for representations.  Later, next project probably.
 
 #### Initial version ####
 
-- [ ] Administrator
+- [x] Administrator
   - [x] Create a doctor
     - [x] Test on backend, we were not asked for doctor/s page or so
     - [x] Universal create form...
   - [x] Create a patient
-  - [ ] Assign a patient to a doctor
+  - [x] Assign a patient to a doctor
     - "Edit" page seems not to be a good place
     - For the test purpose we can make a generally useless page with one field and button, just for the proof of the concept.
     - We can add a doctor's id, not user friendly, but quick

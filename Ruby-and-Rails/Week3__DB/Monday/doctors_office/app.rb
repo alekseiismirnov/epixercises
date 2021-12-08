@@ -60,3 +60,15 @@ patch '/patient/:patient_id/assign_doctor' do
 
   'stub'
 end
+
+get '/doctors/:id/patients' do
+  id = params[:id].to_i
+  doctor = Doctor.find id
+
+  @items = doctor.patients.map(&:name)
+  @title = "Doctor #{doctor.name} patients"
+  @list_class = 'patients_list'
+  @item_class = 'patient'
+
+  erb :simple_list
+end
