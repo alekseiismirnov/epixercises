@@ -1,0 +1,11 @@
+An error occurred while loading ./spec/related/add_retrieve_spec.rb.
+An error occurred while loading ./spec/related/list_relative_spec.rb.
+An error occurred while loading ./spec/related/setup_spec.rb.
+An error occurred while loading ./spec/storable/all_spec.rb.
+An error occurred while loading ./spec/storable/delete_spec.rb.
+An error occurred while loading ./spec/storable/save_spec.rb.
+An error occurred while loading ./spec/storable/search_spec.rb.
+An error occurred while loading ./spec/storable/update_spec.rb.
+An error occurred while loading ./spec/views/add_doctor_spec.rb.
+An error occurred while loading ./spec/views/add_patient_spec.rb.
+An error occurred while loading ./spec/views/assign_patient_spec.rb.

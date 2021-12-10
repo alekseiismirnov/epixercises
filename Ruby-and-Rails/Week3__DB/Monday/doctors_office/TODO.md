@@ -90,6 +90,32 @@ Things, probably could be defined ones.
 ```
 
 - Views and call to DB are terribly cumbersome, f/e ```Related#method_missing``` - select related.  Could it be done in more compact way?
+- 
+- Classes ```Doctor```, ```Speciality```:
+  
+```ruby
+require_relative './storable.rb'
+require_relative './related.rb'
+
+class <<<Class_Name>>>
+  include Storable
+  include Related
+
+  assign_table :<<<table>>>
+  assign_columns %i[<<<columns names>>>]
+
+  assign_related :<<<related>>>
+
+  attr_reader :id, <<<* other attributes>>>
+
+  def initialize(params)
+    params = Hash[params.map { |k, v| [k.to_sym, v] }]
+
+    @id = params[:id].to_i if params[:id]
+    @<member> = params[:<<<member>>>] if params[:<<<member>>>]
+  end
+end
+```
 
 ##### General Views #####
 
@@ -114,12 +140,21 @@ We can make classes for representations.  Later, next project probably.
     - For the test purpose we can make a generally useless page with one field and button, just for the proof of the concept.
     - We can add a doctor's id, not user friendly, but quick
     - And check on the "update" page if it added, then assign
-- [ ] Doctor
-  - [ ] To list the patients, assigned to the doctor
+- [x] Doctor
+  - [x] To list the patients, assigned to the doctor
 
 #### Version for The Grown Office ####
 
 - [ ] Change from storing specialty as a column to making a specialties table
+  - [x] DB transition:
+    - [x] Make table 'specialities' with 'speciality' and 'doctor_id'. Remove column 'speciality' from 'doctors'
+    - [x] Modify tests.  There are 11 ones. **8 of them** only because of using one part of the code to test another one.  Actually ```Doctor``` class. See ```tests_fallen_after_specialities_transition.txt```.
+      - [x] Make ```Mocktor``` class and apropriate table. Only in test db obviously.
+      - [x] And ```Faketient``` and ```faketient_mocktor``` table
+      - [x] Change all tests for ```Storable``` and ```Related```.
+  - [ ] Add ```has_one``` relation to the ```Related```. ```Doctor#speciality``` already in use.
+  - [ ] Add speciality class
+  - [ ] Modify 'Doctor' class
 - [ ] Patient
   - [ ] To list doctors by speciality
     - [?] Universal list ...

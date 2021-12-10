@@ -10,13 +10,13 @@ describe '.all' do
       @length = @names.length
       @specialities = ('specialist 1'.."specialist #{@length}")
       @names.zip(@specialities).each do |n, s|
-        Doctor.new(name: n, speciality: s).save
+        Mocktor.new(name: n, speciality: s).save
       end
     end
 
     it 'retrieves all of them corectly' do
-      expect(Doctor.all).to match_array(@names.zip(@specialities).map do |n, s|
-                                          Doctor.new(name: n, speciality: s)
+      expect(Mocktor.all).to match_array(@names.zip(@specialities).map do |n, s|
+                                          Mocktor.new(name: n, speciality: s)
                                         end)
     end
   end

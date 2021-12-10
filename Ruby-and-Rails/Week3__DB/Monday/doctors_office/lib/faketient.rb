@@ -1,23 +1,19 @@
-# frozen_string_literal: true
-
+require 'date'
 require_relative './storable.rb'
-require_relative './related.rb'
 
-class Doctor
+class Faketient
   include Storable
-  include Related
 
-  assign_table :doctors
-  assign_columns %i[name]
+  assign_table :faketients
+  assign_columns %i[name birthdate]
 
-  assign_related :patients
-
-  attr_reader :id, :name
+  attr_reader :id, :name, :birthdate
 
   def initialize(params)
     params = Hash[params.map { |k, v| [k.to_sym, v] }]
 
     @id = params[:id].to_i if params[:id]
     @name = params[:name] if params[:name]
+    @birthdate = Date.parse(params[:birthdate]) if params[:birthdate]
   end
 end

@@ -5,7 +5,7 @@ require_relative '../spec_helper.rb'
 describe('List assigned patients', type: :feature) do
   context 'there is a doctor and some patients are assigned to' do
     before :each do
-      @doctor = Doctor.new(name: 'Free One', speciality: 'whatever')
+      @doctor = Doctor.new(name: 'Free One')
       @doctor.save
 
       @assigned_patients = ('Patient A'..'F').map { |name| Patient.new(name: name, birthdate: '3 Mar 1802') }

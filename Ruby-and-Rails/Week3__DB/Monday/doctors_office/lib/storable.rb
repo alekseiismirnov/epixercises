@@ -59,7 +59,7 @@ module Storable
                  .join ', '
 
     result = DB.exec(" INSERT INTO  #{self.class.table} "\
-                      " (#{self.class.columns.join(' ,')}) " \
+                      " (#{self.class.columns.join(', ')}) " \
                       " VALUES (#{values}) RETURNING id ;")
     @id = result.first['id'].to_i
   end

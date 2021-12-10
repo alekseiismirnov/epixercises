@@ -3,7 +3,6 @@
 require 'linguistics'
 Linguistics.use :en # for the table naming
 
-# class name have to correspond to the
 module Related
   class << self
     def included(base)

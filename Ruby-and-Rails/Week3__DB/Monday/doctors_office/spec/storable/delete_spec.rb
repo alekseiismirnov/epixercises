@@ -10,7 +10,7 @@ describe '#delete' do
       @length = @names.length
       @specialities = ('specialist 1'.."specialist #{@length}").to_a
       @ids = @names.zip(@specialities).map do |n, s|
-        Doctor.new(name: n, speciality: s).save
+        Mocktor.new(name: n, speciality: s).save
       end
     end
 
@@ -19,10 +19,10 @@ describe '#delete' do
       @names.delete_at index
       @specialities.delete_at index
 
-      Doctor.find(@ids[index]).delete
+      Mocktor.find(@ids[index]).delete
 
-      expect(Doctor.all).to match_array(@names.zip(@specialities).map do |n, s|
-                                          Doctor.new(name: n, speciality: s)
+      expect(Mocktor.all).to match_array(@names.zip(@specialities).map do |n, s|
+                                          Mocktor.new(name: n, speciality: s)
                                         end)
     end
   end

@@ -3,21 +3,21 @@
 require_relative './storable.rb'
 require_relative './related.rb'
 
-class Doctor
+class Speciality
   include Storable
   include Related
 
-  assign_table :doctors
-  assign_columns %i[name]
+  assign_table :speciality
+  assign_columns %i[speciality]
 
-  assign_related :patients
+  assign_related :doctors
 
-  attr_reader :id, :name
+  attr_reader :id, :speciality
 
   def initialize(params)
     params = Hash[params.map { |k, v| [k.to_sym, v] }]
 
     @id = params[:id].to_i if params[:id]
-    @name = params[:name] if params[:name]
+    @name = params[:speciality] if params[:speciality]
   end
 end

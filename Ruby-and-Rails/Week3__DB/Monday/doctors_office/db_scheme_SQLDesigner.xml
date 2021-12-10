@@ -38,7 +38,7 @@
       <type label="Bit" length="0" sql="bit" quote="" />
     </group>
   </datatypes>
-  <table x="116" y="218" name="doctors">
+  <table x="201" y="352" name="doctors">
     <row name="id" null="1" autoincrement="1">
       <datatype>INTEGER</datatype>
       <default>NULL</default>
@@ -47,15 +47,11 @@
       <datatype>VARCHAR</datatype>
       <default>NULL</default>
     </row>
-    <row name="speciality" null="1" autoincrement="0">
-      <datatype>VARCHAR</datatype>
-      <default>NULL</default>
-    </row>
     <key type="PRIMARY" name="">
       <part>id</part>
     </key>
   </table>
-  <table x="397" y="149" name="patients">
+  <table x="601" y="295" name="patients">
     <row name="id" null="1" autoincrement="1">
       <datatype>INTEGER</datatype>
       <default>NULL</default>
@@ -68,10 +64,56 @@
       <datatype>DATE</datatype>
       <default>NULL</default>
     </row>
-    <row name="id_doctor" null="1" autoincrement="0">
+    <key type="PRIMARY" name="">
+      <part>id</part>
+    </key>
+  </table>
+  <table x="402" y="501" name="doctors_specialities">
+    <row name="id" null="1" autoincrement="1">
+      <datatype>INTEGER</datatype>
+      <default>NULL</default>
+    </row>
+    <row name="speciality_id" null="1" autoincrement="0">
+      <datatype>INTEGER</datatype>
+      <default>NULL</default>
+      <relation table="specialities" row="id" />
+    </row>
+    <row name="doctor_id" null="1" autoincrement="0">
       <datatype>INTEGER</datatype>
       <default>NULL</default>
       <relation table="doctors" row="id" />
+    </row>
+    <key type="PRIMARY" name="">
+      <part>id</part>
+    </key>
+  </table>
+  <table x="601" y="452" name="specialities">
+    <row name="id" null="1" autoincrement="1">
+      <datatype>INTEGER</datatype>
+      <default>NULL</default>
+    </row>
+    <row name="speciality" null="1" autoincrement="0">
+      <datatype>VARCHAR</datatype>
+      <default>NULL</default>
+    </row>
+    <key type="PRIMARY" name="">
+      <part>id</part>
+    </key>
+  </table>
+  <table x="401" y="201" name="doctors_patients">
+    <row name="id" null="1" autoincrement="1">
+      <datatype>INTEGER</datatype>
+      <default>NULL</default>
+    </row>
+    <row name="doctor_id" null="1" autoincrement="0">
+      <datatype>INTEGER</datatype>
+      <default>NULL</default>
+      <relation table="doctors" row="id" />
+    </row>
+    <row name="patient_id" null="1" autoincrement="0">
+      <datatype>INTEGER</datatype>
+      <default>NULL</default>
+      <relation table="patients" row="id" />
     </row>
     <key type="PRIMARY" name="">
       <part>id</part>
