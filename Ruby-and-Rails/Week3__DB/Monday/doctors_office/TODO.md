@@ -6,16 +6,16 @@ This program is for office administrators to track patients in a doctor's office
 
 Here are some user stories to get started:
 
-- [ ] As an administrator, I want to add a doctor to the database with a name and specialty.
-- [ ] As an administrator, I want to add a patient with their name and birthdate.
-- [ ] As an administrator, I want to be able to assign a patient to a doctor for care. \
+- [x] As an administrator, I want to add a doctor to the database with a name and specialty.
+- [x] As an administrator, I want to add a patient with their name and birthdate.
+- [x] As an administrator, I want to be able to assign a patient to a doctor for care. \
       (Hint: Doctors will have a **one-to-many** relationship with their patients.)
-- [ ] As a doctor, I want to see the list of patients that have been assigned to me.
+- [x] As a doctor, I want to see the list of patients that have been assigned to me.
 
 Now the doctor's office has been grown to include many doctors with the same specialty.
 The doctors have organized themselves into specialty groups.
 
-- [ ] So when an administrator wants to enter a doctor,
+- [x] So when an administrator wants to enter a doctor,
       they must first select a specialty group and then add a doctor.
 
 - [ ] As a patient, I want to see a list of all the doctors in a particular specialty. A doctor will only have one specialty.
@@ -145,19 +145,19 @@ We can make classes for representations.  Later, next project probably.
 
 #### Version for The Grown Office ####
 
-- [ ] Change from storing specialty as a column to making a specialties table
+- [x] Change from storing specialty as a column to making a specialties table
   - [x] DB transition:
     - [x] Make table 'specialities' with 'speciality' and 'doctor_id'. Remove column 'speciality' from 'doctors'
     - [x] Modify tests.  There are 11 ones. **8 of them** only because of using one part of the code to test another one.  Actually ```Doctor``` class. See ```tests_fallen_after_specialities_transition.txt```.
       - [x] Make ```Mocktor``` class and apropriate table. Only in test db obviously.
       - [x] And ```Faketient``` and ```faketient_mocktor``` table
       - [x] Change all tests for ```Storable``` and ```Related```.
-  - [ ] Add ```has_one``` relation to the ```Related```. ```Doctor#speciality``` already in use.
-  - [ ] Add speciality class
-  - [ ] Modify 'Doctor' class
+  - [x] Add 'Speciality' class.
+  - [x] Add relation to the ```Doctror``` and ```Doctor#speciality```.  In fact, that last one is only ```#specialities.first.speciality```
+    - [?] ```Doctor#speciality``` setter
 - [ ] Patient
   - [ ] To list doctors by speciality
     - [?] Universal list ...
 - [ ] Administrator
-  - [ ] Access adding a doctor page from the speciality group page
+  - [x] Add a doctor from the speciality group page
   - [ ] To list alphabetically doctors along with the number of assigned patients

@@ -10,7 +10,7 @@ class Doctor
   assign_table :doctors
   assign_columns %i[name]
 
-  assign_related :patients
+  assign_related :patients, :specialities
 
   attr_reader :id, :name
 
@@ -19,5 +19,9 @@ class Doctor
 
     @id = params[:id].to_i if params[:id]
     @name = params[:name] if params[:name]
+  end
+
+  def speciality
+    specialities.first.speciality
   end
 end

@@ -7,7 +7,7 @@ class Speciality
   include Storable
   include Related
 
-  assign_table :speciality
+  assign_table :specialities
   assign_columns %i[speciality]
 
   assign_related :doctors
@@ -18,6 +18,6 @@ class Speciality
     params = Hash[params.map { |k, v| [k.to_sym, v] }]
 
     @id = params[:id].to_i if params[:id]
-    @name = params[:speciality] if params[:speciality]
+    @speciality = params[:speciality] if params[:speciality]
   end
 end

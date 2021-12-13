@@ -1,0 +1,10 @@
+<h1><%=@title%></h1>
+<div class="<%=@list_class%>">
+  <% @items.each do |item| %>
+    <div class="<%=@item_class%>">
+      <a href="<%=@link_to % {id: item['id']}%>">
+        <%=item['text']%>
+      </a>
+      </div>
+    <% end %>
+  </div>

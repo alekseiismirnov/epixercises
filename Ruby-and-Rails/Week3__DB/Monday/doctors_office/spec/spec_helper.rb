@@ -14,6 +14,7 @@ require 'related'
 
 require 'doctor'
 require 'patient'
+require 'speciality'
 
 require 'mocktor'
 require 'faketient'
@@ -27,6 +28,8 @@ RSpec.configure do |config|
     DB.exec('DELETE FROM doctors *;')
     DB.exec('DELETE FROM patients *;')
     DB.exec('DELETE FROM doctors_patients *;')
+    DB.exec('DELETE FROM specialities *;')
+    DB.exec('DELETE FROM doctors_specialities *;')
 
     DB.exec('DELETE FROM mocktors *;')
     DB.exec('DELETE FROM faketients *;')
