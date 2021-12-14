@@ -90,8 +90,8 @@ Things, probably could be defined ones.
 ```
 
 - Views and call to DB are terribly cumbersome, f/e ```Related#method_missing``` - select related.  Could it be done in more compact way?
-- 
-- Classes ```Doctor```, ```Speciality```:
+
+- Classes ```Doctor```, ```Speciality``` have a lot of in common:
   
 ```ruby
 require_relative './storable.rb'
@@ -154,10 +154,13 @@ We can make classes for representations.  Later, next project probably.
       - [x] Change all tests for ```Storable``` and ```Related```.
   - [x] Add 'Speciality' class.
   - [x] Add relation to the ```Doctror``` and ```Doctor#speciality```.  In fact, that last one is only ```#specialities.first.speciality```
-    - [?] ```Doctor#speciality``` setter
-- [ ] Patient
-  - [ ] To list doctors by speciality
-    - [?] Universal list ...
+- [x] Patient
+  - [x] To list doctors by speciality
+    - [x] Move the link to the new doctor add form to the speciality page. This is a consequence of an ill design.
+    - [x] Add doctors list to the group page.
+    - [x] Kind of an universal list.
 - [ ] Administrator
   - [x] Add a doctor from the speciality group page
   - [ ] To list alphabetically doctors along with the number of assigned patients
+    - [ ] Add ```Related#counter```, with tests.
+    - [ ] Tests and feature.

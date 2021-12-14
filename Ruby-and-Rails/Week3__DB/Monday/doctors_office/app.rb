@@ -77,7 +77,7 @@ get '/specialities' do
   @title = 'Select a speciality to add a new doctor'
   @list_class = 'specialities_list'
   @item_class = 'speciality'
-  @link_to = '/specialities/%<id>s/new_doctor'
+  @link_to = '/specialities/%<id>s'
   @items = Speciality.all.map do |speciality|
     {
       'id' => speciality.id,
@@ -88,14 +88,24 @@ get '/specialities' do
   erb :linked_list
 end
 
-get '/specialities/:id/new_doctor' do
+get '/specialities/:id' do
   id = params[:id].to_i
-  @title = "Add new #{Doctor.name}"  # Just note
+  speciality = Speciality.find id
+
+  @title = speciality.speciality
+
+  # simple_list
+  @items = speciality.doctors.map(&:name)
+  @list_class = 'doctors_list'
+  @item_class = 'doctor'
+
+  # general_post
   @table = Doctor.table
   @fields = Doctor.columns
   @action = "/specialities/#{id}/doctor"
 
-  erb :general_post
+  # simple_list + general_post:
+  erb :speciality
 end
 
 post '/specialities/:id/doctor' do
