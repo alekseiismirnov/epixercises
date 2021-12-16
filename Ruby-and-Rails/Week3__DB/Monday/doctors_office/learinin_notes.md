@@ -87,3 +87,4 @@ Seems not so long:
 Long:
 
 - [x] Ruby methaprogramming for make mixins.  Lot to learn more, but seems to be enoght for now.
+

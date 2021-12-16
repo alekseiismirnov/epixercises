@@ -162,5 +162,13 @@ We can make classes for representations.  Later, next project probably.
 - [ ] Administrator
   - [x] Add a doctor from the speciality group page
   - [ ] To list alphabetically doctors along with the number of assigned patients
-    - [ ] Add ```Related#counter```, with tests.
-    - [ ] Tests and feature.
+    - [x] Do some online research for SQL ORDERing and COUNTing.  Can be done way more quickly without it.  And it's rather harmfull kind of an optimisation: [The largest percentage of U.S. medical practices in 2018 included practices with **2-5 physicians**, representing over 23 percent of the total. Medical practices with **31-100 physicians** represented around 11 percent of medical practices in the United States in that year.](https://www.statista.com/statistics/415971/size-of-medical-practices-in-the-us/#statisticContainer) And how often admin will request this dats?
+
+    - [ ] So we have to find a right place for the SQL query, which returns an ordered pairs object(doctors)-numbers
+      - [?] make parametric ```all``` or add an additional  parmeter processing to the ```search```
+      - [?] obtain and process a complicated result: objects with additional numbers.
+      - [?] this kind of search obviously access data from ```Storable``` and ```Related```.
+      - [?] directly to the ```Doctor```
+      - [?] make a new mixin module
+      - [ ] put it to the ```Related``` which depends on ```Storable``` anyhow.
+        - [x] Add ```Related.default_report```, argument is the symbolic name of related in plural.

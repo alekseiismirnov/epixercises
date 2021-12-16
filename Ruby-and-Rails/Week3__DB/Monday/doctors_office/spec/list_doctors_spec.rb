@@ -14,7 +14,7 @@ describe('List doctors of the particular speciality', type: :feature) do
     end
     @doctors.each(&:save)
 
-    @doctors[0,6].each do |doctor|
+    @doctors[0, 6].each do |doctor|
       @specialities[2].add_related doctor
     end
   end
@@ -25,7 +25,7 @@ describe('List doctors of the particular speciality', type: :feature) do
     visit "/specialities/#{id}"
     expect(page.status_code).to eq 200
     within '.doctors_list' do
-      expect(all('.doctor').map(&:text)).to match_array @doctors[0,6].map(&:name)
+      expect(all('.doctor').map(&:text)).to match_array @doctors[0, 6].map(&:name)
     end
   end
 end

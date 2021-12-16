@@ -29,6 +29,22 @@ module Related
     def classname_sort(*items)
       items.sort { |this, that| this.class.to_s <=> that.class.to_s }
     end
+
+    # we can put it to the method_missing, but maybe other time
+    def default_report(subect)
+      related_table = subect.to_s
+      columns_list = "#{table}.id, #{columns.join(', ')}, COUNT(*)"
+      # we are within the class method
+      cross_table = [name.downcase.en.plural, related_table]
+                    .sort.join('_')
+
+      DB.exec(" SELECT #{columns_list} "\
+              " FROM #{table} JOIN #{cross_table} "\
+              " ON (#{table}.id=#{cross_table}.#{name.downcase}_id) "\
+              " GROUP BY #{table}.id "\
+              ' ORDER BY name; ')
+        .map { |record| [new(record), record['count'].to_i] }
+    end
   end
 
   def column_names(other)
