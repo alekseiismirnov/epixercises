@@ -1,0 +1,11 @@
+source 'https://rubygems.org'
+
+gem 'pg'
+gem 'pry'
+gem 'rspec'
+gem 'sinatra'
+gem 'sinatra-contrib'
+gem 'capybara'
+gem 'linguistics'
+
+gem 'did_you_mean'
