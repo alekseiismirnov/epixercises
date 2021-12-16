@@ -1,0 +1,17 @@
+<table>
+<caption>Report</caption>
+  <tr>
+    <th>Doctor</th>
+    <th>Assigned Patients</th>
+  </tr>
+  <% @records.each do |record| %>
+    <tr>
+      <td>
+        <div class="doctor"><%=record[:doctor]%></div>
+      </td>
+      <td>
+        <div class="patients_number"><%=record[:patients_number]%></div>
+      </td>
+    </tr>
+  <% end %>
+</table>

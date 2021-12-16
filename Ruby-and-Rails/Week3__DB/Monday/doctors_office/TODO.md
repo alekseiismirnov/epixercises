@@ -18,10 +18,10 @@ The doctors have organized themselves into specialty groups.
 - [x] So when an administrator wants to enter a doctor,
       they must first select a specialty group and then add a doctor.
 
-- [ ] As a patient, I want to see a list of all the doctors in a particular specialty. A doctor will only have one specialty.
+- [x] As a patient, I want to see a list of all the doctors in a particular specialty. A doctor will only have one specialty.
 (Hint: change from storing specialty as a column to making a specialties table.)
 
-- [ ] As an administrator, I want to view an alphabetical list of doctors
+- [x] As an administrator, I want to view an alphabetical list of doctors
       including the number of patients they see.
       (Hint: Do some online research for SQL ORDERing and COUNTing.)
 
@@ -30,8 +30,8 @@ The doctors have organized themselves into specialty groups.
 - [x] Database - simple shell script
 - [x] General class for models - might be challanging. We'll use JSON style hashes from DB.exec, as argument for constructors and do all conversion inside of them.
 - [x] Tests for classes and classes iself - m.b. would be no need to test REST functionality, having tested generall class and integration test
-- [ ] Integration tests - done, if we make all stubs
-- [ ] Views and routes - done when all of them done.
+- [x] Integration tests - done, if we make all stubs
+- [x] Views and routes - done when all of them done.
 
 ### Databse ###
 
@@ -161,10 +161,10 @@ We can make classes for representations.  Later, next project probably.
     - [x] Kind of an universal list.
 - [ ] Administrator
   - [x] Add a doctor from the speciality group page
-  - [ ] To list alphabetically doctors along with the number of assigned patients
+  - [x] To list alphabetically doctors along with the number of assigned patients
     - [x] Do some online research for SQL ORDERing and COUNTing.  Can be done way more quickly without it.  And it's rather harmfull kind of an optimisation: [The largest percentage of U.S. medical practices in 2018 included practices with **2-5 physicians**, representing over 23 percent of the total. Medical practices with **31-100 physicians** represented around 11 percent of medical practices in the United States in that year.](https://www.statista.com/statistics/415971/size-of-medical-practices-in-the-us/#statisticContainer) And how often admin will request this dats?
 
-    - [ ] So we have to find a right place for the SQL query, which returns an ordered pairs object(doctors)-numbers
+    - [x] So we have to find a right place for the SQL query, which returns an ordered pairs object(doctors)-numbers
       - [?] make parametric ```all``` or add an additional  parmeter processing to the ```search```
       - [?] obtain and process a complicated result: objects with additional numbers.
       - [?] this kind of search obviously access data from ```Storable``` and ```Related```.
@@ -172,3 +172,4 @@ We can make classes for representations.  Later, next project probably.
       - [?] make a new mixin module
       - [ ] put it to the ```Related``` which depends on ```Storable``` anyhow.
         - [x] Add ```Related.default_report```, argument is the symbolic name of related in plural.
+    -[x] Add the view.

@@ -119,3 +119,14 @@ post '/specialities/:id/doctor' do
 
   'stub'
 end
+
+get '/reports/doctors/patiens' do
+  @records = Doctor.default_report(:patients).map do |doctor, number|
+    {
+      doctor: doctor.name,
+      patients_number: number
+    }
+  end
+
+  erb :report_doctors_patients
+end
