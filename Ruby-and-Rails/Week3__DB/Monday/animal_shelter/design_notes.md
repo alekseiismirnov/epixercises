@@ -23,4 +23,9 @@ animals_customers
 
 ## Almost the same ##
 
+Type and Breed classes are identical.
+
+Atributes readers should be implemented in ```Storable``` by default.
+
+Also ```@table``` initialization. See Learning Notes.
 

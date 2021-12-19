@@ -1,4 +1,4 @@
-# Assorted Notes #
+# Learning Notes #
 
 ## Database Backup ##
 
@@ -73,9 +73,8 @@ Get a class by its name: ```Object.const_get '<class name>'```
 
 ## Question ##
 
-- Where to put type convertors from strings?  At call to .new or inside the constructor?  Inside the constructor.
-
 - Check what we get, when we fetch non-string data from the DB.
+- How to initialize ```@table``` in ```Storable``` without calling a function in derevative class?  Not in module definition, not in ```module ClassMethods```, not it ```class << self```.
 
 ## To Learn ##
 
