@@ -20,3 +20,7 @@ customers_breeds
   if that customer adopts, so Animal releted to Customer.
 
 animals_customers
+
+## Almost the same ##
+
+
