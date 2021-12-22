@@ -1,5 +1,5 @@
-psql doctors_office <<ESQL
-\c doctors_office_test;
+psql animal_shelter_test<<ESQL
+\c animal_shelter_test;
 CREATE TABLE faketients
   (id serial PRIMARY KEY, name varchar, birthdate date);
 

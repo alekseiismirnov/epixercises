@@ -3,9 +3,14 @@
 ## Storable classes ##
 
 - Animal [name, gender, date of admittance]
-- Customer [name, phone]. 
+- Customer [name, phone].
 - Breed [name]
 - Type [name]
+
+I see now two problems with such design:
+
+- ```Storable#==%``` ignores breed and type.
+- We have to save storable object before the adding breed and type.
 
 ### Relations ###
 
@@ -29,3 +34,4 @@ Atributes readers should be implemented in ```Storable``` by default.
 
 Also ```@table``` initialization. See Learning Notes.
 
+```params = Hash[params.map { |k, v| [k.to_sym, v] }]``` in all ```initialize```'s

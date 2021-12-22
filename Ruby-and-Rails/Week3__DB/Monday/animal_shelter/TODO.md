@@ -11,5 +11,14 @@
   - \spec (\storable,\related, and spec_helper),
   - \utils (dbgen_mocktors.sh, dbgen_faketient_crosstable.sh) and rename 'birthate' field.
   - [x] modify spec_helper
-- [ ] Implement classes
+- [x] Implement classes
 - [ ] Implement tests and views
+  - [x] Modyfy spec_helper.rb
+  - [x] Add an animal.  Type and breed - by id.
+  - [ ] Add a customer.  Type and breed - again by id.
+  - [ ] View animals by the breed, sorted by the name.
+  - [ ] View animals by the type, sorted by the name.
+  - [ ] View all animals sorted by the name.
+  - [ ] View all animals sorted by the admittance, older - first
+  - [ ] View customers by the breed preferance
+  - [ ] Add animal to the customer.

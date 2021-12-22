@@ -29,7 +29,7 @@ DROP TABLE IF EXISTS breeds;
 		
 CREATE TABLE breeds (
   id serial PRIMARY KEY,
-  name INTEGER
+  name VARCHAR 
 );
 
 -- ---
@@ -41,7 +41,7 @@ DROP TABLE IF EXISTS types;
 		
 CREATE TABLE types (
   id serial PRIMARY KEY,
-  name INTEGER
+  name varchar
 );
 
 -- ---

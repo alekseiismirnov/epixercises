@@ -54,23 +54,23 @@
 <part>id</part>
 </key>
 </table>
-<table x="385" y="195" name="breeds">
+<table x="369" y="203" name="breeds">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
 <row name="name" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
+<datatype>VARCHAR</datatype>
 <default>NULL</default></row>
 <key type="PRIMARY" name="">
 <part>id</part>
 </key>
 </table>
-<table x="721" y="200" name="types">
+<table x="717" y="199" name="types">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
 <row name="name" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
+<datatype>VARCHAR</datatype>
 <default>NULL</default></row>
 <key type="PRIMARY" name="">
 <part>id</part>
@@ -154,7 +154,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="515" y="23" name="animals_customers">
+<table x="520" y="22" name="animals_customers">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
