@@ -3,7 +3,7 @@ dropdb animal_shelter
 
 createdb animal_shelter
 
-psql doctors_office <<ESQL
+psql animal_shelter <<ESQL
 \c animal_shelter;
 
 -- ---
@@ -54,7 +54,7 @@ DROP TABLE IF EXISTS customers;
 CREATE TABLE customers (
   id serial PRIMARY KEY,
   name VARCHAR ,
-  phone INTEGER
+  phone VARCHAR
 );
 
 -- ---

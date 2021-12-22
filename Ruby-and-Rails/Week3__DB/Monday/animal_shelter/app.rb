@@ -28,3 +28,23 @@ post '/animals' do
 
   'stub'
 end
+
+get '/customers/new' do
+  @table = Customer.table
+  @fields = Customer.columns + %i[type breed]
+
+  erb :'storable/add'
+end
+
+post '/customers' do
+  type_id = params['type'].to_i
+  breed_id = params['breed'].to_i
+
+  customer = Customer.new params
+  customer.save
+
+  customer.add_related(Breed.find(breed_id))
+  customer.add_related(Type.find(type_id))
+
+  'stub'
+end

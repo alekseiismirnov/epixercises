@@ -12,11 +12,22 @@ class Customer
 
   assign_related :breeds, :types
 
-  attr_reader :id, :name, :gender, :admittance
+  attr_reader :id, :name, :phone
 
   def initialize(params)
+    params = Hash[params.map { |k, v| [k.to_sym, v] }]
+
     @id = params[:id].to_i if params[:id]
     @name = params[:name] if params[:name]
-    @admittance = params[:phone].to_i if params[:phone]
+    @phone = params[:phone] if params[:phone]
+  end
+
+  # wrong design consequenses:
+  def breed
+    breeds.first.name
+  end
+
+  def type
+    types.first.name
   end
 end
