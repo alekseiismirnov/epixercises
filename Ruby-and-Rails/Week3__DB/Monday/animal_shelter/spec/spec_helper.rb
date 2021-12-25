@@ -62,19 +62,19 @@ class SnakePot
     @type_snake = Type.new(name: 'snake')
     @type_snake.save
 
-    @cobra_breed = Breed.new(name: 'cobra')
-    @cobra_breed.save
+    @breed_cobra = Breed.new(name: 'cobra')
+    @breed_cobra.save
 
-    @boa_breed = Breed.new(name: 'boa')
-    @boa_breed.save
+    @breed_boa = Breed.new(name: 'boa')
+    @breed_boa.save
 
     @snakes_data = [
-      { name: 'Cherry', gender: 'M', admittance: '1 Jan 2020', type: @type_snake, breed: @cobra_breed },
-      { name: 'Giselle', gender: 'M', admittance: '2 Oct 2015', type: @type_snake, breed: @boa_breed },
-      { name: 'Storm', gender: 'F', admittance: '10 May 2019', type: @type_snake, breed: @cobra_breed },
-      { name: 'Pearl', gender: 'M', admittance: '14Jun 2017', type: @type_snake, breed: @boa_breed },
-      { name: 'Venus', gender: 'F', admittance: '3 Feb 2018', type: @type_snake, breed: @cobra_breed },
-      { name: 'Mango', gender: 'F', admittance: '3 Mar 2014', type: @type_snake, breed: @boa_breed }
+      { name: 'Cherry', gender: 'M', admittance: '1 Jan 2020', type: @type_snake, breed: @breed_cobra },
+      { name: 'Giselle', gender: 'M', admittance: '2 Oct 2015', type: @type_snake, breed: @breed_boa },
+      { name: 'Storm', gender: 'F', admittance: '10 May 2019', type: @type_snake, breed: @breed_cobra },
+      { name: 'Pearl', gender: 'M', admittance: '14Jun 2017', type: @type_snake, breed: @breed_boa },
+      { name: 'Venus', gender: 'F', admittance: '3 Feb 2018', type: @type_snake, breed: @breed_cobra },
+      { name: 'Mango', gender: 'F', admittance: '3 Mar 2014', type: @type_snake, breed: @breed_boa }
     ]
 
     @snakes_data.each do |record|
@@ -100,9 +100,9 @@ class SnakePot
       animal.add_related(record[:breed])
     end
 
-    @cobra_names = %i[Cherry Storm Venus]
-    @boa_names = %i[Pearl Giselle Mango]
-    @fly_names = %i[Cinarya Saelinihle Minonden Thaorfhar Culssare Grayious]
-    @bird_names = %i[Fido]
+    @cobras_names = %w[Cherry Storm Venus]
+    @boas_names = %w[Pearl Giselle Mango]
+    @fly_names = %w[Cinarya Saelinihle Minonden Thaorfhar Culssare Grayious]
+    @birds_names = %w[Fido]
   end
 end

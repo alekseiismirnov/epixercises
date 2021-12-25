@@ -18,8 +18,8 @@
   - [x] Add a customer.  Type and breed - again by id.
   - [x] Make test data.
   - [ ] Customer view, separated pages:
-    - [ ] View animals by the breed, sort ed by the name.
-    - [ ] View animals by the type, sorted by the name.
+    - [x] View animals by the breed, sorted by the name.
+    - [x] View animals by the type, sorted by the name.
     - [ ] View all animals sorted by the name.
   - [ ] View all animals sorted by the admittance, older - first
   - [ ] View customers by the breed preferance

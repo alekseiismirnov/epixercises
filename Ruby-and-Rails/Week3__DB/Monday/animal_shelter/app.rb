@@ -48,3 +48,31 @@ post '/customers' do
 
   'stub'
 end
+
+get '/types/:id/animals' do
+  id = params[:id].to_i
+
+  type = Type.find id
+
+  @items = type.animals.map(&:name).sort
+
+  @title = type.name.en.plural.capitalize
+  @list_class = 'animals_list'
+  @item_class = 'animal'
+
+  erb :simple_list
+end
+
+get '/breeds/:id/animals' do
+  id = params[:id].to_i
+
+  breed = Breed.find id
+
+  @items = breed.animals.map(&:name).sort
+
+  @title = breed.name.en.plural.capitalize
+  @list_class = 'animals_list'
+  @item_class = 'animal'
+
+  erb :simple_list
+end
