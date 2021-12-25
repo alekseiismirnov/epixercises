@@ -93,6 +93,48 @@ class SnakePot
       { name: 'Grayious', gender: 'M', admittance: '5 Oct 2018', type: @type_fly, breed: @breed_homefly }
     ]
 
+    @customers_names = [
+      'Groggeath Grumbleshaper',
+      'Jokdraed Drakebeard',
+      'Vostret Merrybreaker',
+      'Utmorlum Treasuretank',
+      'Umikkumi Chaosbeard',
+      'Yovuth Goldenmantle',
+      'Grobroc Lightstone',
+      'Lorgaec Iceborn',
+      'Glammatin Ashmane',
+      'Hanmerlum Fierybelt'
+    ]
+
+    @customers_phones = %w[
+      202-555-0199
+      202-555-0132
+      202-555-0194
+      202-555-0135
+      202-555-0192
+      202-555-0110
+      202-555-0187
+      202-555-0166
+      202-555-0140
+      202-555-0177
+    ]
+
+    @customers_names.zip(@customers_phones)[0, 5].each do |name, phone|
+      customer = Customer.new(name: name, phone: phone)
+      customer.save
+
+      breed = @breed_homefly
+      breed.add_related customer
+    end
+
+    @customers_names.zip(@customers_phones)[5, 5].each do |name, phone|
+      customer = Customer.new(name: name, phone: phone)
+      customer.save
+
+      breed = @breed_boa
+      breed.add_related customer
+    end
+
     @flies_data.each do |record|
       animal = Animal.new(record)
       animal.save

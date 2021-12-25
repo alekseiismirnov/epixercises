@@ -96,6 +96,19 @@ get '/animals/sort_by_name' do
   @title = 'Animals'
   @list_class = 'animals_list'
   @item_class = 'animal'
-  
+
+  erb :simple_list
+end
+
+get '/breeds/:id/customers' do
+  id = params[:id].to_i
+  breed = Breed.find id
+
+  @items = breed.customers.map(&:name)
+
+  @title = "Customers who look for #{breed.name}"
+  @list_class = 'customers_list'
+  @item_class = 'customer'
+
   erb :simple_list
 end

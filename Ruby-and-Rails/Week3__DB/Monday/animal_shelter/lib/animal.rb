@@ -19,6 +19,7 @@ class Animal
 
     @id = params[:id].to_i if params[:id]
     @name = params[:name] if params[:name]
+    @gender = params[:gender] if params[:gender]
     @admittance = Date.parse(params[:admittance]) if params[:admittance]
   end
 
