@@ -76,3 +76,16 @@ get '/breeds/:id/animals' do
 
   erb :simple_list
 end
+
+get '/animals/sort_by_admittance' do
+  @items = Animal
+           .all
+           .sort { |this, another| another.admittance <=> this.admittance }
+           .map(&:name)
+
+  @title = 'Animals, sorted by the admittance date'
+  @list_class = 'animals_list'
+  @item_class = 'animal'
+
+  erb :simple_list
+end
