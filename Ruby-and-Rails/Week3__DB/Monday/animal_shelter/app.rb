@@ -89,3 +89,13 @@ get '/animals/sort_by_admittance' do
 
   erb :simple_list
 end
+
+get '/animals/sort_by_name' do
+  @items = Animal.all.map(&:name).sort
+
+  @title = 'Animals'
+  @list_class = 'animals_list'
+  @item_class = 'animal'
+  
+  erb :simple_list
+end

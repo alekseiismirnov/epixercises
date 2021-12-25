@@ -20,7 +20,7 @@
   - [x] Customer view, separated pages:
     - [x] View animals by the breed, sorted by the name.
     - [x] View animals by the type, sorted by the name.
-    - [ ] View all animals sorted by the name.
+    - [x] View all animals sorted by the name.
   - [x] View all animals sorted by the admittance, older - first
   - [ ] View customers by the breed preferance
   - [ ] Add animal to the customer.

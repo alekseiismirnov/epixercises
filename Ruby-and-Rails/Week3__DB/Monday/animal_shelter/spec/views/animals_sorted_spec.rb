@@ -3,7 +3,7 @@
 require_relative '../spec_helper.rb'
 
 describe('View animals sorted.', type: :feature) do
-  before :all do
+  before :each do
     class SnakePot
       attr_reader :snakes_data, :flies_data
     end
@@ -21,6 +21,15 @@ describe('View animals sorted.', type: :feature) do
 
     within('.animals_list') do
       expect(all('.animal').map(&:text)).to eq @names
+    end
+  end
+
+  it 'shows list of animals names, sorted alphabetically' do
+    visit '/animals/sort_by_name'
+    expect(page.status_code).to eq 200
+
+    within('.animals_list') do
+      expect(all('.animal').map(&:text)).to eq @names.sort
     end
   end
 end
