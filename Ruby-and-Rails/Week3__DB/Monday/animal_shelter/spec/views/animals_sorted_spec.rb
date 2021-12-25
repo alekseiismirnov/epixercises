@@ -2,7 +2,7 @@
 
 require_relative '../spec_helper.rb'
 
-describe('View animals by the breed, sorted by the name.', type: :feature) do
+describe('View animals sorted.', type: :feature) do
   before :all do
     class SnakePot
       attr_reader :snakes_data, :flies_data
@@ -15,7 +15,7 @@ describe('View animals by the breed, sorted by the name.', type: :feature) do
              .map { |record| record[:name] }
   end
 
-  it 'shows sorted list of names by animals with particular breed' do
+  it 'shows list of animals names, sorted by admittance' do
     visit '/animals/sort_by_admittance'
     expect(page.status_code).to eq 200
 
