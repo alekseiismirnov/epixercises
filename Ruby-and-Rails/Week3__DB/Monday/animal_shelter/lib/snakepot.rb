@@ -1,3 +1,11 @@
+# frozen_string_literal: true
+
+require 'animal'
+require 'customer'
+require 'breed'
+require 'type'
+require 'volonteer'
+
 class SnakePot
   def initialize
     @types = %w[dog bird frog].map { |type| [type, Type.new(name: type)] }.to_h
@@ -72,6 +80,19 @@ class SnakePot
       202-555-0177
     ]
 
+    @volonteers_names = [
+      'Maeral Fenphyra',
+      'Afamrail Tracyne',
+      'Ilvisar Xyrven',
+      'Braern Sylcaryn',
+      'Elidyr Nerihorn',
+      'Traeliorn Urirora',
+      'Ailen Heikalyn',
+      'Ninthalor Heigolor',
+      'Entrydal Adjyre',
+      'Ailred Omawraek'
+    ]
+
     @customers_names.zip(@customers_phones)[0, 5].each do |name, phone|
       customer = Customer.new(name: name, phone: phone)
       customer.save
@@ -93,6 +114,11 @@ class SnakePot
       animal.save
       animal.add_related(record[:type])
       animal.add_related(record[:breed])
+    end
+
+    @volonteers_names.each do |name|
+      volonteer = Volonteer.new(name: name)
+      volonteer.save
     end
 
     @cobras_names = %w[Cherry Storm Venus]

@@ -10,7 +10,7 @@ class Animal
   assign_table :animals
   assign_columns %i[name gender admittance]
 
-  assign_related :breeds, :types, :customers
+  assign_related :breeds, :types, :customers, :volonteers
 
   attr_reader :id, :name, :gender, :admittance
 
@@ -34,5 +34,9 @@ class Animal
 
   def customer
     customers.first # yes, complete object
+  end
+
+  def volonteer
+    volonteers.first
   end
 end

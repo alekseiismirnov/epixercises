@@ -142,3 +142,21 @@ patch '/animals/:id/assign_customer' do
   animal.add_related customer
   'stub'
 end
+
+get '/animals/:id/assign_volonteer' do
+  @input_name = 'volonteer_id'
+  @label = 'Volonteer ID:'
+  @action = request.path_info
+
+  erb :'related/add'
+end
+
+patch '/animals/:id/assign_volonteer' do
+  id = params[:id].to_i
+  volonteer_id = params[:volonteer_id].to_i
+  animal = Animal.find id
+  volonteer = Volonteer.find volonteer_id
+
+  animal.add_related volonteer
+  'stub'
+end
