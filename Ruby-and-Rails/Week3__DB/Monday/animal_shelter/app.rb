@@ -7,7 +7,19 @@ require 'sinatra/reloader'
 
 also_reload 'lib/**/*.rb'
 
+require_relative 'lib/animal'
+require_relative 'lib/customer'
+require_relative 'lib/breed'
+require_relative 'lib/type'
+require_relative 'lib/snakepot.rb'
+
 DB = PG.connect(dbname: 'animal_shelter')
+
+get '/start' do
+  SnakePot.new
+
+  redirect to '/animals/sort_by_name'
+end
 
 get '/animals/new' do
   @table = Animal.table
@@ -111,4 +123,22 @@ get '/breeds/:id/customers' do
   @item_class = 'customer'
 
   erb :simple_list
+end
+
+get '/animals/:id/assign_customer' do
+  @input_name = 'customer_id'
+  @label = 'Customer ID:'
+  @action = request.path_info
+
+  erb :'related/add'
+end
+
+patch '/animals/:id/assign_customer' do
+  id = params[:id].to_i
+  customer_id = params[:customer_id].to_i
+  animal = Animal.find id
+  customer = Customer.find customer_id
+
+  animal.add_related customer
+  'stub'
 end

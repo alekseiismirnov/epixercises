@@ -27,7 +27,7 @@ describe('View animals sorted.', type: :feature) do
   it 'shows list of animals names, sorted alphabetically' do
     visit '/animals/sort_by_name'
     expect(page.status_code).to eq 200
-
+    
     within('.animals_list') do
       expect(all('.animal').map(&:text)).to eq @names.sort
     end

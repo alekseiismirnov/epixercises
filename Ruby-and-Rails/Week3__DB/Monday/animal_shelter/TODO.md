@@ -12,7 +12,7 @@
   - \utils (dbgen_mocktors.sh, dbgen_faketient_crosstable.sh) and rename 'birthate' field.
   - [x] modify spec_helper
 - [x] Implement classes
-- [ ] Implement tests and views
+- [x] Implement tests and views
   - [x] Modyfy spec_helper.rb
   - [x] Add an animal.  Type and breed - by id.
   - [x] Add a customer.  Type and breed - again by id.
@@ -22,5 +22,11 @@
     - [x] View animals by the type, sorted by the name.
     - [x] View all animals sorted by the name.
   - [x] View all animals sorted by the admittance, older - first
-  - [ ] View customers by the breed preferance
-  - [ ] Add animal to the customer.
+  - [x] View customers by the breed preferance
+  - [x] Add animal to the customer.
+
+## Further Exploration ##
+
+- [x] Add images and css to improve the user experience on your pages.
+- [ ] Explore HTML and Bootstrap options for forms and fields.
+- [ ] Add the ability for the shelter to assign volunteers or foster parents to specific animals.

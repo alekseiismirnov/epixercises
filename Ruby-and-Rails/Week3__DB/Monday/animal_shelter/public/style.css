@@ -1,0 +1,45 @@
+body {
+    margin: 50px;
+    background: slategray;
+}
+
+.animals_list {
+    border: 1px solid black;
+    padding: 25px;
+    background: wheat;
+    box-shadow: 5px 5px 3px 3px grey;
+    margin-bottom: 40px
+}
+
+.animal {
+    padding-bottom: 5px;
+}
+
+.paws {
+    display: flex;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.paw {
+    flex-flow: nowrap;
+    float: left;
+    margin: 10px;
+    width: 120px;
+    height: 120px;
+    border: 1px solid black;
+}
+
+.logo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+hr {
+    height: 1px;
+    background-color: grey;
+    color: grey;
+    padding: 0px
+}
