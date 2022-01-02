@@ -36,7 +36,8 @@
 
 ### First Approach ###
 
-- [ ] Design DB scheme.  Two main tables and one cross-tabe.
+- [x] Design DB scheme.  Two main tables and one cross-tabe.
+- [x] Make DB.
 - [ ] Transfer `Storable` and `Related` with tests and views.
 - [ ] Generate db and tables for the project and for the `Storable`-`Related`.
 - [ ] Make classes.

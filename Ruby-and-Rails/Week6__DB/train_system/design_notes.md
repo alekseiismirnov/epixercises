@@ -9,6 +9,9 @@
 
 There is a many-to-many relationship between cities and trains.
 
+`Train`: id, number as string.
+`City`: id, name
+
 Views for all CRUD functions for *trains* and *cities*.  
 
 Lists for *trains* and *cities* are with links to objects.

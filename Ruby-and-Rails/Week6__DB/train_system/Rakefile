@@ -5,6 +5,13 @@ task :hello, [:who] do |_t, args|
   p "Hello #{args.who}!!"
 end
 
+desc 'Create a new project databse'
+task :new_db, [:db_name] do |_t, args|
+  system("createdb #{args.db_name}")
+  system("psql #{args.db_name} < #{args.db_name}_scheme.sql")
+  system("createdb -T #{args.db_name} #{args.db_name}_test")
+end
+
 desc 'Create a database dump'
 task :dump, [:db_name] do |_t, args|
   system("pg_dump #{args.db_name} > database_backup.sql")
