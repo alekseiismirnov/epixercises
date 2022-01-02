@@ -17,7 +17,7 @@ describe('Add an animal page', type: :feature) do
       { 'name' => 'Ajie', 'admittance' => '1 Jan 1992', 'gender' => 'F', 'type' => @types[0].id, 'breed' => @breeds[2].id }
     ]
   end
-
+  binding.pry
   it 'allows to add new animal to database' do
     animals = @animals_data.map { |record| Animal.new record }
 

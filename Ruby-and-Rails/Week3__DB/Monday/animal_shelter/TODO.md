@@ -29,10 +29,10 @@
 
 - [x] Add images and css to improve the user experience on your pages.
 - [x] Explore HTML and Bootstrap options for forms and fields. Already, see the Maze project.
-- [ ] Add the ability for the shelter to assign volunteers or foster parents to specific animals.
+- [x] Add the ability for the shelter to assign volunteers or foster parents to specific animals.
   - [x] Update scheme: ```volonteers``` (name), ```animal_volonteers``` relation (id's)
   - [x] Add ```Volonteer``` class and relation to the ```Animal```
   - [x] Add test data
   - [x] Add ```volonteers``` and ```animals_volonteers``` tables to db
   - [x] Add view test - same as adding animal to cutomer
-  - [ ] Add view
+  - [x] Add view
