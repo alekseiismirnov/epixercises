@@ -8,21 +8,10 @@
   - [ ] Do routes correctly follow RESTful convention?
   - [ ] Does the application work as expected?
 
-## Research ##
-
-- [ ] Tasks from `To learn 1st` at `learning_notes.md`.
-- [ ] Clarify the project description and update this TODO
-  
 ## Goals ##
 
 - [ ] It should allow train system **operators** to add, update and delete information.
 - [ ] It should allow train **riders** to read information regarding when and where they can ride a train.
-  
-## Tech Recommendations ##
-
-- [ ] There is a many-to-many relationship between cities and trains.  ```Storable``` and ```Related``` lib seems to be a natural solution.
-- [x] You might consider naming the cities_trains join table stops to reflect the relationship between the two.  No. Do not compatible with ```Related``` lib.
-- [ ] When you list out the trains for a specific city, you'll need to start by selecting all stops for that city, and then selecting all trains for those stops.
 
 ## User Stories ##
 
@@ -37,3 +26,40 @@
 - [ ] As a train rider, I want to view a city, so that I can see which trains come to it.
 - [ ] As a train rider, I want to see a timetable that shows what time each train stops in each city.
 - [ ] As a train rider, I want to purchase a ticket in a particular city for a particular train so that I can get on and off in any city that train travels. (This can work like a MAX ticket where you are able to purchase the ticket independent of the destination).
+
+## Research ##
+
+- [x] Tasks from the `To learn 1st` at the `Learning Notes`.
+- [x] Clarify the project description and update this TODO
+  
+## Game Plan ##
+
+### First Approach ###
+
+- [ ] Design DB scheme.  Two main tables and one cross-tabe.
+- [ ] Transfer `Storable` and `Related` with tests and views.
+- [ ] Generate db and tables for the project and for the `Storable`-`Related`.
+- [ ] Make classes.
+- [ ] Make test data generator.
+- [ ] Make CRUD tests and pages, for trains and cities
+  - [ ] Single object view and linked lists.
+  - [ ] Add 'Delete' button to items in lists.
+  - [ ] Input forms.  Redirect to lists after creation.
+  - [ ] Update forms. Redirect to object view.
+- [ ] Add `related` functionality to cities and trains.
+  - [ ] Learn partials, see `Learning notes`.
+  - [ ] Add the fild, which accepts listst of id's in:
+    - [ ] Train create form.
+    - [ ] Train update form.
+  - [ ] Add list of cities in the train view and list of trains in the city view.
+- [ ] Add `Buy ticket' option on city view page, redirecting on a 'ticket' page.
+
+## Further Exploration ##
+
+- [ ] Tasks from the `Further Exploration` at the `Learining Notes`.
+- [ ] Rewrite `related` lists member to use JOIN in more effective way, if it's possibje.
+- [ ] Replace input multiply id's field with multiselection ones.
+- [ ] Date picker instead of input field for the date in `Buy ticket` form.
+- [ ] Add navbar, header and footer to the `layout.erb`.
+- [ ] Add images: logo, trains and cities pics in object views.
+- [ ] Add Bootstrap styling.

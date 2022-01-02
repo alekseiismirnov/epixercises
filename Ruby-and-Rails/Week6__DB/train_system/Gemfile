@@ -1,0 +1,13 @@
+source 'https://rubygems.org'
+ruby "2.6.3"
+
+gem 'capybara'
+gem 'launchy'
+gem 'linguistics'
+gem 'pg'
+gem 'pry'
+gem 'rake'
+gem 'sinatra'
+gem 'sinatra-contrib'
+gem 'rspec'
+

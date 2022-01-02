@@ -4,19 +4,30 @@
 
 ### SQL ###
 
-- [ ] ```LIKE``` and ```ILIKE```
-- [ ] Ordering results
-- [ ] Limiting results
-- [ ] PostgreSQL Tutorial
-  - [ ] Further on quering  
-  - [ ] Filtering
-  - [ ] Joining tables
-- [ ] Theory: ACID
+- [x] ```LIKE``` and ```ILIKE```
+- [x] Ordering results
+- [x] Limiting results
+- [x] PostgreSQL Tutorial
+  - [x] Further on quering  
+  - [x] Filtering
+  - [x] Joining tables.  Мракобєсіє.
+- [x] Theory: ACID
 
 ### Rake ###
 
-- [ ] Basic operations
-- [ ] Database backup/restore
+- [x] Basic operations
+- [x] Database backup/restore
+
+## Sinatra ##
+
+- [ ] Render partials in erb.
+
+## Further Exploration ##
+
+- [ ] HTML input, multiply selection.
+- [ ] SQL JOIN for `related` lists.
+- [ ] HTML or Bootstrap date picker.
+- [ ] Refresh Bootstrap grid enogh for this project.
 
 ## Question ##
 

@@ -33,7 +33,7 @@ When you list out the trains for a specific city, you'll need to start by select
 If you have completed all of the user stories for your program and integration testing, consider adding:
 
 - join statements instead of join tables.
-- Select fields to your forms
+- Select fields to your forms. Multiply selections.
 - Date pickers
 - Navigation (navbar), headers and footers to your layout.erb file
 - Images
