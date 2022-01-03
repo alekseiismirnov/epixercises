@@ -37,9 +37,8 @@
 ### First Approach ###
 
 - [x] Design DB scheme.  Two main tables and one cross-tabe.
-- [x] Make DB.
-- [ ] Transfer `Storable` and `Related` with tests and views.
-- [ ] Generate db and tables for the project and for the `Storable`-`Related`.
+- [x] Generate db and tables for the project and for the `Storable`-`Related`.
+- [x] Transfer `Storable` and `Related` with tests and views.
 - [ ] Make classes.
 - [ ] Make test data generator.
 - [ ] Make CRUD tests and pages, for trains and cities

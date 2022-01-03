@@ -1,0 +1,18 @@
+	    lib/faketient.rb
+	    lib/mocktor.rb
+	    lib/related.rb
+	    lib/storable.rb
+	    spec/related/add_retrieve_spec.rb
+	    spec/related/default_report_spec.rb
+	    spec/related/setup_spec.rb
+	    spec/spec_helper.rb
+	    spec/storable/all_spec.rb
+	    spec/storable/delete_spec.rb
+	    spec/storable/save_spec.rb
+	    spec/storable/search_spec.rb
+	    spec/storable/update_spec.rb
+	    storable_filelist.txt
+	    views/related/add.erb
+	    views/simple_list.erb
+	    views/storable/add.erb
+

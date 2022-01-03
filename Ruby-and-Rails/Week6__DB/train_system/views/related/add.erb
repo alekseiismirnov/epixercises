@@ -1,0 +1,8 @@
+<div class="form_add">
+  <form action="<%=@action%>" method="post">
+    <input type="hidden" name="_method" value="patch">
+    <label for="<%=@input_name%>"><%=@label%></label>
+    <input name="<%=@input_name%>" type="text">
+    <button type="submit">Add</button>
+  </form>
+</div>
