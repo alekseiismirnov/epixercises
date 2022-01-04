@@ -39,7 +39,12 @@
 - [x] Design DB scheme.  Two main tables and one cross-tabe.
 - [x] Generate db and tables for the project and for the `Storable`-`Related`.
 - [x] Transfer `Storable` and `Related` with tests and views.
-- [ ] Make classes.
+- [x] Make classes.
+- [ ] Put somewhere time each train stops in each city and make corrections...
+  - [ ] Stop-time will be stored in the `cities_trains` table
+    - [x] Make corrections in DB scheme.
+    - [ ] Re-create database accordingly.
+    - [ ] Make a class from the `Related`, which can handle additional column.
 - [ ] Make test data generator.
 - [ ] Make CRUD tests and pages, for trains and cities
   - [ ] Single object view and linked lists.

@@ -7,8 +7,10 @@ end
 
 desc 'Create a new project databse'
 task :new_db, [:db_name] do |_t, args|
+  system("dropdb --if-exists #{args.db_name}")
   system("createdb #{args.db_name}")
   system("psql #{args.db_name} < #{args.db_name}_scheme.sql")
+  system("dropdb --if-exists #{args.db_name}_test")
   system("createdb -T #{args.db_name} #{args.db_name}_test")
 end
 
