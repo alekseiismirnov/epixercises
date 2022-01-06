@@ -4,7 +4,7 @@ require 'stop'
 
 class ColorLines
   def initialize
-    @cities = ['Bila Cerkva', 'Dnipro-Gholovnyj', "Kam\'jansjke-Pas.", 'Kharkiv-Pas.', 'Khmeljnycjkyj', 'Kremenchuk-Pas.',
+    @cities = ['Bila Cerkva', 'Dnipro-Gholovnyj', 'Kamjansjke-Pas.', 'Kharkiv-Pas.', 'Khmeljnycjkyj', 'Kremenchuk-Pas.',
                'Kropyvnycjkyj', 'Kyjiv-Pas.', 'Ljviv', 'Mariupolj', 'Mukachevo', 'Odesa-Gholovna', 'Pologhy',
                'Poltava-Pivd.', 'Slavsjke', 'Stryj', 'Svaljava', 'Ternopilj', 'Uzhghorod', 'Vinnycja', 'Volnovakha', 'Volovecj',
                'Voznesensjk', 'Zaporizhzhja-1'].map do |name|
@@ -13,7 +13,7 @@ class ColorLines
     @cities.values.each(&:save)
 
     @trains = %w[Blue Red Yellow Green].map do |name|
-      [name, Train.new(name: name)]
+      [name, Train.new(number: name)]
     end.to_h
     @trains.each_value(&:save)
 

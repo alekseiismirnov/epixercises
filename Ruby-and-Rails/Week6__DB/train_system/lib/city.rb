@@ -18,6 +18,6 @@ class City
     params = params.transform_keys(&:to_sym)
 
     @id = params[:id].to_i if params[:id]
-    @name = params[:id] if params[:id]
+    @name = params[:name] if params[:name]
   end
 end
