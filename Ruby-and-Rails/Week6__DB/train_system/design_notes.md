@@ -33,3 +33,6 @@ No authentifiction, header with menu for all.
 - [x] Where to put time each train stops in each city?
   - [x] Make class like `Related` which can handle additional column in the cross-table? When correspondent function returns array of related objects paired with values.
 
+## Almost the same ##
+
+- Test data generators and specs.

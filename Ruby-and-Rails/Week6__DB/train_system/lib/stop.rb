@@ -12,7 +12,7 @@ class Stop
 
   assign_related :cities, :trains
 
-  attr_reader :id, minutes
+  attr_reader :id, :minutes
 
   def initialize(params)
     params = params.transform_keys(&:to_sym)
