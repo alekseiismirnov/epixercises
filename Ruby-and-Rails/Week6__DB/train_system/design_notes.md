@@ -12,7 +12,9 @@ There is a many-to-many relationship between cities and trains.
 `Train`: id, number as string.
 `City`: id, name
 
-`cities_trains`: also contains the  `stop_time` column, integer, minutes.  For to use it in operations with `Time` objects, we have to convert it in seconds.
+`Stops`: id, delay in minutes
+
+`cities_stops`, `stops_trains`
 
 Views for all CRUD functions for *trains* and *cities*.  
 

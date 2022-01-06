@@ -10,7 +10,7 @@ class City
   assign_table :cities
   assign_columns %i[name]
 
-  assign_related :trains
+  assign_related :trains, :stops
 
   attr_reader :id, :name
 

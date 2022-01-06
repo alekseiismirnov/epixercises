@@ -40,11 +40,11 @@
 - [x] Generate db and tables for the project and for the `Storable`-`Related`.
 - [x] Transfer `Storable` and `Related` with tests and views.
 - [x] Make classes.
-- [ ] Put somewhere time each train stops in each city and make corrections...
-  - [ ] Stop-time will be stored in the `cities_trains` table
-    - [x] Make corrections in DB scheme.
-    - [ ] Re-create database accordingly.
-    - [ ] Make a class from the `Related`, which can handle additional column.
+- [x] Put somewhere time each train stops in each city and make corrections...
+  - [x] Stop-time will be stored in the `stops` table
+    - [x] Make corrections in DB scheme: add `stops`: id, delay, `cities_stops`, and `stops_trains`
+    - [x] Re-create database accordingly.
+    - [x] Make `Stop` class.
 - [ ] Make test data generator.
 - [ ] Make CRUD tests and pages, for trains and cities
   - [ ] Single object view and linked lists.
