@@ -15,7 +15,6 @@ describe Stop do
   end
 
   it 'knows his city and train' do
-
     expect(@stop.city.name).to eq 'Dnipro-Gholovnyj'
     expect(@stop.train.number).to eq 'Red'
   end

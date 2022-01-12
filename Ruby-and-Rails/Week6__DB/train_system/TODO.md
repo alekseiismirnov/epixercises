@@ -45,13 +45,13 @@
     - [x] Make corrections in DB scheme: add `stops`: id, delay, `cities_stops`, and `stops_trains`
     - [x] Re-create database accordingly.
     - [x] Make `Stop` class.
-- [ ] Make test data generator.
+- [x] Make test data generator.
 - [ ] Make CRUD tests and pages, for trains and cities
-  - [ ] Single object view and linked lists.
+  - [x] List and object views for trains and cities.
   - [ ] Add 'Delete' button to items in lists.
   - [ ] Input forms.  Redirect to lists after creation.
   - [ ] Update forms. Redirect to object view.
-- [ ] Add `related` functionality to cities and trains.
+- [ ] Add `related` functionality to cities and trains views.
   - [ ] Learn partials, see `Learning notes`.
   - [ ] Add the fild, which accepts listst of id's in:
     - [ ] Train create form.

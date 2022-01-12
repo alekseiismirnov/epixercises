@@ -4,6 +4,8 @@ require 'rspec'
 require 'pg'
 require 'pry'
 
+require './app'
+
 require 'capybara/rspec'
 require 'sinatra'
 

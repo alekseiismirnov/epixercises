@@ -6,8 +6,8 @@ class ColorLines
   def initialize
     @cities = ['Bila Cerkva', 'Dnipro-Gholovnyj', 'Kamjansjke-Pas.', 'Kharkiv-Pas.', 'Khmeljnycjkyj', 'Kremenchuk-Pas.',
                'Kropyvnycjkyj', 'Kyjiv-Pas.', 'Ljviv', 'Mariupolj', 'Mukachevo', 'Odesa-Gholovna', 'Pologhy',
-               'Poltava-Pivd.', 'Slavsjke', 'Stryj', 'Svaljava', 'Ternopilj', 'Uzhghorod', 'Vinnycja', 'Volnovakha', 'Volovecj',
-               'Voznesensjk', 'Zaporizhzhja-1'].map do |name|
+               'Poltava-Pivd.', 'Slavsjke', 'Stryj', 'Svaljava', 'Ternopilj', 'Uzhghorod', 'Vinnycja', 'Volnovakha',
+               'Volovecj', 'Voznesensjk', 'Zaporizhzhja-1'].map do |name|
       [name, City.new(name: name)]
     end.to_h
     @cities.values.each(&:save)

@@ -40,7 +40,7 @@ CREATE TABLE cities_stops (
 
 ALTER TABLE cities_stops ADD CONSTRAINT cities_stops_pkey PRIMARY KEY (id);
 
-ALTER TABLE stops_trains ADD CONSTRAINT stops_trains_train_id_fkey FOREIGN KEY (train_id) REFERENCES trains(id);
-ALTER TABLE stops_trains ADD CONSTRAINT stops_trains_stop_id_fkey FOREIGN KEY (stop_id) REFERENCES stops(id);
-ALTER TABLE cities_stops ADD CONSTRAINT cities_stops_stop_id_fkey FOREIGN KEY (stop_id) REFERENCES stops(id);
-ALTER TABLE cities_stops ADD CONSTRAINT cities_stops_city_id_fkey FOREIGN KEY (city_id) REFERENCES cities(id);
+ALTER TABLE stops_trains ADD CONSTRAINT stops_trains_train_id_fkey FOREIGN KEY (train_id) REFERENCES trains(id) ON DELETE CASCADE;
+ALTER TABLE stops_trains ADD CONSTRAINT stops_trains_stop_id_fkey FOREIGN KEY (stop_id) REFERENCES stops(id) ON DELETE CASCADE;
+ALTER TABLE cities_stops ADD CONSTRAINT cities_stops_stop_id_fkey FOREIGN KEY (stop_id) REFERENCES stops(id) ON DELETE CASCADE;
+ALTER TABLE cities_stops ADD CONSTRAINT cities_stops_city_id_fkey FOREIGN KEY (city_id) REFERENCES cities(id) ON DELETE CASCADE;
