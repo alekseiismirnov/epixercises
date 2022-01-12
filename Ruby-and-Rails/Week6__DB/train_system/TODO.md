@@ -48,7 +48,7 @@
 - [x] Make test data generator.
 - [ ] Make CRUD tests and pages, for trains and cities
   - [x] List and object views for trains and cities.
-  - [ ] Add 'Delete' button to items in lists.
+  - [x] Add 'Delete' button to items in lists.
   - [ ] Input forms.  Redirect to lists after creation.
   - [ ] Update forms. Redirect to object view.
 - [ ] Add `related` functionality to cities and trains views.

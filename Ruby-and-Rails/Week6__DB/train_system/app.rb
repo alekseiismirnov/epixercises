@@ -35,11 +35,25 @@ get '/trains' do
   erb :linked_list
 end
 
+get '/cities/new' do
+  @table = City.table
+  @fields = City.columns
+
+  erb :'storable/add'
+end
+
+post '/cities' do
+  city = City.new params
+  city.save
+
+  redirect '/cities'
+end
+
 get '/cities/:id' do
   id = params[:id].to_i
 
   city = City.find id
-  @title = "#{city.name}"
+  @title = city.name
 
   erb :object
 end
