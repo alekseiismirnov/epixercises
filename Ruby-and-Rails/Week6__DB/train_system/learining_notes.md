@@ -38,6 +38,8 @@ ALTER TABLE cities_stops
 
 ### Sinatra ###
 
+`request.path_info` - path of the last request.
+
 - [ ] Render partials in erb.
 
 ### Further Exploration ###

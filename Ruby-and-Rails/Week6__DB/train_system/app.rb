@@ -11,6 +11,34 @@ require_relative 'lib/train'
 
 DB = PG.connect(dbname: 'animal_shelter')
 
+get '/trains/:id/edit' do
+  @table = Train.table
+  @fields = Train.columns
+
+  @id = params[:id].to_i
+  train = Train.find @id
+  @record = {
+    number: train.number
+  } # procedure could be moved to the Storable perhaps
+
+  erb :'storable/update'
+end
+
+patch '/trains/:id' do
+  id = params[:id].to_i
+  train = Train.find id
+  train.update(params)
+
+  redirect request.path_info
+end
+
+get '/trains/new' do
+  @table = Train.table
+  @fields = Train.columns
+
+  erb :'storable/add'
+end
+
 get '/trains/:id' do
   id = params[:id].to_i
 
@@ -35,6 +63,13 @@ get '/trains' do
   erb :linked_list
 end
 
+post '/trains' do
+  train = Train.new params
+  train.save
+
+  redirect '/trains'
+end
+
 get '/cities/new' do
   @table = City.table
   @fields = City.columns
@@ -47,6 +82,27 @@ post '/cities' do
   city.save
 
   redirect '/cities'
+end
+
+get '/cities/:id/edit' do
+  @table = City.table
+  @fields = City.columns
+
+  @id = params[:id].to_i
+  city = City.find @id
+  @record = {
+    name: city.name
+  } # procedure could be moved to the Storable perhaps
+
+  erb :'storable/update'
+end
+
+patch '/cities/:id' do
+  id = params[:id].to_i
+  city = City.find id
+  city.update(params)
+
+  redirect request.path_info
 end
 
 get '/cities/:id' do

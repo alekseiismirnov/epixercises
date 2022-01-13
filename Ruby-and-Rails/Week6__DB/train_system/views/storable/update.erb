@@ -1,0 +1,12 @@
+<form action="/<%=@table%>/<%=@id%>" method="post">
+<input type="hidden" name="_method" value="patch">
+  <div class="form-group form_new">
+    <% @fields.each do |field| %>
+    <div>
+      <label for="<%=field%>"><%=field.capitalize%></label>
+      <input name="<%=field%>" type="text" value="<%=@record[field]%>">
+      </div>
+    <% end %>
+    <button type="submit" class="btn">Update</button>
+  </div>
+</form>

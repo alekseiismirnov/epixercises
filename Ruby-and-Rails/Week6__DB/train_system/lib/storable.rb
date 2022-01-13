@@ -53,6 +53,8 @@ module Storable
   end
 
   def save
+    return @id unless @id.nil?  # we have the `#update` for rewrite
+
     values = self.class.columns.map do |member|
       "'#{public_send(member)}'"
     end
@@ -74,12 +76,17 @@ module Storable
   def update(params)
     update_by = self.class.columns.reject { |column| params[column].nil? }
     update_by.each do |column|
-      member_refer = ('@' + column.to_s).to_sym
+      member_refer = "@#{column}".to_sym
       instance_variable_set(member_refer, params[column])
     end
-    # We have to set instance variables anyhow,
-    # so why bother with another SQL expression
-    save
+
+    updates = self.class.columns.map do |member|
+      "#{member}='#{public_send(member)}'"
+    end.join ', '
+
+    DB.exec(" UPDATE #{self.class.table} "\
+            " SET #{updates} "\
+            " WHERE id=#{@id};")
   end
 
   def delete
