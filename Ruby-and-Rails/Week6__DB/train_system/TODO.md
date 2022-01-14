@@ -46,13 +46,13 @@
     - [x] Re-create database accordingly.
     - [x] Make `Stop` class.
 - [x] Make test data generator.
-- [ ] Make CRUD tests and pages, for trains and cities
+- [x] Make CRUD tests and pages, for trains and cities
   - [x] List and object views for trains and cities.
   - [x] Add 'Delete' button to items in lists.
   - [x] Input forms.  Redirect to lists after creation.
-  - [ ] Update forms. Redirect to object view.
+  - [x] Update forms. Redirect to object view.
 - [ ] Add `related` functionality to cities and trains views.
-  - [ ] Learn partials, see `Learning notes`.
+  - [x] Learn partials, see `Learning notes`.
   - [ ] Add the fild, which accepts listst of id's in:
     - [ ] Train create form.
     - [ ] Train update form.

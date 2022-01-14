@@ -40,7 +40,9 @@ ALTER TABLE cities_stops
 
 `request.path_info` - path of the last request.
 
-- [ ] Render partials in erb.
+- [x] Render partials in erb:
+
+`<%= erb :linked_list %>`
 
 ### Further Exploration ###
 
