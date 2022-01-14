@@ -53,4 +53,3 @@ ALTER TABLE cities_stops
 
 - Check what we get, when we fetch non-string data from the DB.
 - How to initialize ```@table``` in ```Storable``` without calling a function in derevative class?  Not in module definition, not in ```module ClassMethods```, not it ```class << self```.
-

@@ -60,7 +60,7 @@ get '/trains' do
   @list_class = 'trains_list'
   @item_class = 'train'
 
-  erb :linked_list
+  erb :trains
 end
 
 post '/trains' do
@@ -126,7 +126,7 @@ get '/cities' do
   @list_class = 'cities_list'
   @item_class = 'city'
 
-  erb :linked_list
+  erb :cities
 end
 
 delete '/trains/:id' do
