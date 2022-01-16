@@ -1,10 +1,16 @@
 <h1><%=@title%></h1>
-
 <h2>Trains</h2>
 <table class="trains">
   <% @trains.each do |record| %>
-  <tr>
-    <td class="train"><%=record[:number]%></td>
-  </tr>
+    <tr class="train">
+      <td><%=record[:number]%></td>
+      <td>
+        <form action="/tickets" method="post">
+          <input type="hidden" name="train_id" value="<%=record[:train_id]%>">
+          <input type="hidden" name="city_id" value="<%=@city_id%>">
+          <button type="submit">Buy ticket</button>
+        </form>
+      </td>
+    </tr>
   <% end %>
 </table>

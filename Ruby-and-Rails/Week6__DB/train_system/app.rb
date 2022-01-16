@@ -124,12 +124,13 @@ patch '/cities/:id' do
 end
 
 get '/cities/:id' do
-  id = params[:id].to_i
+  @city_id = params[:id].to_i
 
-  city = City.find id
+  city = City.find @city_id
   @title = city.name
   @trains = city.stops.map(&:train).map do |train|
     {
+      train_id: train.id,
       number: train.number
     }
   end
@@ -164,6 +165,16 @@ delete '/cities/:id' do
   item.delete
 
   redirect '/cities'
+end
+
+post '/tickets' do
+  city_id = params['city_id'].to_i
+  train_id = params['train_id'].to_i
+
+  @city = City.find(city_id).name
+  @train = Train.find(train_id).number
+
+  erb :ticket
 end
 
 
