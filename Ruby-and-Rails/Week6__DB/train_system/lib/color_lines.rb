@@ -4,9 +4,9 @@ require 'stop'
 
 class ColorLines
   def initialize
-    @cities = ['Bila Cerkva', 'Dnipro-Gholovnyj', 'Kamjansjke-Pas.', 'Kharkiv-Pas.', 'Khmeljnycjkyj', 'Kremenchuk-Pas.',
-               'Kropyvnycjkyj', 'Kyjiv-Pas.', 'Ljviv', 'Mariupolj', 'Mukachevo', 'Odesa-Gholovna', 'Pologhy',
-               'Poltava-Pivd.', 'Slavsjke', 'Stryj', 'Svaljava', 'Ternopilj', 'Uzhghorod', 'Vinnycja', 'Volnovakha',
+    @cities = ['Bila Cerkva', 'Dnipro-Gholovnyj', 'Donecjk', 'Kamjansjke-Pas.', 'Kharkiv-Pas.', 'Khmeljnycjkyj', 'Kremenchuk-Pas.',
+               'Kropyvnycjkyj', 'Kyjiv-Pas.', 'Ljviv', 'Lugansjk', 'Mariupolj', 'Mukachevo', 'Odesa-Gholovna', 'Pologhy',
+               'Poltava-Pivd.', 'Simferopolj', 'Slavsjke', 'Stryj', 'Svaljava', 'Ternopilj', 'Uzhghorod', 'Vinnycja', 'Volnovakha',
                'Volovecj', 'Voznesensjk', 'Zaporizhzhja-1'].map do |name|
       [name, City.new(name: name)]
     end.to_h
@@ -31,8 +31,6 @@ class ColorLines
     green_stops = { 'Ljviv' => 30, 'Ternopilj' => 5, 'Khmeljnycjkyj' => 10, 'Odesa-Gholovna' => 30 }
     @green_stops = init_stops(green_stops, @trains['Green'])
   end
-
-  private
 
   def init_stops(time_table, train)
     stops_list = time_table.transform_values do |minutes|

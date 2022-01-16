@@ -13,7 +13,7 @@ DB = PG.connect(dbname: 'animal_shelter')
 
 get '/trains/:id/edit' do
   @table = Train.table
-  @fields = Train.columns
+  @fields = Train.columns + [:stops]
 
   @id = params[:id].to_i
   train = Train.find @id
@@ -26,15 +26,21 @@ end
 
 patch '/trains/:id' do
   id = params[:id].to_i
+  stop_ids = params[:stops].split(', ').map(&:to_i)
+
   train = Train.find id
   train.update(params)
+
+  stop_ids.each do |stop_id|
+    train.add_related(Stop.find(stop_id))
+  end
 
   redirect request.path_info
 end
 
 get '/trains/new' do
   @table = Train.table
-  @fields = Train.columns
+  @fields = Train.columns + [:stops]
 
   erb :'storable/add'
 end
@@ -64,8 +70,14 @@ get '/trains' do
 end
 
 post '/trains' do
+  stop_ids = params[:stops].split(', ').map(&:to_i)
+
   train = Train.new params
   train.save
+
+  stop_ids.each do |stop_id|
+    train.add_related(Stop.find(stop_id))
+  end
 
   redirect '/trains'
 end

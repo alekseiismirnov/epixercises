@@ -54,9 +54,9 @@
 - [ ] Add `related` functionality to cities and trains views.
   - [x] Learn partials, see `Learning notes`.
   - [ ] Add the fild, which accepts listst of id's in:
-    - [ ] Train create form.
+    - [x] Train create form.
     - [ ] Train update form.
-  - [ ] Add list of cities in the train view and list of trains in the city view.
+  - [ ] Add list of *cities* in the train view and list of trains in the *city* view.
 - [ ] Add `Buy ticket' option on city view page, redirecting on a 'ticket' page.
 
 ## Further Exploration ##
