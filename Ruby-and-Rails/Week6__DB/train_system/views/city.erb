@@ -1,0 +1,10 @@
+<h1><%=@title%></h1>
+
+<h2>Trains</h2>
+<table class="trains">
+  <% @trains.each do |record| %>
+  <tr>
+    <td class="train"><%=record[:number]%></td>
+  </tr>
+  <% end %>
+</table>

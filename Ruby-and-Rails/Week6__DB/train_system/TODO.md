@@ -51,12 +51,12 @@
   - [x] Add 'Delete' button to items in lists.
   - [x] Input forms.  Redirect to lists after creation.
   - [x] Update forms. Redirect to object view.
-- [ ] Add `related` functionality to cities and trains views.
+- [x] Add `related` functionality to cities and trains views.
   - [x] Learn partials, see `Learning notes`.
-  - [ ] Add the fild, which accepts listst of id's in:
+  - [x] Add the fild, which accepts listst of id's in:
     - [x] Train create form.
-    - [ ] Train update form.
-  - [ ] Add list of *cities* in the train view and list of trains in the *city* view.
+    - [x] Train update form.
+  - [x] Add list of *cities* in the train view and list of trains in the *city* view.
 - [ ] Add `Buy ticket' option on city view page, redirecting on a 'ticket' page.
 
 ## Further Exploration ##

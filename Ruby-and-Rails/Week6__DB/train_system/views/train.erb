@@ -1,0 +1,15 @@
+<h1><%=@title%></h1>
+
+<h2>Timetable</h2>
+<table class="timetable">
+  <tr>
+    <th>City</th>
+    <th>Stop-time (minutes)</th>
+  </tr>
+  <% @timetable.each do |record| %>
+  <tr>
+    <td class="city"><%=record[:city]%></td>
+    <td class="time"><%=record[:minutes]%></td>
+  </tr>
+  <% end %>
+</table>

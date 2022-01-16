@@ -50,8 +50,14 @@ get '/trains/:id' do
 
   train = Train.find id
   @title = "Train #{train.number}"
+  @timetable = train.stops.map do |stop|
+    {
+      city: stop.city.name,
+      minutes: stop.minutes
+    }
+  end
 
-  erb :object
+  erb :train
 end
 
 get '/trains' do
@@ -122,8 +128,13 @@ get '/cities/:id' do
 
   city = City.find id
   @title = city.name
+  @trains = city.stops.map(&:train).map do |train|
+    {
+      number: train.number
+    }
+  end
 
-  erb :object
+  erb :city
 end
 
 get '/cities' do
