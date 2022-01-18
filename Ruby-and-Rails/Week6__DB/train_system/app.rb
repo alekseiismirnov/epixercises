@@ -8,8 +8,10 @@ require 'sinatra/reloader'
 also_reload 'lib/**/*.rb'
 
 require_relative 'lib/train'
+require_relative 'lib/city'
+require_relative 'lib/stop'
 
-DB = PG.connect(dbname: 'animal_shelter')
+DB = PG.connect(dbname: 'train_system')
 
 get '/trains/:id/edit' do
   @table = Train.table

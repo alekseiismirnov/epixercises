@@ -60,14 +60,21 @@
 - [x] Add `Buy ticket' option on city view page, redirecting on a 'ticket' page.
   - [x] Add button "Buy ticket" after every train
   - [x] Redirect on a page with a city name and a ticket number.
-- [ ] Add stop creation form. 
 
 ## Further Exploration ##
 
 - [ ] Tasks from the `Further Exploration` at the `Learining Notes`.
-- [ ] Rewrite `related` lists member to use JOIN in more effective way, if it's possibje.
+- [x] Rewrite `related` lists member to use JOIN in more effective way, if it's possibje. Already.
+- [ ] Add Bootstrap styling.
+  - [x] Populate database.
+  - [x] Bootstrap 5 setup - `_layout.erb` with CDN links.
+  - [ ] Header and footer.
+  - [ ] Restyle tables, buttons, and forms - 9(?) pages to review.
 - [ ] Replace input multiply id's field with multiselection ones.
+  - [ ] Which pages?
+- [ ] Add `Edit` buttons to the cities and trains
 - [ ] Date picker in `Buy ticket` form.
 - [ ] Add navbar, header and footer to the `layout.erb`.
 - [ ] Add images: logo, trains and cities pics in object views.
-- [ ] Add Bootstrap styling.
+
+

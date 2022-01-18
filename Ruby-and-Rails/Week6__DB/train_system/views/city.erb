@@ -3,7 +3,7 @@
 <table class="trains">
   <% @trains.each do |record| %>
     <tr class="train">
-      <td><%=record[:number]%></td>
+      <td class="train_number"><%=record[:number]%></td>
       <td>
         <form action="/tickets" method="post">
           <input type="hidden" name="train_id" value="<%=record[:train_id]%>">

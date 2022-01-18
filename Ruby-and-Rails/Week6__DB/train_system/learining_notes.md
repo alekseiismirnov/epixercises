@@ -46,10 +46,20 @@ ALTER TABLE cities_stops
 
 ### Further Exploration ###
 
-- [ ] HTML input, multiply selection.
-- [ ] SQL JOIN for `related` lists.
-- [ ] HTML or Bootstrap date picker.
+- [x] HTML selection. `datalist`:
+  - `form`: action, method
+  - `label`: for
+  - `input`: list(mult), name(singl), id(singl)
+  - `datalist`: id(mult)
+    - `option`: value
+    - ...
+  - `input`: type="submit"
+  
+- [x] SQL JOIN for `related` lists. - Already, actually.
+- [x] HTML or Bootstrap date picker.
+  - `input`: type="date"6
 - [ ] Refresh Bootstrap grid enogh for this project.
+  Structure seems to be very simple. Only 
 
 ## Question ##
 
