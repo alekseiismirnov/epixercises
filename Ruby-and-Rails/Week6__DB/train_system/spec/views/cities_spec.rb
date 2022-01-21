@@ -7,7 +7,7 @@ class ColorLines
 end
 
 describe('View cities', type: :feature) do
-  before :all do
+  before :each do
     railway = ColorLines.new
     @cities = railway.cities
     visit '/cities'
@@ -23,5 +23,15 @@ describe('View cities', type: :feature) do
     click_on 'Bila Cerkva'
     expect(page.status_code).to eq 200
     expect(find('h1').text).to eq 'Bila Cerkva'
+  end
+
+  it 'allows to add new city' do
+    click_on 'Add'
+    expect(page.status_code).to eq 200
+
+    fill_in 'name', with: 'Kolomyja'
+    click_button 'Add'
+
+    expect(City.all.map(&:name)).to include 'Kolomyja'
   end
 end

@@ -1,0 +1,19 @@
+<form action="/trains/<%=@id%>" method="post">
+  <div class="form-group update_train">
+    <input type="hidden" name="_method" value="patch">
+    <label for="number">Train number:</label>
+    <input class="form-control" type="text" value="<%=@record[:number]%>" name="number">
+    <label for="add_stop">Add new stop</label>
+    <div class="container add_stop p-1">
+      <label for="cities">Select city:</label>
+      <select class="form-select" id="cities" name="city_id">
+        <% @cities.each do |city| %>
+          <option value="<%=city[:id]%>"><%=city[:name]%></option>
+        <% end %>
+      </select>
+      <label for="minutes">Stop-time in minutes:</label>
+      <input class="form-control pt-2" type="text" id="minutes" name="minutes" placeholder="30">
+    </div>
+    <button type="submit" class="btn btn-sm btn-warning">Update</button>
+  </div>
+</form>

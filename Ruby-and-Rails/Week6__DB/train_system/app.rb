@@ -14,27 +14,37 @@ require_relative 'lib/stop'
 DB = PG.connect(dbname: 'train_system')
 
 get '/trains/:id/edit' do
-  @table = Train.table
-  @fields = Train.columns + [:stops]
-
   @id = params[:id].to_i
   train = Train.find @id
   @record = {
     number: train.number
   } # procedure could be moved to the Storable perhaps
 
-  erb :'storable/update'
+  @cities = City.all.map do |city|
+    {
+      id: city.id,
+      name: city.name
+    }
+  end
+
+  erb :train_edit
 end
 
 patch '/trains/:id' do
   id = params[:id].to_i
-  stop_ids = params[:stops].split(', ').map(&:to_i)
+  number = params[:number]
+
+  city_id = params[:city_id]
+  minutes = params[:minutes].to_i
 
   train = Train.find id
-  train.update(params)
+  train.update(number: number) unless number.empty?
 
-  stop_ids.each do |stop_id|
-    train.add_related(Stop.find(stop_id))
+  if city_id && minutes
+    stop = Stop.new(minutes: minutes)
+    stop.save
+    stop.add_related(City.find(city_id))
+    train.add_related(stop)
   end
 
   redirect request.path_info
@@ -178,5 +188,3 @@ post '/tickets' do
 
   erb :ticket
 end
-
-

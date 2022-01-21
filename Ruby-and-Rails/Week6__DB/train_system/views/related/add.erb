@@ -1,8 +1,10 @@
 <div class="form_add">
   <form action="<%=@action%>" method="post">
+  <div class="form-group">
     <input type="hidden" name="_method" value="patch">
     <label for="<%=@input_name%>"><%=@label%></label>
-    <input name="<%=@input_name%>" type="text">
-    <button type="submit">Add</button>
-  </form>
+    <input name="<%=@input_name%>" type="text" class="form-control">
+    <button type="submit" class="btn btn-sm btn-warning">Add</button>
+  </div>
+</form>
 </div>

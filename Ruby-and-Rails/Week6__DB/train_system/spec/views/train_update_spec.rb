@@ -7,27 +7,39 @@ class ColorLines
 end
 
 describe('Edit train', type: :feature) do
-  before :all do
+  before :each do
     railway = ColorLines.new
     @trains = railway.trains
     @train_id = @trains['Red'].id
     @stops = railway.red_stops
-
-    @new_stop = Stop.new(minutes: 30)
-    @new_stop.save
-    @new_stop.add_related(railway.cities['Donecjk'])
+    @city = railway.cities['Lugansjk']
 
     visit "/trains/#{@train_id}/edit"
   end
 
-  it 'Change trains number in database' do
+  it 'changes a train number' do
     expect(page.status_code).to eq 200
 
-    fill_in 'stops',	with: @new_stop.id
+    fill_in 'number',	with: 'Bright Red'
     click_button 'Update'
 
     expect(page.status_code).to eq 200
 
-    expect(@trains['Red'].stops).to match_array @stops.values + [@new_stop]
+    expect(Train.find(@train_id).number).to eq 'Bright Red'
+  end
+
+  it 'allows create and add new a stop' do
+    within('.add_stop') do
+      select 'Lugansjk', from: 'cities'
+      fill_in 'minutes', with: '45'
+    end
+    click_button 'Update'
+
+    expect(page.status_code).to eq 200
+
+    stop = Train.find(@train_id).stops.last
+
+    expect(stop.city).to eq @city
+    expect(stop.minutes).to eq 45
   end
 end

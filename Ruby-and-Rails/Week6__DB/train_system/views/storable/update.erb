@@ -4,9 +4,9 @@
     <% @fields.each do |field| %>
     <div>
       <label for="<%=field%>"><%=field.capitalize%></label>
-      <input name="<%=field%>" type="text" value="<%=@record[field]%>">
+      <input name="<%=field%>" type="text" value="<%=@record[field]%>" class="form-control">
       </div>
     <% end %>
-    <button type="submit" class="btn">Update</button>
+    <button type="submit" class="btn btn-sm btn-warning">Update</button>
   </div>
 </form>

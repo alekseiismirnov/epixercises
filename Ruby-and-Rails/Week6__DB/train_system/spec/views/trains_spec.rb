@@ -7,7 +7,7 @@ class ColorLines
 end
 
 describe('View trains', type: :feature) do
-  before :all do
+  before :each do
     railway = ColorLines.new
     @trains = railway.trains
     @train = @trains['Blue']
@@ -24,5 +24,15 @@ describe('View trains', type: :feature) do
     click_on 'Blue'
     expect(page.status_code).to eq 200
     expect(find('h1').text).to eq 'Train Blue'
+  end
+
+  it 'allows to add new train' do
+    click_on 'Add'
+    expect(page.status_code).to eq 200
+
+    fill_in 'number', with: 'Silver'
+    click_button 'Add'
+
+    expect(Train.all.map(&:number)).to include 'Silver'
   end
 end

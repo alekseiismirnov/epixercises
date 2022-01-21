@@ -63,18 +63,23 @@
 
 ## Further Exploration ##
 
-- [ ] Tasks from the `Further Exploration` at the `Learining Notes`.
+- [x] Tasks from the `Further Exploration` at the `Learining Notes`.
 - [x] Rewrite `related` lists member to use JOIN in more effective way, if it's possibje. Already.
-- [ ] Add Bootstrap styling.
+- [x] Add Bootstrap styling.
   - [x] Populate database.
   - [x] Bootstrap 5 setup - `_layout.erb` with CDN links.
-  - [ ] Header and footer.
-  - [ ] Restyle tables, buttons, and forms - 9(?) pages to review.
-- [ ] Replace input multiply id's field with multiselection ones.
-  - [ ] Which pages?
-- [ ] Add `Edit` buttons to the cities and trains
+  - [x] Header and footer.
+  - [x] Restyle tables, buttons, and forms - 9(?) pages to review.
+- [x] On train edit page add fields for creating new stop
+  - [x] Remove field for stops ids list
+  - [x] Add `select` and field for time.  Just for one stop. Alternative: arbitrary fixed number (maybe along with the order adding), list of stops with fields for new stops between and around(again), dynamic list of fields(seems too long for get it)
+- [?] Add order to the stops.
+- [x] Add `Add` buttons to the cities and trains lists.
+- [x] Add `Edit` buttons to the cities and trains
 - [ ] Date picker in `Buy ticket` form.
-- [ ] Add navbar, header and footer to the `layout.erb`.
+- [x] Add navbar and footer to the `layout.erb`.
 - [ ] Add images: logo, trains and cities pics in object views.
 
+## Beyond The Further Exploration ##
 
+- [ ] Add order to the stops.

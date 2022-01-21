@@ -46,14 +46,14 @@ ALTER TABLE cities_stops
 
 ### Further Exploration ###
 
-- [x] HTML selection. `datalist`:
-  - `form`: action, method
-  - `label`: for
-  - `input`: list(mult), name(singl), id(singl)
-  - `datalist`: id(mult)
-    - `option`: value
-    - ...
-  - `input`: type="submit"
+- [x] HTML selection. `select`:
+  
+```erb
+       <select class="form-select" id="cities" name="city_id">
+        <% @cities.each do |city| %>
+          <option value="<%=city[:id]%>"><%=city[:name]%></option>
+        <% end %>
+```
   
 - [x] SQL JOIN for `related` lists. - Already, actually.
 - [x] HTML or Bootstrap date picker.
