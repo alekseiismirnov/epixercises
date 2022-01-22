@@ -78,4 +78,4 @@
 - [x] Add `Edit` buttons to the cities and trains
 - [x] Date picker in `Buy ticket` form.
 - [x] Add navbar and footer to the `layout.erb`.
-- [ ] Add images: logo, trains and cities pics in object views.
+- [x] Add images: logo and cities pics.
