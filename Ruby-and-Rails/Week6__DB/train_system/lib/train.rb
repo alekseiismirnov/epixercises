@@ -20,4 +20,10 @@ class Train
     @id = params[:id].to_i if params[:id]
     @number = params[:number] if params[:number]
   end
+
+  def delete
+    stops.each(&:delete)
+
+    super
+  end
 end

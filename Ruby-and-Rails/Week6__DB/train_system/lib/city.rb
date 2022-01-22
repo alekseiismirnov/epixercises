@@ -20,4 +20,10 @@ class City
     @id = params[:id].to_i if params[:id]
     @name = params[:name] if params[:name]
   end
+
+  def delete
+    stops.each(&:delete)
+
+    super
+  end
 end

@@ -166,15 +166,15 @@ get '/cities' do
 end
 
 delete '/trains/:id' do
-  item = Train.find params[:id].to_i
-  item.delete
+  train = Train.find params[:id].to_i
+  train.delete
 
   redirect '/trains'
 end
 
 delete '/cities/:id' do
-  item = City.find params[:id].to_i
-  item.delete
+  city = City.find params[:id].to_i
+  city.delete
 
   redirect '/cities'
 end
