@@ -1,12 +1,12 @@
 # Train System #
 
-- [ ] Make a program to map a train system. Trains will stop in a number of cities and each city may have a number of trains coming through it.
-- [ ] Final code review:
-  - [ ] Does the database use standard naming convention for both columns and tables?
-  - [ ] Is the many-to-many relationship set up correctly?
-  - [ ] Is CRUD functionality being executed in class methods and routes?
-  - [ ] Do routes correctly follow RESTful convention?
-  - [ ] Does the application work as expected?
+- [x] Make a program to map a train system. Trains will stop in a number of cities and each city may have a number of trains coming through it.
+- [x] Final code review:
+  - [x] Does the database use standard naming convention for both columns and tables?
+  - [x] Is the many-to-many relationship set up correctly?
+  - [x] Is CRUD functionality being executed in class methods and routes?
+  - [x] Do routes correctly follow RESTful convention?
+  - [x] Does the application work as expected?
 
 ## Goals ##
 
