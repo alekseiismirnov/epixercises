@@ -57,9 +57,9 @@ ALTER TABLE cities_stops
   
 - [x] SQL JOIN for `related` lists. - Already, actually.
 - [x] HTML or Bootstrap date picker.
-  - `input`: type="date"6
-- [ ] Refresh Bootstrap grid enogh for this project.
-  Structure seems to be very simple. Only 
+  - `input`: type="date"
+- [x] Refresh Bootstrap grid enogh for this project.
+  Structure seems to be very simple.
 
 ## Question ##
 

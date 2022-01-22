@@ -183,6 +183,8 @@ post '/tickets' do
   city_id = params['city_id'].to_i
   train_id = params['train_id'].to_i
 
+  @departure_date = Date.parse(params['departure_date']).strftime('%d %b %Y')
+
   @city = City.find(city_id).name
   @train = Train.find(train_id).number
 

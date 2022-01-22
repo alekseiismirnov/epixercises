@@ -18,6 +18,7 @@ describe('View train page with number and timetabe', type: :feature) do
 
   it 'allows buy ticket to selected train from city page' do
     within(find('.train', text: 'Blue')) do
+      fill_in 'departure_date', with: '05-01-2023'
       click_button 'Buy ticket'
     end
 
@@ -29,6 +30,7 @@ describe('View train page with number and timetabe', type: :feature) do
 
     within('.departure') do
       expect(page).to have_content 'Ljviv'
+      expect(page).to have_content '05 Jan 2023'
     end
   end
 end

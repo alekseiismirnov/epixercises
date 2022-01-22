@@ -17,7 +17,7 @@
 
 ### Operator ###
 
-- [ ] As a train system operator, I want to create, read, update, delete and list trains, so that I can track all of the trains in my system.
+- [x] As a train system operator, I want to create, read, update, delete and list trains, so that I can track all of the trains in my system.
 - [x] As a train system operator, I want to create, read, update, delete and list cities where my trains will stop, so that I can manage where all of the trains will go.
 
 ### Rider ###
@@ -76,10 +76,6 @@
 - [?] Add order to the stops.
 - [x] Add `Add` buttons to the cities and trains lists.
 - [x] Add `Edit` buttons to the cities and trains
-- [ ] Date picker in `Buy ticket` form.
+- [x] Date picker in `Buy ticket` form.
 - [x] Add navbar and footer to the `layout.erb`.
 - [ ] Add images: logo, trains and cities pics in object views.
-
-## Beyond The Further Exploration ##
-
-- [ ] Add order to the stops.

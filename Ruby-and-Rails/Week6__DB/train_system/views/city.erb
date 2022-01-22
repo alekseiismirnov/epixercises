@@ -1,16 +1,32 @@
 <h1><%=@title%></h1>
-<h2>Trains</h2>
-<table class="trains">
-  <% @trains.each do |record| %>
-    <tr class="train">
-      <td class="train_number"><%=record[:number]%></td>
-      <td>
-        <form action="/tickets" method="post">
-          <input type="hidden" name="train_id" value="<%=record[:train_id]%>">
-          <input type="hidden" name="city_id" value="<%=@city_id%>">
-          <button type="submit" class="btn btn-primary" >Buy ticket</button>
-        </form>
-      </td>
-    </tr>
-  <% end %>
-</table>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col">
+      <picture>
+        <source srcset="/city.png" type="image/svg+xml">
+        <img src="/city.png" class="img-fluid img-thumbnail">
+      </picture>
+    </div>
+    <div class="col">
+      <h2>Trains</h2>
+      <table class="trains">
+        <% @trains.each do |record| %>
+          <tr class="train">
+            <td class="train_number"><%=record[:number]%></td>
+            <td>
+              <form action="/tickets" method="post">
+                <div class="input-group">
+                  <input placeholder="Select date" type="date" name='departure_date' class="form-control">
+                  <i class="fas fa-calendar input-prefix"></i>
+                  <input type="hidden" name="train_id" value="<%=record[:train_id]%>">
+                  <input type="hidden" name="city_id" value="<%=@city_id%>">
+                  <button type="submit" class="btn btn-primary" >Buy ticket</button>
+                </div>
+              </form>
+            </td>
+          </tr>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</div>
