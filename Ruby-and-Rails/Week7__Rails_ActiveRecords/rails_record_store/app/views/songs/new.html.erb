@@ -1,0 +1,8 @@
+<h1>Add a new song</h1>
+<%= form for [@album, @song] do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.label :lyrics %>
+  <%= f.textarea :lyrics %>
+  <p> <%= f.submit %> </p>
+<% end %>
