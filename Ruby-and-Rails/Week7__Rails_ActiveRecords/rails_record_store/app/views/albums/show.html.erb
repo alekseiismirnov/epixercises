@@ -1,22 +1,19 @@
 <h1><%=@album.name%>
-<h3><%=@album.genre%></h3>
-
-<% if @album.songs.any? %>
-<h4>Songs:</h4>
-<ul>
-<% @album.songs.each do |song| %>
-<li>
-
-</li>
-<% end %>
-</ul>
-<% end %>
-
-<p><%=link_to 'Edit', edit_album_path(@album) %></p>
-
-<p><%=link_to 'Delete', 
+  <h3><%=@album.genre%></h3>
+  <% if @album.songs.any? %>
+    <h4>Songs:</h4>
+    <ul>
+      <% @album.songs.each do |song| %>
+        <li>
+          <%=link_to song.name, album_song_path(@album, song) %>
+        </li>
+      <% end %>
+    </ul>
+  <% end %>
+  <p><%=link_to 'Add a song', new_album_song_path(@album)%></p>
+  <p><%=link_to 'Edit', edit_album_path(@album) %></p>
+  <p><%=link_to 'Delete', 
               album_path(@album), 
               data: { confirm: 'Are you sure?',
                       method: 'delete'}%></p>
-
-<p><%=link_to 'Back to albums', albums_path%></p>
+  <p><%=link_to 'Back to albums', albums_path%></p>

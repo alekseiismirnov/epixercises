@@ -30,7 +30,7 @@ class SongsController < ApplicationController
 
   def update
     @song = Song.find(params[:id])
-    if @sont.update(song_params)
+    if @song.update(song_params)
       redirect_to album_path(@song.album)
     else
       @album = Album.find(params[:album_id])
