@@ -4,7 +4,7 @@
 
 ### Animal ###
 
-* `@name`
+* `@species`
   
 has many sightings
 
