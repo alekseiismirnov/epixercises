@@ -14,5 +14,7 @@ describe('Animals list', type: :feature) do
     expect(page.status_code).to eq 200
 
     expect(all('#spec').map(&:text)).to match_array @specs
+
+    expect(page).to have_link('Add new animal', href: '/animals/new')
   end
 end
