@@ -2,7 +2,6 @@ describe('Adding new sight for animal', type: :feature) do
   before :all do
     Animal.delete_all
     @animal = Animal.create(species: 'Bandrersnatch')
-    @location = [48.954410, 24.689311]
   end
 
   it 'adds new animals sight' do
@@ -16,6 +15,7 @@ describe('Adding new sight for animal', type: :feature) do
     click_button 'Create Sight'
     expect(page).to have_http_status(:success)
 
-    expect(@animal.sights.first).to eq @location
+    expect(@animal.sights.first.latitude).to eq 48.954410
+    expect(@animal.sights.first.longtitude).to eq 24.689311
   end
 end
