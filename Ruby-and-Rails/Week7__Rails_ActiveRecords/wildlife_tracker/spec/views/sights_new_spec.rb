@@ -1,6 +1,6 @@
 describe('Adding new sight for animal', type: :feature) do
   before :all do
-    Animal.delete_all
+    Animal.destroy_all
     @animal = Animal.create(species: 'Bandrersnatch')
   end
 

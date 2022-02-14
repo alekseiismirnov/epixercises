@@ -2,6 +2,7 @@ require 'rails_helper'
 
 describe('Show animal', type: :feature) do
   it 'shows animal species' do
+    Animal.destroy_all
     animal = Animal.create(species: 'Vydra')
     visit "/animals/#{animal.id}"
 

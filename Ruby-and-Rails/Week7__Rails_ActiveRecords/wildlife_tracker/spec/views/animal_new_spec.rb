@@ -4,7 +4,7 @@ end
 
 describe('Create new animal page', type: :feature) do
   before :all do
-    Animal.delete_all
+    Animal.destroy_all
 
     forest = BackForest.new
     @species = forest.animals_specs

@@ -4,7 +4,7 @@ end
 
 describe('Update animal', type: :feature) do
   before :all do
-    Animal.delete_all
+    Animal.destroy_all
 
     forest = BackForest.new
     @animals_species = forest.animals_specs

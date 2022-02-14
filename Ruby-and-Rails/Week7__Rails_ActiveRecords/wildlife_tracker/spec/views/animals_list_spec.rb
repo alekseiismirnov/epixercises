@@ -4,7 +4,7 @@ end
 
 describe('Animals list', type: :feature) do
   before :all do
-    Animal.delete_all
+    Animal.destroy_all
     forest = BackForest.new
     @specs = forest.animals_specs
   end
