@@ -9,8 +9,8 @@ To build an app so that the rangers can report wildlife sightings.
 - [ ] Next, allow them to input a sighting of an animal, along with the date, latitude, and longitude. (Hint: an animal has many sightings.) Add CRUD functionality for these sightings.
   - [x] Model and migration
   - [ ] Tests and views
-    - [ ] Create
-    - [ ] Retrieve (Within the animal page)
+    - [x] Create
+    - [x] Retrieve (Within the animal page)
     - [ ] Delete
 - [ ] Now the area under consideration has been divided into several regions.
   - [ ] Model and migration

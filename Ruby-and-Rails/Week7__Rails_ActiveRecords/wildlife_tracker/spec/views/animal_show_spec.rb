@@ -12,7 +12,7 @@ describe('Show animal', type: :feature) do
     expect(page.status_code).to eq 200
     expect(find('h1').text).to eq 'Vydra'
 
-    expect(all('div').map(&:text)).to match_array(locations.map { |x, y| "#{x}, #{y}" })
+    expect(all('#location').map(&:text)).to match_array(locations.map { |x, y| "#{x}, #{y}" })
  
     expect(page).to have_link('Edit', href: "/animals/#{animal.id}/edit")
     expect(page).to have_link('Delete', href: "/animals/#{animal.id}")
