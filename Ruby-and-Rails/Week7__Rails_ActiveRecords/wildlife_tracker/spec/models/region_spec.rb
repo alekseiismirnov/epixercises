@@ -1,5 +1,5 @@
 require 'rails_helper'
 
-describe Animal do
+describe Region do
   it { should have_many(:sights) }
 end
