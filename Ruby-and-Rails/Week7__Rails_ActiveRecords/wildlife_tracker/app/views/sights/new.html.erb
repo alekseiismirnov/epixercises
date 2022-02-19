@@ -1,5 +1,7 @@
 <%= form_for [@animal, @sight] do |f| %>
 <%= f.label :location %>
 <%= f.text_field :location %>
+<%= f.label :region_id, 'Select Region' %>
+<%= f.collection_select :region_id, Region.order(:name), :id, :name %>
 <%= f.submit %>
 <% end %>

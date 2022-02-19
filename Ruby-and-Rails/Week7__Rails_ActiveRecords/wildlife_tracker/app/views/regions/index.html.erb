@@ -1,0 +1,7 @@
+<h1>Regions</h1>
+
+<% if @regions %>
+  <% @regions.each do |region| %>
+    <p><span id="region"><%= region.name %></span></p>
+  <% end %>
+<% end %>

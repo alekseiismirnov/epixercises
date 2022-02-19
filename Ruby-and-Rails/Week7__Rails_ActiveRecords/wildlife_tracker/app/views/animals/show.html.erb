@@ -3,6 +3,7 @@
   <% @animal.sights.each do |sight| %>
     <div id="sight">
       <span id="location"><%= "#{sight.latitude}, #{sight.longtitude}" %></span>
+      <span id="region"><%= sight.region.name %></span>
       <%= link_to 'Delete', animal_sight_path(@animal, sight), data: {confirm: 'Sure?', method: "delete"} %>
     </div>
   <% end %>

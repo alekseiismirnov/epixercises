@@ -30,6 +30,6 @@ class SightsController < ApplicationController
   private
 
   def sight_params
-    params.require(:sight).permit(:location)
+    params.require(:sight).permit(:location, :region_id)
   end
 end

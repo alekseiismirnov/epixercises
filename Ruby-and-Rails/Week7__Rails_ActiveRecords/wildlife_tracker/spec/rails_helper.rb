@@ -76,8 +76,12 @@ class BackForest
     @animals_specs.each { |spec| Animal.create(species: spec) }
     @animal = Animal.all.first
     @animal_locations = [[2.3, 4.5], [0.001, 3.005], [0.00, 0.00]]
+    
+    @regions_names = %w[Circle Square Leftovers]
+    @regions = @regions_names.map { |name| Region.create(name: name) }
+    @region = @regions[1]
     @animal_locations.each do |location|
-      @animal.sights.create(location: location)
+      @animal.sights.create(location: location, region_id: @region.id)
     end
   end
 end

@@ -5,7 +5,8 @@ describe('Show animal', type: :feature) do
     Animal.destroy_all
     @animal = Animal.create(species: 'Vydra')
     @locations = (1..10).map(&:to_f).zip((101..110).map(&:to_f))
-    @locations.each { |location| @animal.sights.create(location: location) }
+    @region = Region.create(name: 'Zamastyrniv')
+    @locations.each { |location| @animal.sights.create(location: location, region_id: @region.id) }
   end
 
   it 'shows animal species and sights' do
@@ -15,6 +16,7 @@ describe('Show animal', type: :feature) do
     expect(find('h1').text).to eq 'Vydra'
 
     expect(all('#location').map(&:text)).to match_array(@locations.map { |x, y| "#{x}, #{y}" })
+    expect(all('#region').map(&:text)).to match_array(@animal.sights.map(&:region).map(&:name))
 
     expect(page).to have_link('Edit', href: "/animals/#{@animal.id}/edit")
     expect(page).to have_link('Delete', href: "/animals/#{@animal.id}")
