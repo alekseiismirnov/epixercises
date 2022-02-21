@@ -27,9 +27,15 @@ class SightsController < ApplicationController
     redirect_to animal_path(animal)
   end
 
+  def index
+    @sights = Sight.all
+
+    render :index
+  end
+
   private
 
   def sight_params
-    params.require(:sight).permit(:location, :region_id)
+    params.require(:sight).permit(:location, :region_id, :date)
   end
 end

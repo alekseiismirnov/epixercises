@@ -1,0 +1,20 @@
+<h1>Report</h1>
+
+<% if @sights %>
+  <table>
+    <tr>
+      <th>Animal</th>
+      <th>Region</th>
+      <th>Location (lat., long.)</th>
+      <th>Date</th>
+    </tr>
+    <% @sights.each do |sight| %>
+    <tr>
+      <td id="species"><%= sight.animal.species %></td>
+      <td id="region_name"><%= sight.region.name %></td>
+      <td id="location"><%= format("%f, %f", sight.latitude, sight.longtitude) %></td>
+      <td id="date"><%= sight.date.to_s(:rfc822) %></td>
+    </tr>
+    <% end %>
+  </table>
+<% end %>

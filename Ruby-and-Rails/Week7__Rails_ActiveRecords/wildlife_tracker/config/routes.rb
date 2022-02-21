@@ -7,4 +7,6 @@ Rails.application.routes.draw do
   resources :regions, only: %i[index new create] do
     resources :sight, only: %i[new create]
   end
+
+  resources :sights, only: %i[index]
 end

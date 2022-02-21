@@ -20,6 +20,10 @@ describe('Adding new sight for animal', type: :feature) do
     fill_in 'Location',	with: '48.954410, 24.689311'
     select 'Warmwood', from: 'Select Region'
 
+    select '2017', from: 'sight_date_1i'
+    select 'June', from: 'sight_date_2i'
+    select '30', from: 'sight_date_3i'
+
     click_button 'Create Sight'
     expect(page).to have_http_status(:success)
 

@@ -3,7 +3,7 @@ require 'spec_helper'
 ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../config/environment', __dir__)
 # Prevent database truncation if the environment is production
-abort("The Rails environment is running in production mode!") if Rails.env.production?
+abort('The Rails environment is running in production mode!') if Rails.env.production?
 require 'rspec/rails'
 # Add additional requires below this line. Rails is not loaded until this point!
 
@@ -72,16 +72,35 @@ end
 
 class BackForest
   def initialize
+    Sight.destroy_all
+    Region.destroy_all
+    Animal.destroy_all
+
     @animals_specs = %w[Baboon Weasel Sailcat Jellyfish Rattlesnake]
     @animals_specs.each { |spec| Animal.create(species: spec) }
     @animal = Animal.all.first
-    @animal_locations = [[2.3, 4.5], [0.001, 3.005], [0.00, 0.00]]
-    
+
     @regions_names = %w[Circle Square Leftovers]
     @regions = @regions_names.map { |name| Region.create(name: name) }
-    @region = @regions[1]
-    @animal_locations.each do |location|
-      @animal.sights.create(location: location, region_id: @region.id)
+
+    @sights_data = [
+      { species: 'Baboon', region_name: 'Circle', location: [303.82376, 40.23493], date: '21 Feb 1971' },
+      { species: 'Weasel', region_name: 'Circle', location: [32.98241, 43.23493], date: '12 Jan 1988' },
+      { species: 'Sailcat', region_name: 'Square', location: [33.23442, 40.23493], date: '13 Jan 1988' },
+      { species: 'Weasel', region_name: 'Leftovers', location: [32.82376, 42.28783], date: '19 Feb 2005' },
+      { species: 'Baboon', region_name: 'Leftovers', location: [31.768341, 42.98834], date: '31 Jul 2010' },
+      { species: 'Sailcat', region_name: 'Circle', location: [35.98354, 40.89223], date: '11 Aug 2010' },
+      { species: 'Weasel', region_name: 'Square', location: [32.12524, 42.78252], date: '08 Dec 2014' },
+      { species: 'Sailcat', region_name: 'Leftovers', location: [34.34753, 42.67587], date: '04 May 2015' },
+      { species: 'Baboon', region_name: 'Leftovers', location: [33.49709, 42.57982], date: '17 Sep 2018' },
+      { species: 'Weasel', region_name: 'Circle', location: [30.28937, 42.2798], date: '23 Jun 2020' },
+      { species: 'Sailcat', region_name: 'Square', location: [33.90411, 41.76813], date: '25 May 2021' }
+    ]
+    animals = Animal.all.map { |animal| [animal.species, animal] }.to_h
+    regions_ids = Region.all.map { |region| [region.name, region.id] }.to_h
+    @sights_data.each do |record|
+      record[:region_id] = regions_ids[record[:region_name]]
+      animals[record[:species]].sights.create(record.except(:species, :region_name))
     end
   end
 end
