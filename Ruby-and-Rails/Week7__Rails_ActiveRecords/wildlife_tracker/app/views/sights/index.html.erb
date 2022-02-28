@@ -1,4 +1,12 @@
 <h1>Report</h1>
+<h2>Filter resuls:</h2>
+<%= form_with method: :get do |f| %>
+  <%= f.label :min_date, 'From date' %>
+  <%= f.date_field :min_date %>
+  <%= f.label :max_date, 'To date' %>
+  <%= f.date_field :max_date %>
+  <%= f.submit 'Filter' %>
+<% end %>
 
 <% if @sights %>
   <table>

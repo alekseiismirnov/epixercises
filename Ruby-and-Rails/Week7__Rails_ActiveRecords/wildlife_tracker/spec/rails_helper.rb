@@ -84,17 +84,17 @@ class BackForest
     @regions = @regions_names.map { |name| Region.create(name: name) }
 
     @sights_data = [
-      { species: 'Baboon', region_name: 'Circle', location: [303.82376, 40.23493], date: '21 Feb 1971' },
-      { species: 'Weasel', region_name: 'Circle', location: [32.98241, 43.23493], date: '12 Jan 1988' },
-      { species: 'Sailcat', region_name: 'Square', location: [33.23442, 40.23493], date: '13 Jan 1988' },
-      { species: 'Weasel', region_name: 'Leftovers', location: [32.82376, 42.28783], date: '19 Feb 2005' },
-      { species: 'Baboon', region_name: 'Leftovers', location: [31.768341, 42.98834], date: '31 Jul 2010' },
-      { species: 'Sailcat', region_name: 'Circle', location: [35.98354, 40.89223], date: '11 Aug 2010' },
-      { species: 'Weasel', region_name: 'Square', location: [32.12524, 42.78252], date: '08 Dec 2014' },
-      { species: 'Sailcat', region_name: 'Leftovers', location: [34.34753, 42.67587], date: '04 May 2015' },
-      { species: 'Baboon', region_name: 'Leftovers', location: [33.49709, 42.57982], date: '17 Sep 2018' },
-      { species: 'Weasel', region_name: 'Circle', location: [30.28937, 42.2798], date: '23 Jun 2020' },
-      { species: 'Sailcat', region_name: 'Square', location: [33.90411, 41.76813], date: '25 May 2021' }
+      { species: 'Weasel', region_name: 'Circle', location: [32.98241, 43.23493], date: '12 Jan 2017' },
+      { species: 'Baboon', region_name: 'Circle', location: [30.82376, 40.23493], date: '21 Feb 2017' },
+      { species: 'Sailcat', region_name: 'Square', location: [33.23442, 40.23493], date: '13 Jan 2017' },
+      { species: 'Weasel', region_name: 'Leftovers', location: [32.82376, 42.28783], date: '19 Feb 2018' },
+      { species: 'Baboon', region_name: 'Leftovers', location: [31.768341, 42.98834], date: '31 Jul 2019' },
+      { species: 'Sailcat', region_name: 'Circle', location: [35.98354, 40.89223], date: '11 Aug 2019' },
+      { species: 'Weasel', region_name: 'Square', location: [32.12524, 42.78252], date: '08 Dec 2019' },
+      { species: 'Sailcat', region_name: 'Leftovers', location: [34.34753, 42.67587], date: '04 May 2020' },
+      { species: 'Baboon', region_name: 'Leftovers', location: [33.49709, 42.57982], date: '17 Sep 2021' },
+      { species: 'Weasel', region_name: 'Circle', location: [30.28937, 42.2798], date: '23 Jun 2022' },
+      { species: 'Sailcat', region_name: 'Square', location: [33.90411, 41.76813], date: '25 Jul 2023' }
     ]
     animals = Animal.all.map { |animal| [animal.species, animal] }.to_h
     regions_ids = Region.all.map { |region| [region.name, region.id] }.to_h
