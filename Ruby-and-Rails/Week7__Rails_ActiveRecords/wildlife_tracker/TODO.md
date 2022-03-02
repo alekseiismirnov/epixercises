@@ -23,4 +23,4 @@ To build an app so that the rangers can report wildlife sightings.
   - [x] Make migration
   - [x] Modify create sight page.
   - [x] Bonus: let users run reports to list all the sightings during a given time period.
-  - [ ] Extra Bonus: let users narrow their reports down to a particular region.
+  - [x] Extra Bonus: let users narrow their reports down to a particular region.

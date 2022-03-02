@@ -30,11 +30,14 @@ class SightsController < ApplicationController
   def index
     min_date = params['min_date']
     max_date = params['max_date']
+    region_id = params['region_id']
 
-    @sights = if min_date.blank? || max_date.blank?
-                Sight.all
-              else
+    @sights = if !(min_date.blank? && max_date.blank?)
                 Sight.where("date >= '#{Date.parse(min_date)}' AND date <= '#{Date.parse(max_date)}'")
+              elsif region_id
+                Sight.where("region_id = #{region_id}")
+              else
+                Sight.all
               end
 
     render :index

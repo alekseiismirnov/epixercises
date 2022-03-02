@@ -23,10 +23,13 @@ describe('Sights report', type: :feature) do
   it 'shows all sights during a given time period' do
     visit '/sights'
 
-    fill_in 'min_date', with: '17-02-2017'
-    fill_in 'max_date', with: '03-09-2019'
+    within '#date_select' do
+      fill_in 'min_date', with: '17-02-2017'
+      fill_in 'max_date', with: '03-09-2019'
 
-    click_button 'Filter'
+      click_button 'Filter'
+    end
+
     expect(page).to have_http_status(:success)
 
     expected_locations = ['30.823760, 40.234930', '32.823760, 42.287830', '31.768341, 42.988340',
@@ -34,5 +37,20 @@ describe('Sights report', type: :feature) do
     expect(all('#location').map(&:text)).to match_array(expected_locations)
   end
 
-  it 'shows all sights in a particular region'
+  it 'shows all sights in a particular region' do
+    visit '/sights'
+
+    within '#region_select' do
+      select 'Leftovers', from: 'Select Region'
+
+      click_button 'Filter'
+    end
+
+    expect(page).to have_http_status(:success)
+
+    expected_locations = ['32.823760, 42.287830', '31.768341, 42.988340',
+                          '34.347530, 42.675870', '33.497090, 42.579820']
+
+    expect(all('#location').map(&:text)).to match_array(expected_locations)
+  end
 end
