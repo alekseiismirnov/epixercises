@@ -1,24 +1,7 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+* System dependencies: Ruby 2.6.8, PostgreSQL 10.19, Rails 6
 
-Things you may want to cover:
+* Database creation: `rake db:create`, `rake db:migrate`, `rake db:test:prepare`
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Run the test suite: `rspec`
