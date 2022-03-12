@@ -3,7 +3,7 @@ require 'spec_helper'
 ENV['RAILS_ENV'] ||= 'test'
 require_relative '../config/environment'
 # Prevent database truncation if the environment is production
-abort("The Rails environment is running in production mode!") if Rails.env.production?
+abort('The Rails environment is running in production mode!') if Rails.env.production?
 require 'rspec/rails'
 # Add additional requires below this line. Rails is not loaded until this point!
 
@@ -67,5 +67,15 @@ RSpec.configure do |config|
       with.test_framework :rspec
       with.library :rails
     end
-  end  
+  end
+end
+
+class HighLowLeague
+  attr_reader :teams_names
+
+  def initialize
+    Team.destroy_all
+    @teams_names = ('Team#1'..'Team#8').to_a
+    @teams_names.each { |name| Team.create(name: name) }
+  end
 end

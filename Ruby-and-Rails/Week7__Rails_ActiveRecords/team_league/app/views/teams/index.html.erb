@@ -1,0 +1,15 @@
+<h1>Teams</h1>
+
+<div id="teams_list">
+  <% @teams.each do |team| %>
+  <div id="team">
+    <span id="team_name"><%= link_to(team.name, team_path(team)) %></span>
+    <%= link_to('Delete',
+                team_path(team),
+                data: {method: 'delete', confirm: 'Are you sure?'}) %>
+    <%= link_to('Edit', edit_team_path(team)) %>
+  </div>
+  <% end %>
+</div>
+
+<%= link_to 'Add Team', new_team_path %>
