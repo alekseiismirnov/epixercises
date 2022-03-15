@@ -4,7 +4,7 @@ Create an app to manage a league with teams and tournaments.
 
 ## Scenarios ##
 
-- [ ] As the *league manager*, I want to add, update, delete and list **teams**.
+- [x] As the *league manager*, I want to add, update, delete and list **teams**.
 
 - [ ] As the *league manager*, I want each **team** to have a **team coordinator** so I have a single point of contact for that team.
 

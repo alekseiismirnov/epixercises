@@ -41,7 +41,7 @@ feature 'teams CRUD' do
     end
   end
 
-  scenario 'League adds new team' do
+  scenario 'League manager adds new team' do
     visit '/teams'
     click_on 'Add Team'
     expect(page).to have_http_status(:success)
@@ -54,4 +54,16 @@ feature 'teams CRUD' do
       expect(all('#team_name').map(&:text)).to include 'Something new'
     end
   end
+
+  scenario 'League manager adds team coordinator' do 
+    team = Team.all.first
+    visit "/teams/#{team.id}/coordinators/new"
+    fill_in 'coordinator_name', with: 'Super Farmer'
+    fill_in 'coordinator_contacts', with: 'Super Farm Far Far Away'
+
+    click_button 'Add Coordinator'
+    expect(team.coordinator.name).to eq 'Super Farmer'
+    expect(team.coordinator.contacts).to eq 'Super Farm Far Far Away'
+  end
+  scenario 'League manager adds new player'
 end

@@ -1,0 +1,9 @@
+<h1>New Coordinator for Team <%= @team.name %></h1>
+
+<%= form_for [@team, @coordinator] do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.label :contacts %>
+  <%= f.text_field :contacts %>
+  <%= f.submit 'Add Coordinator' %>
+<% end %>
