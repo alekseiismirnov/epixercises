@@ -55,7 +55,7 @@ feature 'teams CRUD' do
     end
   end
 
-  scenario 'League manager adds team coordinator' do 
+  scenario 'League manager adds team coordinator' do
     team = Team.all.first
     visit "/teams/#{team.id}/coordinators/new"
     fill_in 'coordinator_name', with: 'Super Farmer'
@@ -65,5 +65,41 @@ feature 'teams CRUD' do
     expect(team.coordinator.name).to eq 'Super Farmer'
     expect(team.coordinator.contacts).to eq 'Super Farm Far Far Away'
   end
-  scenario 'League manager adds new player'
+
+  scenario 'League manager adds new, update, and delete player' do
+    team = Team.all.first
+    visit team_path(team)
+
+    within '#players' do
+      expect(page).to have_no_content 'Booba Kastorsky'
+    end
+
+    click_on 'Add Player'
+    expect(page).to have_http_status(:success)
+    fill_in 'player_name', with: 'Booba Kastorsky'
+    click_button 'Add Player'
+    expect(page).to have_http_status(:success)
+
+    within '#player' do
+      expect(page).to have_content 'Booba Kastorsky'
+    end
+
+    visit team_path(team)
+    click_on 'Update Player'
+    fill_in 'player_name', with: 'Claudio Abbado'
+    click_button 'Update Player'
+
+    within '#player' do
+      expect(page).to have_content 'Claudio Abbado'
+      expect(page).to have_no_content 'Booba Kastorsky'
+    end
+
+    visit team_path(team)
+    click_on 'Delete'
+
+    within '#players' do
+      expect(page).to have_no_content 'Claudio Abbado'
+      expect(page).to have_content 'No players yet'
+    end
+  end
 end

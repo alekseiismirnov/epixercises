@@ -4,6 +4,12 @@ class TeamsController < ApplicationController
     render :index
   end
 
+  def show
+    @team = Team.find params[:id]
+
+    render :show
+  end
+
   def destroy
     team = Team.find params[:id]
     team.destroy

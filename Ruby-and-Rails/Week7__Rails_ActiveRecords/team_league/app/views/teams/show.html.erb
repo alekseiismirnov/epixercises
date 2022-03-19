@@ -1,0 +1,28 @@
+<h1>Team <%= @team.name %></h1>
+
+<div id="players">
+  <% if @team.players.any? %>
+    <% @team.players.each do |player| %>
+      <div id="player"> <%= player.name %> </div>
+      <%= link_to('Update Player', edit_team_player_path(@team, player)) %>
+      <%= link_to('Delete', team_player_path(@team, player), data: {method: :delete, confirm: 'Are you sure?'}) %>
+    <% end %>
+  <% else %>
+    <div>No players yet</div>
+  <% end %>
+  <%= link_to 'Add Player', new_team_player_path(@team) %>
+</div>
+
+<div id="coordinator">
+  <% if @team.coordinator %>
+      <h2>Team coordinator</h2>
+      <div>
+        Name: <%= @team.coordinator.name %>
+      </div>
+      <div>
+        Contacts: <%= @team.coordinator.contacts %>
+      </div>
+    <% else %>
+      <div>Consider to add a coordinator</div>
+  <% end %>
+</div>

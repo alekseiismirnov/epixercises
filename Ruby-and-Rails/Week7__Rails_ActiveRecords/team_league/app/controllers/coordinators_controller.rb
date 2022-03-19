@@ -10,7 +10,7 @@ class CoordinatorsController < ApplicationController
     @team = Team.find params[:team_id]
     @coordinator = @team.coordinator.update(coordinator_params)
 
-    render :show
+    render :'teams/show'
   end
 
   def coordinator_params
