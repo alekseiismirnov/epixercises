@@ -23,7 +23,7 @@ feature 'teams CRUD' do
     expect(page).to have_http_status(:success)
 
     within '#teams_list' do
-      expect(all('#team_name').map(&:text)).not_to include('Team#5')
+      expect(all('#team_name').map(&:text)).not_to include('Team #5')
     end
   end
 
@@ -37,7 +37,7 @@ feature 'teams CRUD' do
     fill_in 'team_name', with: 'Wooden Team'
     click_button 'Change'
     within '#teams_list' do
-      expect(all('#team_name').map(&:text)).not_to include('Team#3')
+      expect(all('#team_name').map(&:text)).not_to include('Team #3')
       expect(all('#team_name').map(&:text)).to include('Wooden Team')
     end
   end
