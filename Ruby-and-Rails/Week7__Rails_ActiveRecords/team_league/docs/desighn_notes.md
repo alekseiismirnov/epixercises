@@ -20,3 +20,36 @@ has one **team_coordinator**
 @name
 
 belongs to **team**
+
+### Game ###
+
+#scores(game_id)
+@scores
+@winner_id
+
+```ruby
+class Game < ApplicationRecord
+  has_and_belongs_to_many :teams
+end
+```
+
+```ruby
+create_table :games
+  t.column(scores:, :integer)
+  t.column(:team, :foreign_key {to_table: :team})
+```
+
+```ruby
+  class Team < ApplicationRecord
+    has_and_belongs_to_many :games
+  end
+```-
+
+OR
+
+```ruby
+class Game < ApplicationRecord
+  belongs_to :winner, class_name: 'Team', foreign_key: 'winner_id'
+  belongs_to :loser, class_name: 'Team', foreign_key: 'loser_id's
+end
+```

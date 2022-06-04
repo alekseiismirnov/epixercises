@@ -5,4 +5,6 @@ Rails.application.routes.draw do
     resources :coordinators
     resources :players
   end
+
+  resources :games, only: %i[new create]
 end

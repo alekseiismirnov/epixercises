@@ -1,0 +1,13 @@
+<% flash.each do |type, msg| %>
+  <div class="flash_<%= type %>"><%= msg %></div>
+<% end %>
+
+<%= form_with model: @game do |f| %>
+  <%= f.label :winner, 'Winner team' %>
+  <%= f.collection_select :winner_id, Team.order(:name), :id, :name %>
+  <%= f.label :loser, 'Loser team' %>
+  <%= f.collection_select :loser_id, Team.order(:name), :id, :name %>
+  <%= f.label :scores %>
+  <%= f.text_field :scores %>
+  <%= f.submit 'Submit' %>
+<% end %>

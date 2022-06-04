@@ -78,7 +78,7 @@ class HighLowLeague
     Player.destroy_all
     Coordinator.destroy_all
 
-    @teams_names = ('Team#1'..'Team#8').to_a
+    @teams_names = ('Team #1'..'Team #8').to_a
     @teams_names.each { |name| Team.create(name: name) }
   end
 end

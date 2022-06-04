@@ -17,10 +17,11 @@ feature 'teams CRUD' do
   scenario 'League manager deletes team' do
     visit '/teams'
 
-    within(find('#team', text: 'Team#5')) do
+    within(find('#team', text: 'Team #5')) do
       click_on 'Delete'
     end
     expect(page).to have_http_status(:success)
+
     within '#teams_list' do
       expect(all('#team_name').map(&:text)).not_to include('Team#5')
     end
@@ -28,7 +29,7 @@ feature 'teams CRUD' do
 
   scenario 'League manager changes team name' do
     visit '/teams'
-    within(find('#team', text: 'Team#3')) do
+    within(find('#team', text: 'Team #3')) do
       click_on 'Edit'
     end
     expect(page).to have_http_status(:success)
