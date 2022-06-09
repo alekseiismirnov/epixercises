@@ -77,8 +77,20 @@ class HighLowLeague
     Team.destroy_all
     Player.destroy_all
     Coordinator.destroy_all
+    Game.destroy_all
 
     @teams_names = ('Team #1'..'Team #8').to_a
-    @teams_names.each { |name| Team.create(name: name) }
+    @teams_by_names = @teams_names.map do |name|
+      [name, Team.create(name: name)]
+    end.to_h
+    @losers_names = @teams_names.rotate
+    @scores = [5, 12, 8, 10, 25, 3, 0, 7]
+    @teams_order = @scores.map.with_index.sort_by { |val, _| val }.map { |_, i| i + 1 }
+
+    @teams_names.zip(@losers_names, @scores).each do |winname, losename, scores|
+      Game.create(winner: @teams_by_names[winname],
+                  loser: @teams_by_names[losename],
+                  scores: scores)
+    end
   end
 end

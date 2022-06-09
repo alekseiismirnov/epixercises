@@ -19,6 +19,15 @@ If there is no answer in the task, I'll try to mimic product owner.
     belongs_to :winner, class_name: 'Team', foreign_key: 'winner_id'
   ```
 
-  
   - [x] Win-loss, how to do it exactly? #winner and #looser perhaps? Yes.
   - [x] Do we need only create and retrive functionalty? Yes.  For the beginning.
+
+## So, on the tournament table ##
+
+Task says: As the league manager, I want to generate a tournament that pits the top teams against each other based on their records. (Hint: Pick an even number like 8 or 16 so every team in the tournament always has a match.)
+
+- [x] Whould it be right to sort all teams by scores and and just pair first with second, third with forth etc? Yes
+- [x] Shoud we generate a table only for the first round? Yes, it will have a practical sence for a minimal cost.
+- [x] What should we printout?  Teams names and scores.
+- [x] We delete teams, what we have to do with the correspondent game?  Logically, it would be right not to delete team at all and turn it into a kind of a 'zombie' team.  Or make a reserch on situation when we need to delete a team, but in first approach we would just *delete a correspondent game*.  We do not keep a separate win-lose and score records, thus data associated with the deleted game will be lost.  I have no idea how to write `dependent: :destroy` from aliased model, so gonna do this explicetly. 
+- [x] Should be the pair of teams in tournament be the game? No.  This is a kind of pre-game.

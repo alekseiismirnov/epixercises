@@ -14,10 +14,10 @@ Create an app to manage a league with teams and tournaments.
 
 - [x] As the *league manager*, I want to set up **games** between teams so I can keep track of *scores* and *win-loss records*.
 - [ ] As the *league manager*, I want to generate a **tournament** that pits the top **teams** against each other based on their **records**.
-- [ ] Make it look descent.
+- [ ] Make it looks descent.
 
 (Hint: Pick an even number like 8 or 16 so every team in the tournament always has a match.)
 
 ## Issues ##
 
-- [ ] Why `team_id` in `games`? 
+- [x] Why `team_id` in `games`? By mistke.  There is no already.

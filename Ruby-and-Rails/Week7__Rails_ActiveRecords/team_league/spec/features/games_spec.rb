@@ -16,6 +16,6 @@ feature 'game setup' do
 
     expect(page).to have_http_status(:success)
     expect(page).to have_content 'Game added'
-    expect(Game.count).to eq 1
+    expect(Game.count).to eq 9
   end
 end

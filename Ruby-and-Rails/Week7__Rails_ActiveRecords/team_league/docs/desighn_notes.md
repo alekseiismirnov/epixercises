@@ -50,6 +50,20 @@ OR
 ```ruby
 class Game < ApplicationRecord
   belongs_to :winner, class_name: 'Team', foreign_key: 'winner_id'
-  belongs_to :loser, class_name: 'Team', foreign_key: 'loser_id's
+  belongs_to :loser, class_name: 'Team', foreign_key: 'loser_id'
 end
 ```
+
+## Tournament ##
+
+### View ###
+
+```erb
+<div id="round">
+  <div id="match">
+   <div id="first_team">
+   <div id="second_team">
+...
+```
+
+New tournament calls a form with 8 selectors for teams and submit button.
