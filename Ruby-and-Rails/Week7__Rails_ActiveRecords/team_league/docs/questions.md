@@ -31,3 +31,13 @@ Task says: As the league manager, I want to generate a tournament that pits the 
 - [x] What should we printout?  Teams names and scores.
 - [x] We delete teams, what we have to do with the correspondent game?  Logically, it would be right not to delete team at all and turn it into a kind of a 'zombie' team.  Or make a reserch on situation when we need to delete a team, but in first approach we would just *delete a correspondent game*.  We do not keep a separate win-lose and score records, thus data associated with the deleted game will be lost.  I have no idea how to write `dependent: :destroy` from aliased model, so gonna do this explicetly. 
 - [x] Should be the pair of teams in tournament be the game? No.  This is a kind of pre-game.
+
+## On Tournament Desighn ## 
+
+- [x] It seems to be a class with an array? Yes.  Otherwise we have to define variables from `team1_id` to `team8_id` or so.
+- [x] How to deal with arrays in active records?  `serialize :teams_ids`
+- [x] Simple, but ugly as for me.  Could it be a relation? Seems so, we can keep teams ids long with the weigt, but I don't know how.
+- [x] Could this weight be a scores? No, scores could be equal, thus we could get different teams combination with the next request.
+- [x] Is there an association? As for me, it looks like `:has_many_and_belongs_to_many`,but I see no way how to keep an order in this case. No.
+- [x] So, what now?  Keep an array of `team_id`.
+- [x] How to get an array from a form? Checkboxes.

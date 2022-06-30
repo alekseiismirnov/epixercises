@@ -39,6 +39,7 @@ class TeamsController < ApplicationController
 
   def create
     Team.create(team_params)
+
     redirect_to action: :index
   end
 

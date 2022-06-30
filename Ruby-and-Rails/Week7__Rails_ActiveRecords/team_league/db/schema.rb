@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_06_03_225943) do
+ActiveRecord::Schema.define(version: 2022_06_17_234048) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,6 +35,10 @@ ActiveRecord::Schema.define(version: 2022_06_03_225943) do
 
   create_table "teams", force: :cascade do |t|
     t.string "name"
+  end
+
+  create_table "tournaments", force: :cascade do |t|
+    t.string "order"
   end
 
   add_foreign_key "games", "teams", column: "loser_id"

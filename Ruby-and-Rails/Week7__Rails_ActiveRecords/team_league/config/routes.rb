@@ -7,4 +7,6 @@ Rails.application.routes.draw do
   end
 
   resources :games, only: %i[new create]
+
+  resources :tournaments, only: %i[new create show]
 end

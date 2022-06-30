@@ -61,9 +61,11 @@ end
 ```erb
 <div id="round">
   <div id="match">
-   <div id="first_team">
-   <div id="second_team">
+   <div id="team">...
+   <div id="team">...
 ...
 ```
 
-New tournament calls a form with 8 selectors for teams and submit button.
+New tournament calls a form with checkboxes for all teams and a submit button.
+
+Everything we need for the present time is a page with a list of teams visualy paired. Making a new model seems to be an overkill, but makes sence for the leaning purpose.

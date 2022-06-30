@@ -71,13 +71,14 @@ RSpec.configure do |config|
 end
 
 class HighLowLeague
-  attr_reader :teams_names
+  attr_reader :teams_names, :teams_order
 
   def initialize
     Team.destroy_all
     Player.destroy_all
     Coordinator.destroy_all
     Game.destroy_all
+    Tournament.destroy_all
 
     @teams_names = ('Team #1'..'Team #8').to_a
     @teams_by_names = @teams_names.map do |name|
@@ -85,7 +86,7 @@ class HighLowLeague
     end.to_h
     @losers_names = @teams_names.rotate
     @scores = [5, 12, 8, 10, 25, 3, 0, 7]
-    @teams_order = @scores.map.with_index.sort_by { |val, _| val }.map { |_, i| i + 1 }
+    @teams_order = @scores.map.with_index.sort_by { |val, _| val }.map { |_, i| i }
 
     @teams_names.zip(@losers_names, @scores).each do |winname, losename, scores|
       Game.create(winner: @teams_by_names[winname],
