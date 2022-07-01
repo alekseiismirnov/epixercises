@@ -25,7 +25,7 @@ players
 : edit.html.erb  new.html.erb
 
 tournaments
-: new.html.erb
+: new.html.erb show.html.erb
 
 ## Further Exploration ##
 
