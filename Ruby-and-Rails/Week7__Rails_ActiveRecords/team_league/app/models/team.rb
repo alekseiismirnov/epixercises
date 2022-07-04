@@ -6,6 +6,6 @@ class Team < ApplicationRecord
   has_many :loser_games, foreign_key: :loser_id, class_name: 'Game', dependent: :destroy 
 
   def scores
-    winner_games.map(&:scores).reduce(&:+).to_i
+    winner_games.pluck(:scores).reduce(&:+)
   end
 end

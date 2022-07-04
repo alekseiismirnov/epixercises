@@ -38,6 +38,7 @@ create_table :games
   t.column(scores:, :integer)
   t.column(:team, :foreign_key {to_table: :team})
 ```
+We set default scores to 0.  Actually, scores instead has to be mandatory.  We'll do it next.
 
 ```ruby
   class Team < ApplicationRecord
