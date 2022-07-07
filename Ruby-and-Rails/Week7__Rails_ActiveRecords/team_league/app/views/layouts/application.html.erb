@@ -10,8 +10,19 @@
   </head>
 
   <body>
-    <%= flash[:alert] %>
-    <%= flash[:notice] %>
-    <%= yield %>
+    <div class="flash">
+      <div class="flash__alert"><%= flash[:alert] %></div>
+      <div class="flash__notice"><%= flash[:notice] %></div>
+    </div>
+    <div class="page">
+      <nav class="navbar">
+        <%= link_to("Teams", teams_path,class: "navbar__link") %>
+        <%= link_to("New Game", new_game_path,class: "navbar__link") %>
+        <%= link_to("New Tournament", new_tournament_path,class: "navbar__link") %>
+      </nav>
+      <div class="page__content">
+        <%= yield %>
+      </div>
+    </div>
   </body>
 </html>

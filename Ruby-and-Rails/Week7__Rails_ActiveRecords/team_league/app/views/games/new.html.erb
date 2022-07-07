@@ -5,5 +5,5 @@
   <%= f.collection_select :loser_id, Team.order(:name), :id, :name %>
   <%= f.label :scores %>
   <%= f.text_field :scores %>
-  <%= f.submit 'Submit' %>
+  <%= f.submit 'Submit', class: 'button' %>
 <% end %>

@@ -1,15 +1,88 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+body {
+    font-family: "Roboto Condensed"
+}
+
+a {
+    color: #845637;
+    text-decoration: none;
+}
+
+.page {
+    background: #F0DAA6;
+}
+
+h1 {
+    color: #845637;
+}
+
+.navbar {
+    background: #845637;
+    padding: 4px;
+}
+
+.navbar__link {
+    text-decoration: none;
+    color: #e0be79;
+    margin-right: 12px;
+    font-size: 18px;
+    font-weight: 400;
+    text-align: center;
+}
+
+.page__content {
+    padding: 8px;
+    background: #F0DAA6;
+}
+
+.round {
+    background: #e0be79;
+    padding: 8px;
+}
+
+.round__match {
+    border: 1px solid #527567;
+    margin: 8px;
+}
+
+.round__team {
+    color: #324452;
+    font-size: 18px;
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+}
+
+.button {
+    color: #e0be79;
+    background-color: #845637;
+    border: none;
+    border-bottom: 1px solid #845637;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 6px;
+    margin: 4px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block
+}
+
+.button_edit {
+    border-bottom: 1px solid #00f;
+}
+
+.button_delete {
+    border-bottom: 1px solid #f00;
+}
+
+.flash {
+    text-align: center;
+    color: #e0be79;
+}
+
+.flash__alert {
+    background-color: #f00;
+}
+
+.flash__notice {
+    background-color: #00f;
+}

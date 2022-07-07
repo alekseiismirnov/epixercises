@@ -20,6 +20,6 @@ feature 'Tournament Page' do
     expect(Tournament.count).to eq 1
 
     ordered_names = @teams_order.map { |i| @teams_names[i] }
-    expect(all('#round__team').map(&:text)).to eq ordered_names
+    expect(all('.round__team').map(&:text)).to eq ordered_names
   end
 end

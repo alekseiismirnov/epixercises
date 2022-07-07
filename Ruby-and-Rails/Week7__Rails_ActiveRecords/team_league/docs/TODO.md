@@ -12,8 +12,8 @@ Create an app to manage a league with teams and tournaments.
 
 ## Styling ##
 
-- [ ] Roughly desing and create layout
-- [ ] Consider what could be done for the existings views:
+- [x] Roughly desing and create layout
+- [x] Consider what could be done for the existings views:
 
 teams
 : edit.html.erb  index.html.erb  new.html.erb  show.html.erb
@@ -30,13 +30,13 @@ tournaments
 ## Further Exploration ##
 
 - [x] As the *league manager*, I want to set up **games** between teams so I can keep track of *scores* and *win-loss records*.
-- [ ] As the *league manager*, I want to generate a **tournament** that pits the top **teams** against each other based on their records.
-  - [ ] Tournament relation;
-  - [ ] Checkboxes test;
-  - [ ] Form;
-  - [ ] Tournament page test;
-  - [ ] Tournament page.
-- [ ] Make it looks descent.
+- [x] As the *league manager*, I want to generate a **tournament** that pits the top **teams** against each other based on their records.
+  - [x] Tournament relation;
+  - [x] Checkboxes test;
+  - [x] Form;
+  - [x] Tournament page test;
+  - [x] Tournament page.
+- [x] Make it looks descent.
 
 (Hint: Pick an even number like 8 or 16 so every team in the tournament always has a match.)
 

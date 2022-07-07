@@ -9,36 +9,36 @@ feature 'teams CRUD' do
     visit '/teams'
 
     expect(page).to have_http_status(:success)
-    within '#teams_list' do
-      expect(all('#team_name').map(&:text)).to match_array @teams_names
+    within '.teams_list' do
+      expect(all('.team__link').map(&:text)).to match_array @teams_names
     end
   end
 
   scenario 'League manager deletes team' do
     visit '/teams'
 
-    within(find('#team', text: 'Team #5')) do
+    within(find('.team', text: 'Team #5')) do
       click_on 'Delete'
     end
     expect(page).to have_http_status(:success)
 
-    within '#teams_list' do
-      expect(all('#team_name').map(&:text)).not_to include('Team #5')
+    within '.teams_list' do
+      expect(all('.team__link').map(&:text)).not_to include('Team #5')
     end
   end
 
   scenario 'League manager changes team name' do
     visit '/teams'
-    within(find('#team', text: 'Team #3')) do
+    within(find('.team', text: 'Team #3')) do
       click_on 'Edit'
     end
     expect(page).to have_http_status(:success)
 
     fill_in 'team_name', with: 'Wooden Team'
     click_button 'Change'
-    within '#teams_list' do
-      expect(all('#team_name').map(&:text)).not_to include('Team #3')
-      expect(all('#team_name').map(&:text)).to include('Wooden Team')
+    within '.teams_list' do
+      expect(all('.team__link').map(&:text)).not_to include('Team #3')
+      expect(all('.team__link').map(&:text)).to include('Wooden Team')
     end
   end
 
@@ -51,8 +51,8 @@ feature 'teams CRUD' do
     click_on 'Submit'
     expect(page).to have_http_status(:success)
 
-    within '#teams_list' do
-      expect(all('#team_name').map(&:text)).to include 'Something new'
+    within '.teams_list' do
+      expect(all('.team__link').map(&:text)).to include 'Something new'
     end
   end
 

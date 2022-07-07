@@ -1,6 +1,8 @@
-<h1>Create New Nournament</h1>
+<h1>Create New Tournament</h1>
 
 <%= form_for @tournament do |f| %>
-  <%= f.collection_check_boxes :order, Team.order(:name), :id, :name, include_hidden: false %>
-  <%= f.submit 'Submit' %>
+  <div>
+    <%= f.collection_check_boxes :order, Team.order(:name), :id, :name, include_hidden: false %>
+  </div>
+  <%= f.submit 'Submit', class: 'button' %>
 <% end %>

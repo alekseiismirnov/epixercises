@@ -1,15 +1,18 @@
 <h1>Teams</h1>
 
-<div id="teams_list">
+<div class="teams_list">
   <% @teams.each do |team| %>
-  <div id="team">
-    <span id="team_name"><%= link_to(team.name, team_path(team)) %></span>
+  <div class="team">
+    <span class="team__link">
+      <%= link_to(team.name, team_path(team)) %>
+    </span>
+    <%= link_to('Edit', edit_team_path(team), class: 'button button_edit') %>
     <%= link_to('Delete',
                 team_path(team),
+                class: 'button button_delete',
                 data: {method: 'delete', confirm: 'Are you sure?'}) %>
-    <%= link_to('Edit', edit_team_path(team)) %>
   </div>
   <% end %>
 </div>
 
-<%= link_to 'Add Team', new_team_path %>
+<%= link_to('Add Team', new_team_path, class: "button") %>

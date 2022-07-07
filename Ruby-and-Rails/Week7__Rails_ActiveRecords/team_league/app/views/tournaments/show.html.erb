@@ -1,11 +1,11 @@
 <h1>Tournament # <%= @tournament.id %></h1>
-<div id="round">
+<div class="round">
   <% @teams_names.each_slice(2) do |name1, name2| %>
-    <div id="round__match">
-      <div id="round__team">
+    <div class="round__match">
+      <div class="round__team">
         <%= name1 %>
       </div>
-      <div id="round__team">
+      <div class="round__team">
         <%= name2 %>
       </div>
     </div>
