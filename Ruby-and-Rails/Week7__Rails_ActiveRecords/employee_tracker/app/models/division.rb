@@ -1,0 +1,3 @@
+class Division < ApplicationRecord
+
+end
