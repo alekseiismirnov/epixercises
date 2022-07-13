@@ -16,8 +16,8 @@
 ## Models ##
 
 - [x] DB Scheme;
-- [ ] Migration;
-- [ ] Model tests;
+- [x] Migration;
+- [x] Model tests and models;
 
 ## Syling ##
 
