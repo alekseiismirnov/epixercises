@@ -1,0 +1,21 @@
+@startuml "Models"
+  class Division
+  {
+    String name
+  }
+
+  class Employee
+  {
+    String name
+    Integer division_id
+  }
+
+  class Project
+  {
+    String name
+  }
+
+  Division "1" -- "0..*" Employee
+  Project "0..*" -- "0..*" Employee
+
+@enduml
