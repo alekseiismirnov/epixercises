@@ -1,11 +1,10 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+`docs/db_scheme_SQLDESIGNER.xml` could be rendered with the [SQL Designer](https://ondras.zarovi.cz/sql/demo/)
 
-Things you may want to cover:
+`docs/classes.puml` could be rendered with the [Plant UML](https://plantuml.com/)
 
-* Ruby version
+* Ruby version 2.6.3, Rails 6.0.5
 
 * System dependencies
 
