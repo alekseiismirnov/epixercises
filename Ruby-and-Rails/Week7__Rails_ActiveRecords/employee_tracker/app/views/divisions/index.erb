@@ -1,7 +1,8 @@
 <div class="divisions">
   <% @divisions.each do |division| %>
   <div class="divisions__division">
-    <%= division.name %>
+    <%= link_to( division.name, division_path(division), class: "divisions__division_link") %>
+    <%= link_to( 'Edit', edit_division_path(division), class: "button button_edit") %>
   </div>
   <% end %>
 </div>
