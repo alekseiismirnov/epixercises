@@ -18,6 +18,13 @@ class DivisionsController < ApplicationController
     end
   end
 
+  def destroy
+    division = Division.find(params[:id])
+    division.destroy
+
+    redirect_to action: :index
+  end
+
   private
 
   def division_params

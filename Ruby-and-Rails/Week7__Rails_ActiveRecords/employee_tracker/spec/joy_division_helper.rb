@@ -3,7 +3,7 @@ class JoyDivision
   attr_reader :divisions_names
 
   def initialize
-    @divisions_names = %w[HR IT IQ ICQ Sales Pre-Sales Post-Sales]
+    @divisions_names = %w[HR IT IQ ICQ Sales Pre-Sales Post-Sales Instead-of-Sales]
 
     Division.delete_all
     Division.insert_all(@divisions_names.map { |name| { name: name } })

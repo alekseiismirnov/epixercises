@@ -6,6 +6,7 @@ feature 'Division CRUD' do
     @company = JoyDivision.new
     @name_to_edit = 'ICQ'
     @correct_name = 'Jabber'
+    @name_to_delete = 'Post-Sales'
   end
 
   scenario 'HR Manager lists divisions' do
@@ -29,5 +30,15 @@ feature 'Division CRUD' do
     expect(page).to have_http_status(:success)
     expect(page).to have_no_text(@name_to_edit)
     expect(page).to have_text(@correct_name)
+  end
+
+  scenario 'HR Manager deletes division' do
+    visit divisions_path
+    within(find('.divisions__division', text: @name_to_delete)) do
+      click_on 'Delete'
+    end
+
+    expect(page).to have_http_status(:success)
+    expect(page).to have_no_text(@name_to_delete)
   end
 end
