@@ -29,6 +29,7 @@ feature 'Division CRUD' do
     click_on 'Submit'
 
     expect(page).to have_http_status(:success)
+    expect(page).to have_text('Division successfuly updated')
     expect(page).to have_no_text(@name_to_edit)
     expect(page).to have_text(@correct_name)
   end
@@ -53,6 +54,7 @@ feature 'Division CRUD' do
     click_on 'Submit'
 
     expect(page).to have_http_status(:success)
+    expect(page).to have_text('Division successfuly created')
     expect(page).to have_text(@new_division_name)
   end
 end
