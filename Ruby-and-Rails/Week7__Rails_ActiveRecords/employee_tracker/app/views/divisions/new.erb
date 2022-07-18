@@ -1,5 +1,5 @@
 <%= form_with model: @division do |f| %>
-  <%= f.label :name %>
+  <%= f.label :division_name, 'Name' %>
   <%= f.text_field :name %>
   <%= f.submit 'Submit', class: 'button' %>
 <% end %>

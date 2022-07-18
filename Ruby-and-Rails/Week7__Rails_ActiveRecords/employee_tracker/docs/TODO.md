@@ -3,7 +3,7 @@
 ## Scenarios ##
 
 - [x] As an HR manager, I want to be able to list, update, and delete divisions.
-- [ ] As an HR manager, I want to be able to create divisions in the company (56, etc).
+- [ ] As an HR manager, I want to be able to create divisions in the company.
 - [ ] As an HR manager, I want to be able to add employees and assign them to a division. An employee will belong to one division and a division will have many employees.
 - [ ] As an HR manager, I want to be able to choose an individual division and see its employees.
 - [ ] As a project manager, I want to be able to add projects.
@@ -19,7 +19,7 @@
 - [x] Migration;
 - [x] Model tests and models;
 
-## Syling ##
+## Styling ##
 
 - [ ] Design
 - [ ] CSS

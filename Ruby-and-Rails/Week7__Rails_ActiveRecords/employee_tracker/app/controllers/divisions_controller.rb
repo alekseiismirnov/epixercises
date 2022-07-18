@@ -25,6 +25,21 @@ class DivisionsController < ApplicationController
     redirect_to action: :index
   end
 
+  def new
+    @division = Division.new
+
+    render :new
+  end
+
+  def create
+    @division = Division.new(division_params)
+    if @division.save
+      redirect_to divisions_path
+    else
+      render :new
+    end
+  end
+
   private
 
   def division_params

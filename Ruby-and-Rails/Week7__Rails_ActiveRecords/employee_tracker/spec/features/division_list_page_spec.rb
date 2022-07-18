@@ -7,6 +7,7 @@ feature 'Division CRUD' do
     @name_to_edit = 'ICQ'
     @correct_name = 'Jabber'
     @name_to_delete = 'Post-Sales'
+    @new_division_name = 'Love & Care'
   end
 
   scenario 'HR Manager lists divisions' do
@@ -40,5 +41,18 @@ feature 'Division CRUD' do
 
     expect(page).to have_http_status(:success)
     expect(page).to have_no_text(@name_to_delete)
+  end
+
+  scenario 'HR Manager creates division' do
+    visit divisions_path
+    expect(page).to have_no_text(@new_division_name)
+    click_on 'Add Division'
+
+    expect(page).to have_http_status(:success)
+    fill_in 'division_name', with: @new_division_name
+    click_on 'Submit'
+
+    expect(page).to have_http_status(:success)
+    expect(page).to have_text(@new_division_name)
   end
 end
